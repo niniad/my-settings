@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "bigquery": {
+      "command": "npx",
+      "args": ["-y", "@toolbox-sdk/server", "--prebuilt", "bigquery", "--stdio"],
+      "env": {
+        "BIGQUERY_LOCATION": "us-central1",
+        "BIGQUERY_PROJECT": "main-project-477501"
+      }
+    },
+    "cloudrun": {
+      "command": "npx",
+      "args": ["-y", "@google-cloud/cloud-run-mcp"],
+      "env": {}
+    }
+  }
+}
