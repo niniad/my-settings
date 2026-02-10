@@ -9,10 +9,10 @@ import sys
 
 # Authentication
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from auth import get_access_token, get_company_id, get_headers, FREEE_API_BASE
+from auth import get_access_token, get_company_id, get_headers, FREEE_API_BASE, _get_project_id
 
 # Config
-PROJECT_ID = "main-project-477501"
+PROJECT_ID = _get_project_id()
 DATASET_ID = "freee"
 GCS_BUCKET = "gs://sp-api-bucket/freee"
 

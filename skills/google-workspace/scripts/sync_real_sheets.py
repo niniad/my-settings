@@ -3,9 +3,11 @@ import os
 import csv
 import sys
 import subprocess
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
+
+# Add scripts directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from auth import get_google_creds
 
 # Configuration for REAL DATA (cost_details)
 SPREADSHEET_ID = '1bsxFCEucHzOieP38wra8JF7mfxDBcn-Kk4l7hoqIoGk'
@@ -15,21 +17,12 @@ SHEETS = {
     'shipment_details': 'shipment_details!A:Z',
     'po_details': 'po_details!A:Z'
 }
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOKEN_FILE = os.path.join(BASE_DIR, 'token.json')
 
 def get_service():
-    if not os.path.exists(TOKEN_FILE):
-        print("Error: token.json not found.")
+    creds = get_google_creds()
+    if not creds:
+        print("Error: No valid credentials. Please run 'python scripts/auth.py' first.")
         sys.exit(1)
-    creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
-    if not creds.valid:
-        if creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            print("Token invalid.")
-            sys.exit(1)
     return build('sheets', 'v4', credentials=creds)
 
 def download_sheet(service, sheet_name, range_name):

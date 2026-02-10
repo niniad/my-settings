@@ -7,9 +7,9 @@ import datetime
 
 # Reuse auth from existing script
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from auth import get_access_token, get_company_id, get_headers, FREEE_API_BASE
+from auth import get_access_token, get_company_id, get_headers, FREEE_API_BASE, _get_project_id
 
-BQ_PROJECT_ID = "main-project-477501"
+BQ_PROJECT_ID = _get_project_id()
 BQ_DATASET = "freee"
 TABLE_NAME = "account_map"
 

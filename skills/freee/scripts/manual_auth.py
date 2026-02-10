@@ -3,22 +3,25 @@
 Simple script to help user authorize freee API manually through the CLI.
 This is used when the automated token refresh flow fails or needs initial setup.
 """
+import os
+import sys
 import requests
 import urllib.parse
 from google.cloud import secretmanager
 
-# Configuration
-PROJECT_ID = "main-project-477501"
-CLIENT_ID = "YOUR_CLIENT_ID" # Will be fetched from Secret Manager if possible
-REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
+# Add scripts directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from auth import _get_project_id
 
+# Configuration
+REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
 AUTH_URL = "https://accounts.secure.freee.co.jp/public_api/authorize"
 TOKEN_URL = "https://accounts.secure.freee.co.jp/public_api/token"
-SECRETS_PREFIX = f"projects/{PROJECT_ID}/secrets"
 
 def get_secret(secret_name):
     client = secretmanager.SecretManagerServiceClient()
-    name = f"{SECRETS_PREFIX}/{secret_name}/versions/latest"
+    project_id = _get_project_id()
+    name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
     try:
         response = client.access_secret_version(request={"name": name})
         return response.payload.data.decode("UTF-8")
@@ -27,7 +30,8 @@ def get_secret(secret_name):
 
 def save_secret(secret_id, payload):
     client = secretmanager.SecretManagerServiceClient()
-    parent = f"projects/{PROJECT_ID}/secrets/{secret_id}"
+    project_id = _get_project_id()
+    parent = f"projects/{project_id}/secrets/{secret_id}"
     payload_bytes = payload.encode("UTF-8")
     try:
         client.add_secret_version(

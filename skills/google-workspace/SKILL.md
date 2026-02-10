@@ -12,20 +12,31 @@ Google DriveおよびGoogle Sheets APIを利用して、ファイルの検索、
 1.  **GCPプロジェクト設定**
     *   Google Cloud Consoleでプロジェクトを作成（または既存を使用）。
     *   **Google Drive API** と **Google Sheets API** を有効化してください。
+    *   **Secret Manager API** を有効化してください。
     *   **OAuth同意画面** を設定（User Type: External/Internal, Test Usersに追加など）。
     *   **OAuth 2.0 クライアント ID** を作成（アプリケーションの種類: **デスクトップ アプリ**）。
-    *   JSONファイルをダウンロードし、`credentials.json` という名前で `projects/.agent/skills/google-workspace/` 直下に配置してください。
 
-2.  **ライブラリのインストール**
-    *   以下のコマンドで必要なPythonライブラリをインストールしてください。
+2.  **Secret Managerにクレデンシャルを登録**
+    *   ダウンロードしたOAuth JSONを `google_workspace_credentials` として登録:
     ```bash
-    pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib pandas
+    gcloud secrets create google_workspace_credentials --project=YOUR_PROJECT_ID
+    cat downloaded-credentials.json | gcloud secrets versions add google_workspace_credentials --data-file=- --project=YOUR_PROJECT_ID
+    ```
+    *   トークン用のシークレットも事前作成:
+    ```bash
+    gcloud secrets create google_workspace_token --project=YOUR_PROJECT_ID
     ```
 
-3.  **認証（初回のみ）**
-    *   `python scripts/auth.py` を実行して認証を行ってください。
+3.  **ライブラリのインストール**
+    ```bash
+    pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib google-cloud-secret-manager
+    ```
+
+4.  **認証（初回のみ）**
+    *   `gcloud auth application-default login` でGCP認証を行ってください。
+    *   `python scripts/auth.py` を実行してGoogle OAuth認証を行ってください。
     *   ブラウザが起動し、Googleアカウントへのログインと許可が求められます。
-    *   認証が成功すると `token.json` が生成されます。
+    *   認証が成功するとトークンがSecret Managerに保存されます。
 
 ## 利用可能なスクリプト
 
@@ -35,7 +46,7 @@ Google DriveおよびGoogle Sheets APIを利用して、ファイルの検索、
 
 *   **認証実行**
     *   `python scripts/auth.py`
-    *   `credentials.json` を読み込み、OAuth認証フローを実行して `token.json` を生成します。
+    *   Secret ManagerからOAuthクレデンシャルを取得し、認証フローを実行します。トークンはSecret Managerに保存されます。
 
 ### 2. Google Drive（ファイル操作）
 
@@ -57,5 +68,6 @@ Google DriveおよびGoogle Sheets APIを利用して、ファイルの検索、
 
 ## 注意事項
 
-*   `token.json` にはアクセストークンが含まれます。git等にコミットしないでください。
-*   `credentials.json` は秘密情報です。取り扱いに注意してください。
+*   クレデンシャルとトークンはすべてGCP Secret Managerで管理されています。
+*   ローカルに `credentials.json` や `token.json` を配置する必要はありません。
+*   `GCP_PROJECT_ID` 環境変数でプロジェクトIDを指定できます（未設定の場合はADCから自動取得）。

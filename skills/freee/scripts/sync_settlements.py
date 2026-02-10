@@ -9,9 +9,9 @@ import google.auth
 
 # Add current directory to path to import auth
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from auth import get_access_token, get_company_id, get_headers, FREEE_API_BASE
+from auth import get_access_token, get_company_id, get_headers, FREEE_API_BASE, _get_project_id
 
-BQ_PROJECT_ID = "main-project-477501"
+BQ_PROJECT_ID = _get_project_id()
 SOURCE_VIEW = "freee.settlement_journal_payload_view"
 LOG_TABLE = "freee.import_log"
 

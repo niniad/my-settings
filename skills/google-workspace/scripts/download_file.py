@@ -1,17 +1,13 @@
-import os.path
+import os
+import sys
 import io
 import argparse
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 
-SCOPES = [
-    'https://www.googleapis.com/auth/drive.readonly',
-    'https://www.googleapis.com/auth/spreadsheets.readonly'
-]
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOKEN_FILE = os.path.join(BASE_DIR, 'token.json')
+# Add scripts directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from auth import get_google_creds
 
 def main():
     parser = argparse.ArgumentParser(description='Download a file from Google Drive')
@@ -20,17 +16,10 @@ def main():
     parser.add_argument('--mime_type', help='MIME type to export Google Docs to (default application/pdf for documents)')
     args = parser.parse_args()
 
-    if not os.path.exists(TOKEN_FILE):
-        print("Error: token.json not found. Please run 'python scripts/auth.py' first.")
+    creds = get_google_creds()
+    if not creds:
+        print("Error: No valid credentials. Please run 'python scripts/auth.py' first.")
         return
-
-    creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
-    if not creds.valid:
-        if creds.expired and creds.refresh_token:
-             creds.refresh(Request())
-        else:
-             print("Token invalid. Run auth.py.")
-             return
 
     service = build('drive', 'v3', credentials=creds)
 

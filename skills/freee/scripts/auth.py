@@ -2,23 +2,34 @@
 """
 Library to interact with freee API using GCP Secret Manager for credentials.
 """
+import os
 import requests
 import json
 import urllib.parse
 from google.cloud import secretmanager
 
 # --- Configuration ---
-PROJECT_ID = "main-project-477501"
-SECRETS_PREFIX = f"projects/{PROJECT_ID}/secrets"
 FREEE_API_BASE = "https://api.freee.co.jp/api/1"
 TOKEN_URL = "https://accounts.secure.freee.co.jp/public_api/token"
 # ---------------------
+
+
+def _get_project_id():
+    """GCPプロジェクトIDを取得"""
+    project_id = os.environ.get("GCP_PROJECT_ID")
+    if project_id:
+        return project_id
+    import google.auth
+    _, project = google.auth.default()
+    return project or "main-project-477501"
+
 
 sm_client = secretmanager.SecretManagerServiceClient()
 
 def get_secret(secret_name):
     """Retrieve a secret from GCP Secret Manager."""
-    name = f"{SECRETS_PREFIX}/{secret_name}/versions/latest"
+    project_id = _get_project_id()
+    name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
     try:
         response = sm_client.access_secret_version(request={"name": name})
         return response.payload.data.decode("UTF-8")
@@ -27,7 +38,8 @@ def get_secret(secret_name):
 
 def update_refresh_token(new_token):
     """Update the refresh token in Secret Manager."""
-    parent = f"{SECRETS_PREFIX}/freee_refresh_token"
+    project_id = _get_project_id()
+    parent = f"projects/{project_id}/secrets/freee_refresh_token"
     payload = new_token.encode("UTF-8")
     sm_client.add_secret_version(
         request={"parent": parent, "payload": {"data": payload}}

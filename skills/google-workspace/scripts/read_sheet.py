@@ -1,18 +1,13 @@
-import os.path
+import os
+import sys
 import argparse
 import json
 import csv
-import sys
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-SCOPES = [
-    'https://www.googleapis.com/auth/drive.readonly',
-    'https://www.googleapis.com/auth/spreadsheets.readonly'
-]
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOKEN_FILE = os.path.join(BASE_DIR, 'token.json')
+# Add scripts directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from auth import get_google_creds
 
 def main():
     parser = argparse.ArgumentParser(description='Read a Google Sheet')
@@ -22,17 +17,10 @@ def main():
     parser.add_argument('--format', choices=['json', 'csv', 'table'], default='table', help='Output format (json, csv, table)')
     args = parser.parse_args()
 
-    if not os.path.exists(TOKEN_FILE):
-        print("Error: token.json not found. Please run 'python scripts/auth.py' first.")
+    creds = get_google_creds()
+    if not creds:
+        print("Error: No valid credentials. Please run 'python scripts/auth.py' first.")
         return
-
-    creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
-    if not creds.valid:
-        if creds.expired and creds.refresh_token:
-             creds.refresh(Request())
-        else:
-             print("Token invalid. Run auth.py.")
-             return
 
     service = build('sheets', 'v4', credentials=creds)
 

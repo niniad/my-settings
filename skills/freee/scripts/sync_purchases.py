@@ -6,40 +6,23 @@ import json
 import requests
 import datetime
 from google.cloud import bigquery
-from google.oauth2.credentials import Credentials
+
+# Reuse auth from existing script
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from auth import get_access_token, get_company_id, _get_project_id
 
 # Configuration
-FREEE_COMPANY_ID = 'your_company_id_here' # User needs to set this or script finds it
 FREEE_API_URL = 'https://api.freee.co.jp'
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOKEN_FILE = os.path.join(BASE_DIR, 'token.json')
-
-def get_access_token():
-    if not os.path.exists(TOKEN_FILE):
-        print(f"Error: {TOKEN_FILE} not found. Run manual_auth.py.")
-        sys.exit(1)
-    with open(TOKEN_FILE, 'r') as f:
-        tokens = json.load(f)
-    return tokens.get('access_token')
-
-def get_company_id(access_token):
-    headers = {'Authorization': f'Bearer {access_token}'}
-    response = requests.get(f'{FREEE_API_URL}/api/1/companies', headers=headers)
-    if response.status_code == 200:
-        companies = response.json().get('companies', [])
-        if companies:
-            return companies[0]['id'] # Use first company
-    print("Error fetching company ID")
-    sys.exit(1)
 
 def get_bq_data():
     client = bigquery.Client()
-    query = """
-        SELECT 
-            po_number, 
+    project_id = _get_project_id()
+    query = f"""
+        SELECT
+            po_number,
             CAST(ANY_VALUE(order_date) AS STRING) as order_date,
             SUM(total_unit_cost_jpy * qty) as amount
-        FROM `main-project-477501.analytics.view_product_costs`
+        FROM `{project_id}.analytics.view_product_costs`
         GROUP BY po_number
         HAVING amount > 0
         ORDER BY order_date DESC
