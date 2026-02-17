@@ -39,7 +39,7 @@ def get_secret(secret_name):
 def update_refresh_token(new_token):
     """Update the refresh token in Secret Manager."""
     project_id = _get_project_id()
-    parent = f"projects/{project_id}/secrets/freee_refresh_token"
+    parent = f"projects/{project_id}/secrets/FREEE_REFRESH_TOKEN"
     payload = new_token.encode("UTF-8")
     sm_client.add_secret_version(
         request={"parent": parent, "payload": {"data": payload}}
@@ -47,9 +47,9 @@ def update_refresh_token(new_token):
 
 def get_access_token():
     """Get a valid access token, refreshing if necessary."""
-    client_id = get_secret("freee_client_id")
-    client_secret = get_secret("freee_client_secret")
-    refresh_token = get_secret("freee_refresh_token")
+    client_id = get_secret("FREEE_CLIENT_ID")
+    client_secret = get_secret("FREEE_CLIENT_SECRET")
+    refresh_token = get_secret("FREEE_REFRESH_TOKEN")
     
     data = {
         "grant_type": "refresh_token",

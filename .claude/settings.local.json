@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 -m json.tool:*)"
+      "Bash(python3 -m json.tool:*)",
+      "Bash(python -c:*)",
+      "Bash(python:*)"
     ]
   }
 }

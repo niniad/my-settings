@@ -7,6 +7,8 @@ Properly converts markdown sections to HTML while preserving structure and forma
 import re
 from typing import Tuple
 from pathlib import Path
+import sys
+sys.stdout.reconfigure(encoding="utf-8")
 
 
 def convert_markdown_to_html(markdown_text: str) -> Tuple[str, str]:

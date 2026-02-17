@@ -7,6 +7,7 @@ Ensures research reports meet quality standards before delivery
 import argparse
 import re
 import sys
+sys.stdout.reconfigure(encoding="utf-8")
 from pathlib import Path
 from typing import List, Tuple, Dict
 

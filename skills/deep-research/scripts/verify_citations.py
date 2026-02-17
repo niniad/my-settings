@@ -23,6 +23,7 @@ Does NOT require API keys - uses free DOI resolver and heuristics.
 """
 
 import sys
+sys.stdout.reconfigure(encoding="utf-8")
 import argparse
 import re
 from pathlib import Path

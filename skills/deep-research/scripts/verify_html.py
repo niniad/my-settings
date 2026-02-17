@@ -8,6 +8,8 @@ import argparse
 import re
 from pathlib import Path
 from typing import List, Tuple
+import sys
+sys.stdout.reconfigure(encoding="utf-8")
 
 
 class HTMLVerifier:

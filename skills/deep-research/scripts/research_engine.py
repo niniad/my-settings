@@ -7,6 +7,7 @@ Orchestrates comprehensive research across multiple sources with verification an
 import argparse
 import json
 import sys
+sys.stdout.reconfigure(encoding="utf-8")
 import time
 from datetime import datetime
 from pathlib import Path

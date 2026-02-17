@@ -5,6 +5,7 @@ This is used when the automated token refresh flow fails or needs initial setup.
 """
 import os
 import sys
+sys.stdout.reconfigure(encoding="utf-8")
 import requests
 import urllib.parse
 from google.cloud import secretmanager
@@ -45,8 +46,8 @@ def main():
     print("--- freee API Manual Authorization Helper ---")
     
     # Try to load ID/Secret from Secret Manager
-    client_id = get_secret("freee_client_id")
-    client_secret = get_secret("freee_client_secret")
+    client_id = get_secret("FREEE_CLIENT_ID")
+    client_secret = get_secret("FREEE_CLIENT_SECRET")
     
     if not client_id or not client_secret:
         print("Could not find Client ID/Secret in Secret Manager.")
@@ -55,8 +56,8 @@ def main():
         
         save = input("Save these credentials to Secret Manager? (y/n): ").lower()
         if save == 'y':
-            save_secret("freee_client_id", client_id)
-            save_secret("freee_client_secret", client_secret)
+            save_secret("FREEE_CLIENT_ID", client_id)
+            save_secret("FREEE_CLIENT_SECRET", client_secret)
     else:
         print(f"Loaded Client ID: {client_id[:4]}... (from Secret Manager)")
 
@@ -98,7 +99,7 @@ def main():
         print(f"Access Token: {access_token[:10]}...")
         
         # Save Refresh Token
-        save_secret("freee_refresh_token", refresh_token)
+        save_secret("FREEE_REFRESH_TOKEN", refresh_token)
         print("Refresh token saved to Secret Manager.")
     else:
         print("\nFailed!")

@@ -6,6 +6,8 @@ import requests
 import json
 import argparse
 from auth import get_access_token, get_company_id, get_headers, FREEE_API_BASE
+import sys
+sys.stdout.reconfigure(encoding="utf-8")
 
 def list_deals(limit=20, start_date=None, end_date=None, keyword=None):
     token = get_access_token()

@@ -1,5 +1,6 @@
 import os
 import sys
+sys.stdout.reconfigure(encoding='utf-8')
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -8,10 +9,10 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from secret_helper import get_credentials_info, get_token_info, save_token
 
-# Scopes for reading Drive files and Sheets
+# Scopes for Drive files (read) and Sheets (read/write)
 SCOPES = [
     'https://www.googleapis.com/auth/drive.readonly',
-    'https://www.googleapis.com/auth/spreadsheets.readonly'
+    'https://www.googleapis.com/auth/spreadsheets'
 ]
 
 
@@ -56,9 +57,9 @@ def main():
         credentials_info = get_credentials_info()
     except Exception as e:
         print(f"Error: Failed to get credentials from Secret Manager: {e}")
-        print("Please store google_workspace_credentials in Secret Manager first.")
+        print("Please store GOOGLE_WORKSPACE_CREDENTIALS in Secret Manager first.")
         print("Example:")
-        print('  echo \'{"installed":{...}}\' | gcloud secrets versions add google_workspace_credentials --data-file=-')
+        print('  echo \'{"installed":{...}}\' | gcloud secrets versions add GOOGLE_WORKSPACE_CREDENTIALS --data-file=-')
         return
 
     flow = InstalledAppFlow.from_client_config(credentials_info, SCOPES)
@@ -66,7 +67,7 @@ def main():
 
     # トークンをSecret Managerに保存
     save_token(creds.to_json())
-    print("Token saved to Secret Manager (google_workspace_token)")
+    print("Token saved to Secret Manager (GOOGLE_WORKSPACE_TOKEN)")
     print("Authentication successful!")
 
 

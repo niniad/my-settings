@@ -7,6 +7,8 @@ import subprocess
 from datetime import datetime
 import requests
 from auth import get_access_token, get_company_id, get_headers, FREEE_API_BASE
+import sys
+sys.stdout.reconfigure(encoding="utf-8")
 
 # Configuration
 BUCKET_BASE = 'gs://sp-api-bucket/freee'

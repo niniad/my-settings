@@ -6,6 +6,8 @@ import requests
 import json
 import argparse
 from auth import get_access_token, get_company_id, get_headers, FREEE_API_BASE
+import sys
+sys.stdout.reconfigure(encoding="utf-8")
 
 def list_master(resource_name):
     token = get_access_token()

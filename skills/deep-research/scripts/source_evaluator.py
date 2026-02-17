@@ -9,6 +9,8 @@ from typing import List, Dict, Optional
 from urllib.parse import urlparse
 from datetime import datetime, timedelta
 import re
+import sys
+sys.stdout.reconfigure(encoding="utf-8")
 
 
 @dataclass

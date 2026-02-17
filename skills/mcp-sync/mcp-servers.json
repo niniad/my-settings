@@ -8,10 +8,9 @@
         "BIGQUERY_PROJECT": "main-project-477501"
       }
     },
-    "cloudrun": {
+    "playwright": {
       "command": "npx",
-      "args": ["-y", "@google-cloud/cloud-run-mcp"],
-      "env": {}
+      "args": ["-y", "@playwright/mcp@latest"]
     }
   }
 }

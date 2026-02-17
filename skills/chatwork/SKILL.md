@@ -25,12 +25,15 @@ Chatwork APIを使用したアプリケーション開発を支援します。
 
 ## 認証
 
-リクエストヘッダーにAPIトークンを含める：
-```
-X-ChatWorkToken: your_api_token
+APIトークンはGCP Secret Managerで管理：
+```bash
+CHATWORK_TOKEN=$(gcloud secrets versions access latest --secret=CHATWORK_API_TOKEN --project=main-project-477501)
 ```
 
-APIトークンは [Chatwork設定 > API発行](https://www.chatwork.com/service/packages/chatwork/subpackages/api/token.php) から取得。
+リクエストヘッダーに含める：
+```
+X-ChatWorkToken: $CHATWORK_TOKEN
+```
 
 ## エンドポイント一覧
 
@@ -124,7 +127,7 @@ Chatworkで複数メンバーにタスクを一括作成するコードを書い
 
 ### コード生成時の原則
 
-1. **APIトークンは環境変数から取得**: ハードコードしない
+1. **APIトークンはGCP Secret Managerから取得**: ハードコードしない
 2. **レート制限を考慮**: 300リクエスト/5分の制限あり
 3. **エラーハンドリング**: 429(レート制限)、401(認証エラー)を適切に処理
 

@@ -12,9 +12,9 @@ freee会計のAPIを利用して、経理業務の自動化やデータ参照を
 1. **認証情報の管理**
    - Google Cloud Secret Manager (GCP Project: `main-project-477501`) を使用して認証情報を管理しています。
    - 必要なSecret:
-     - `freee_client_id`
-     - `freee_client_secret`
-     - `freee_refresh_token`
+     - `FREEE_CLIENT_ID`
+     - `FREEE_CLIENT_SECRET`
+     - `FREEE_REFRESH_TOKEN`
    - 初回認証やトークン切れの場合は、`scripts/manual_auth.py` を使用して手動でトークンを取得してください。
 
 ## 利用可能なスクリプト
@@ -35,6 +35,12 @@ freee会計のAPIを利用して、経理業務の自動化やデータ参照を
 *   **試算表（残高）取得**
     *   `python scripts/get_trial_balance.py --fiscal_year <YYYY>`
     *   指定年度の貸借対照表・損益計算書の残高を取得します。
+*   **取引データ一括取得**
+    *   `python scripts/fetch_freee_deals.py`
+    *   全取引データをJSONL形式で取得し、GCSにアップロードします（デフォルト: 2023-01-01以降）。
+*   **振替伝票・口座明細一括取得**
+    *   `python scripts/fetch_freee_data.py`
+    *   振替伝票（manual_journals）と口座明細（wallet_txns）をJSONL形式で一括取得し、GCSにアップロードします。
 
 ### 2. 作成・登録系 (Write with Confirmation)
 **※重要: 書き込み操作を実行する際は、必ず実行内容を表示し、ユーザーの「y」入力を求める確認フローが入っています。**

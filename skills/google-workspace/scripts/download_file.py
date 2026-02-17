@@ -1,5 +1,6 @@
 import os
 import sys
+sys.stdout.reconfigure(encoding='utf-8')
 import io
 import argparse
 from googleapiclient.discovery import build

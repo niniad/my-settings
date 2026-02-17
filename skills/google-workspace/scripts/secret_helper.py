@@ -51,16 +51,16 @@ def save_secret(secret_name, value):
 
 def get_credentials_info():
     """Secret Managerからcredentials.json相当の情報を取得"""
-    raw = get_secret("google_workspace_credentials")
+    raw = get_secret("GOOGLE_WORKSPACE_CREDENTIALS")
     return json.loads(raw)
 
 
 def get_token_info():
     """Secret Managerからtoken.json相当の情報を取得"""
-    raw = get_secret("google_workspace_token")
+    raw = get_secret("GOOGLE_WORKSPACE_TOKEN")
     return json.loads(raw)
 
 
 def save_token(creds_json_str):
     """token情報をSecret Managerに保存"""
-    save_secret("google_workspace_token", creds_json_str)
+    save_secret("GOOGLE_WORKSPACE_TOKEN", creds_json_str)
