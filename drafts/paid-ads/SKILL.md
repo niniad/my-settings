@@ -1,313 +1,609 @@
 ---
-name: paid-ads
+name: amazon-ads
 version: 1.0.0
-description: "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization."
+description: "Amazon広告（スポンサープロダクト、スポンサーブランド、スポンサーディスプレイ、Amazon DSP）の戦略立案・運用最適化スキル。キーワード戦略、入札管理、キャンペーン構成、ACOS/ROAS改善、広告クリエイティブの最適化を支援。トリガー：「Amazon広告」「スポンサープロダクト」「スポンサーブランド」「SP広告」「SB広告」「SD広告」「ACOS」「広告運用」「PPC」「キーワード入札」などに反応。"
 ---
 
-# Paid Ads
+# Amazon広告運用スキル
 
-You are an expert performance marketer with direct access to ad platform accounts. Your goal is to help create, optimize, and scale paid advertising campaigns that drive efficient customer acquisition.
-
-## Before Starting
-
-**Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
-
-Gather this context (ask if not provided):
-
-### 1. Campaign Goals
-- What's the primary objective? (Awareness, traffic, leads, sales, app installs)
-- What's the target CPA or ROAS?
-- What's the monthly/weekly budget?
-- Any constraints? (Brand guidelines, compliance, geographic)
-
-### 2. Product & Offer
-- What are you promoting? (Product, free trial, lead magnet, demo)
-- What's the landing page URL?
-- What makes this offer compelling?
-
-### 3. Audience
-- Who is the ideal customer?
-- What problem does your product solve for them?
-- What are they searching for or interested in?
-- Do you have existing customer data for lookalikes?
-
-### 4. Current State
-- Have you run ads before? What worked/didn't?
-- Do you have existing pixel/conversion data?
-- What's your current funnel conversion rate?
+Amazon Japanにおける広告戦略の立案・運用・最適化を包括的に支援するスキル。スポンサープロダクト（SP）、スポンサーブランド（SB）、スポンサーディスプレイ（SD）、Amazon DSPの各広告タイプを理解し、目的に応じた最適なキャンペーン構成と入札戦略を実行する。
 
 ---
 
-## Platform Selection Guide
+## 1. Amazon広告の種類と使い分け
 
-| Platform | Best For | Use When |
-|----------|----------|----------|
-| **Google Ads** | High-intent search traffic | People actively search for your solution |
-| **Meta** | Demand generation, visual products | Creating demand, strong creative assets |
-| **LinkedIn** | B2B, decision-makers | Job title/company targeting matters, higher price points |
-| **Twitter/X** | Tech audiences, thought leadership | Audience is active on X, timely content |
-| **TikTok** | Younger demographics, viral creative | Audience skews 18-34, video capacity |
+### 1.1 スポンサープロダクト広告（SP）
+
+**概要：** 検索結果や商品詳細ページに表示されるキーワードターゲティング広告。Amazon広告の基本にして最重要。
+
+**特徴：**
+- 検索結果の上部・中部・下部、および商品詳細ページに表示
+- キーワードターゲティングと商品ターゲティングの両方が可能
+- クリック課金（CPC）モデル
+- 広告であることを示す「スポンサー」表示付き
+
+**適している場面：**
+- すべての商品に必須の基本広告
+- 新商品ローンチ時の露出確保
+- 特定キーワードでの検索順位を強化したいとき
+- 購入意欲の高いユーザーへの直接アプローチ
+
+### 1.2 スポンサーブランド広告（SB）
+
+**概要：** 検索結果の上部にブランドロゴ・カスタム見出し・複数商品を表示するブランド訴求型広告。ブランド登録が必須。
+
+**特徴：**
+- 検索結果ページの最上部に表示（最も目立つ位置）
+- ブランドロゴ、カスタム見出しテキスト、最大3商品を表示
+- クリック先はブランドストア or カスタムランディングページ
+- 動画フォーマットも利用可能
+
+**適している場面：**
+- ブランド認知の向上
+- 複数商品のクロスセル促進
+- ブランドストアへの誘導
+- 競合からの防御（自社ブランド名の検索結果を守る）
+
+### 1.3 スポンサーディスプレイ広告（SD）
+
+**概要：** Amazon内外のディスプレイ面に表示されるリターゲティング・オーディエンスベースの広告。
+
+**特徴：**
+- 商品詳細ページ、カスタマーレビュー横、Amazonのメール等に表示
+- Amazon外のウェブサイトにも表示可能
+- オーディエンスターゲティング（閲覧リマーケティング、購入リマーケティング等）
+- 商品ターゲティング（特定ASINの商品ページへの表示）
+
+**適している場面：**
+- 自社商品を閲覧したが購入しなかったユーザーのリターゲティング
+- 競合商品ページへの自社広告表示
+- カテゴリー全体でのリーチ拡大
+- 購買ファネルの上流〜中流でのアプローチ
+
+### 1.4 Amazon DSP
+
+**概要：** Amazon内外の広告枠をプログラマティックに購入するデマンドサイドプラットフォーム。
+
+**特徴：**
+- Amazonの購買データに基づく精緻なオーディエンスターゲティング
+- ディスプレイ広告、動画広告、音声広告に対応
+- Amazon外のサイト（IMDbなど）にも配信可能
+- 最低予算の要件あり（通常100万円〜/月）
+
+**適している場面：**
+- 大規模なブランド認知キャンペーン
+- 新規顧客の開拓
+- 高度なオーディエンスセグメンテーション
+- Amazon外からの流入を獲得したい場合
+
+### 1.5 広告タイプの使い分けマトリクス
+
+| 目的 | SP | SB | SD | DSP |
+|---|---|---|---|---|
+| 直接的な売上獲得 | ◎ | ○ | △ | △ |
+| ブランド認知向上 | △ | ◎ | ○ | ◎ |
+| 競合対策 | ○ | ○ | ◎ | △ |
+| リターゲティング | × | × | ◎ | ◎ |
+| 新商品ローンチ | ◎ | ○ | △ | △ |
+| 低予算運用 | ◎ | ○ | ○ | × |
 
 ---
 
-## Campaign Structure Best Practices
+## 2. キャンペーン構成のベストプラクティス
 
-### Account Organization
+### 2.1 アカウント構造の設計原則
+
+**階層構造：**
+```
+ポートフォリオ（商品カテゴリー別）
+ └── キャンペーン（広告タイプ × 目的別）
+      └── 広告グループ（キーワードグループ or ターゲティング別）
+           └── 広告（個別商品）
+```
+
+### 2.2 推奨キャンペーン構成（SP広告の場合）
+
+**1商品あたりの基本構成：**
 
 ```
-Account
-├── Campaign 1: [Objective] - [Audience/Product]
-│   ├── Ad Set 1: [Targeting variation]
-│   │   ├── Ad 1: [Creative variation A]
-│   │   ├── Ad 2: [Creative variation B]
-│   │   └── Ad 3: [Creative variation C]
-│   └── Ad Set 2: [Targeting variation]
-└── Campaign 2...
+[ポートフォリオ] 商品カテゴリーA
+├── [キャンペーン] SP_自動_商品名_探索用
+│   └── [広告グループ] 自動ターゲティング
+│       └── 商品ASIN
+│
+├── [キャンペーン] SP_手動_完全一致_商品名_攻めのKW
+│   └── [広告グループ] 高パフォーマンスKW
+│       └── 完全一致キーワード群
+│
+├── [キャンペーン] SP_手動_フレーズ一致_商品名_拡張
+│   └── [広告グループ] フレーズマッチKW
+│       └── フレーズ一致キーワード群
+│
+├── [キャンペーン] SP_手動_商品ターゲティング_商品名
+│   └── [広告グループ] 競合ASIN
+│       └── 競合商品のASINリスト
+│
+└── [キャンペーン] SP_手動_ブランド防御_商品名
+    └── [広告グループ] 自社ブランドKW
+        └── 自社ブランド名の完全一致
 ```
 
-### Naming Conventions
+### 2.3 命名規則
+
+キャンペーン名に以下の情報を含めて管理を容易にする。
 
 ```
-[Platform]_[Objective]_[Audience]_[Offer]_[Date]
-
-Examples:
-META_Conv_Lookalike-Customers_FreeTrial_2024Q1
-GOOG_Search_Brand_Demo_Ongoing
-LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
+[広告タイプ]_[ターゲティング方法]_[マッチタイプ]_[商品名/SKU]_[目的]
+例：SP_手動_完全一致_プロテインバー_主力KW
+例：SB_動画_ブランド名_認知
+例：SD_リマーケティング_全商品_リターゲ
 ```
 
-### Budget Allocation
+---
 
-**Testing phase (first 2-4 weeks):**
-- 70% to proven/safe campaigns
-- 30% to testing new audiences/creative
+## 3. キーワード戦略
 
-**Scaling phase:**
-- Consolidate budget into winning combinations
-- Increase budgets 20-30% at a time
-- Wait 3-5 days between increases for algorithm learning
+### 3.1 自動→手動の段階的最適化フロー
+
+**Phase 1：自動キャンペーンによるキーワード収集（1〜2週間）**
+1. 自動ターゲティングキャンペーンを開始
+2. 1日予算を適切に設定（1,000円〜3,000円が目安）
+3. 最低2週間はデータを蓄積
+4. 検索語句レポートから成果の出たキーワードを抽出
+
+**Phase 2：手動キャンペーンへの移行（2〜4週間目）**
+1. 自動キャンペーンで成果が出たキーワードを手動キャンペーンに追加
+2. マッチタイプ別にキャンペーンを分ける
+3. 自動キャンペーンで成果が出たキーワードをネガティブキーワードに追加（重複を防止）
+4. 自動キャンペーンは低予算で継続（新規キーワード発掘用）
+
+**Phase 3：継続的最適化（5週間目以降）**
+1. 週次で検索語句レポートを確認
+2. 新たな成果キーワードを手動キャンペーンに移行
+3. 無駄なキーワードをネガティブに追加
+4. 入札単価の調整
+
+### 3.2 マッチタイプの使い分け
+
+| マッチタイプ | 用途 | 入札単価の目安 |
+|---|---|---|
+| 完全一致 | 高CVRの主力キーワード | 最も高く設定 |
+| フレーズ一致 | 主力KWの周辺バリエーション発掘 | 中程度 |
+| 部分一致 | 幅広い関連キーワードの探索 | 最も低く設定 |
+
+### 3.3 キーワードリサーチの手法
+
+**Amazon内のリサーチ：**
+- Amazon検索窓のサジェスト（オートコンプリート）
+- 競合商品のタイトル・Bullet Point・商品説明からのキーワード抽出
+- カテゴリーの「よく一緒に購入されている商品」からの関連KW発見
+- ブランド分析（Brand Analytics）の検索頻度ランキング
+
+**外部ツールの活用：**
+- Helium 10、Jungle Scout等のAmazonキーワードツール
+- Google キーワードプランナー（検索ボリュームの参考値）
+- ラッコキーワード（日本語のサジェスト取得）
+
+### 3.4 キーワードの分類管理
+
+```
+【キーワード管理表】
+
+■ メインキーワード（商品を直接表すKW）
+  例：「プロテインバー」「プロテイン バー」
+
+■ サブキーワード（用途・特徴を表すKW）
+  例：「高タンパク おやつ」「糖質制限 スナック」
+
+■ ロングテールKW（具体的なニーズを表すKW）
+  例：「プロテインバー チョコ味 個包装」
+
+■ ブランドKW（自社ブランド名を含むKW）
+  例：「○○ プロテインバー」
+
+■ 競合ブランドKW（競合ブランド名を含むKW）
+  例：「△△ プロテインバー」
+```
 
 ---
 
-## Ad Copy Frameworks
+## 4. 入札戦略
 
-### Key Formulas
+### 4.1 入札戦略の種類
 
-**Problem-Agitate-Solve (PAS):**
-> [Problem] → [Agitate the pain] → [Introduce solution] → [CTA]
+**動的な入札 - ダウンのみ：**
+- コンバージョンの可能性が低いと判断された場合に入札額を自動的に引き下げ
+- リスクが低く、初心者・新商品に推奨
+- 最大で入札額の100%まで引き下げられる
 
-**Before-After-Bridge (BAB):**
-> [Current painful state] → [Desired future state] → [Your product as bridge]
+**動的な入札 - アップとダウン：**
+- コンバージョンの可能性に応じて入札額を上下に自動調整
+- 検索結果の最上部では最大100%アップ（実質2倍）
+- データが十分に蓄積された成熟キャンペーン向け
 
-**Social Proof Lead:**
-> [Impressive stat or testimonial] → [What you do] → [CTA]
+**固定入札：**
+- 設定した入札額が常に使用される
+- 完全な手動コントロールを維持したい場合
+- ブランド防御キャンペーンなど、特定の目的に適する
 
-**For detailed templates and headline formulas**: See [references/ad-copy-templates.md](references/ad-copy-templates.md)
+### 4.2 入札単価の設定指針
 
----
+**初期入札単価の決め方：**
+1. Amazonの推奨入札額を参考にする
+2. 推奨入札額の80%〜100%を初期値とする
+3. 目標ACOSから逆算する
 
-## Audience Targeting Overview
+```
+目標入札単価 = 想定CVR × 商品販売価格 × 目標ACOS
+例：CVR 10% × 販売価格 3,000円 × 目標ACOS 25% = 75円
+```
 
-### Platform Strengths
+### 4.3 掲載位置別の入札調整
 
-| Platform | Key Targeting | Best Signals |
-|----------|---------------|--------------|
-| Google | Keywords, search intent | What they're searching |
-| Meta | Interests, behaviors, lookalikes | Engagement patterns |
-| LinkedIn | Job titles, companies, industries | Professional identity |
+- **検索結果の最上部**：＋20%〜＋50%（最もCVRが高い位置）
+- **商品ページ**：＋0%〜＋10%（関連商品を閲覧中のユーザー）
+- **検索結果のその他**：基準入札額のまま
 
-### Key Concepts
+### 4.4 入札最適化のルール（週次調整）
 
-- **Lookalikes**: Base on best customers (by LTV), not all customers
-- **Retargeting**: Segment by funnel stage (visitors vs. cart abandoners)
-- **Exclusions**: Always exclude existing customers and recent converters
-
-**For detailed targeting strategies by platform**: See [references/audience-targeting.md](references/audience-targeting.md)
-
----
-
-## Creative Best Practices
-
-### Image Ads
-- Clear product screenshots showing UI
-- Before/after comparisons
-- Stats and numbers as focal point
-- Human faces (real, not stock)
-- Bold, readable text overlay (keep under 20%)
-
-### Video Ads Structure (15-30 sec)
-1. Hook (0-3 sec): Pattern interrupt, question, or bold statement
-2. Problem (3-8 sec): Relatable pain point
-3. Solution (8-20 sec): Show product/benefit
-4. CTA (20-30 sec): Clear next step
-
-**Production tips:**
-- Captions always (85% watch without sound)
-- Vertical for Stories/Reels, square for feed
-- Native feel outperforms polished
-- First 3 seconds determine if they watch
-
-### Creative Testing Hierarchy
-1. Concept/angle (biggest impact)
-2. Hook/headline
-3. Visual style
-4. Body copy
-5. CTA
+| 状況 | 対応 |
+|---|---|
+| ACOS目標以下 かつ インプレッション多い | 入札維持 or 微増（利益拡大） |
+| ACOS目標以下 かつ インプレッション少ない | 入札を10%〜20%引き上げ |
+| ACOS目標超過 かつ CVR良好 | 入札を5%〜10%引き下げ |
+| ACOS目標超過 かつ CVR低い | 入札大幅引き下げ or キーワード停止 |
+| クリック0（2週間以上） | 入札を20%〜50%引き上げ or キーワード見直し |
 
 ---
 
-## Campaign Optimization
+## 5. ACOS/TACoS/ROASの管理と最適化
 
-### Key Metrics by Objective
+### 5.1 主要指標の定義
 
-| Objective | Primary Metrics |
-|-----------|-----------------|
-| Awareness | CPM, Reach, Video view rate |
-| Consideration | CTR, CPC, Time on site |
-| Conversion | CPA, ROAS, Conversion rate |
+**ACOS（Advertising Cost of Sales）：**
+```
+ACOS = 広告費 ÷ 広告経由売上 × 100
+```
+- 個別キャンペーン・キーワードのパフォーマンス評価に使用
+- 低いほど広告効率が良い
 
-### Optimization Levers
+**TACoS（Total Advertising Cost of Sales）：**
+```
+TACoS = 広告費 ÷ 総売上（広告経由＋オーガニック） × 100
+```
+- ビジネス全体での広告投資効率を評価
+- 広告がオーガニック売上にも貢献しているかを判断する指標
 
-**If CPA is too high:**
-1. Check landing page (is the problem post-click?)
-2. Tighten audience targeting
-3. Test new creative angles
-4. Improve ad relevance/quality score
-5. Adjust bid strategy
+**ROAS（Return on Ad Spend）：**
+```
+ROAS = 広告経由売上 ÷ 広告費
+```
+- ACOSの逆数（ROAS = 1 ÷ ACOS）
+- 高いほど広告効率が良い
 
-**If CTR is low:**
-- Creative isn't resonating → test new hooks/angles
-- Audience mismatch → refine targeting
-- Ad fatigue → refresh creative
+### 5.2 目標ACOSの設定方法
 
-**If CPM is high:**
-- Audience too narrow → expand targeting
-- High competition → try different placements
-- Low relevance score → improve creative fit
+```
+損益分岐ACOS = 粗利益率（広告費除く）
+目標ACOS = 損益分岐ACOS × 0.5〜0.8（利益確保のための余裕）
 
-### Bid Strategy Progression
-1. Start with manual or cost caps
-2. Gather conversion data (50+ conversions)
-3. Switch to automated with targets based on historical data
-4. Monitor and adjust targets based on results
+例：
+粗利益率（広告費除く）= 40%
+損益分岐ACOS = 40%
+目標ACOS = 40% × 0.7 = 28%
+```
 
----
+### 5.3 フェーズ別のACOS目標
 
-## Retargeting Strategies
+| フェーズ | ACOS目標 | 優先事項 |
+|---|---|---|
+| 新商品ローンチ期（1〜2ヶ月） | 30%〜50%（損益分岐点付近可） | 露出とランキング向上 |
+| 成長期（3〜6ヶ月） | 20%〜30% | 売上拡大と利益のバランス |
+| 安定期（6ヶ月〜） | 15%〜25% | 利益の最大化 |
+| ブランド防御 | 5%〜15% | 自社ブランドKWの確保 |
 
-### Funnel-Based Approach
+### 5.4 TACoSの健全な推移
 
-| Funnel Stage | Audience | Message | Goal |
-|--------------|----------|---------|------|
-| Top | Blog readers, video viewers | Educational, social proof | Move to consideration |
-| Middle | Pricing/feature page visitors | Case studies, demos | Move to decision |
-| Bottom | Cart abandoners, trial users | Urgency, objection handling | Convert |
-
-### Retargeting Windows
-
-| Stage | Window | Frequency Cap |
-|-------|--------|---------------|
-| Hot (cart/trial) | 1-7 days | Higher OK |
-| Warm (key pages) | 7-30 days | 3-5x/week |
-| Cold (any visit) | 30-90 days | 1-2x/week |
-
-### Exclusions to Set Up
-- Existing customers (unless upsell)
-- Recent converters (7-14 day window)
-- Bounced visitors (<10 sec)
-- Irrelevant pages (careers, support)
+- **TACoSが低下傾向**：広告がオーガニックランキングの向上に貢献している良い状態
+- **TACoSが横ばい**：広告依存度が変わっていない。オーガニック施策の強化が必要
+- **TACoSが上昇傾向**：広告効率が悪化しているか、オーガニック売上が減少。原因調査が必要
 
 ---
 
-## Reporting & Analysis
+## 6. スポンサーブランド広告のクリエイティブ設計
 
-### Weekly Review
-- Spend vs. budget pacing
-- CPA/ROAS vs. targets
-- Top and bottom performing ads
-- Audience performance breakdown
-- Frequency check (fatigue risk)
-- Landing page conversion rate
+### 6.1 カスタム見出しの作成指針
 
-### Attribution Considerations
-- Platform attribution is inflated
-- Use UTM parameters consistently
-- Compare platform data to GA4
-- Look at blended CAC, not just platform CPA
+**効果的な見出しの要素：**
+- ブランドの独自価値を端的に表現（20文字以内が理想）
+- 数字を含める（「累計10万個突破」「星4.5の高評価」等）
+- ターゲットの課題解決を示す
+- 季節感やトレンドを取り入れる
 
----
+**見出しの例：**
+- 「【累計5万食突破】○○のプロテインバー」
+- 「管理栄養士監修 毎日続けられる健康食品」
+- 「2024年Amazon売れ筋No.1 ○○シリーズ」
 
-## Platform Setup
+**避けるべき表現：**
+- 「最安値」「No.1」等の根拠のない最上級表現（Amazonの広告ポリシー違反）
+- 他社ブランド名の言及
+- 過度な記号の使用
 
-Before launching campaigns, ensure proper tracking and account setup.
+### 6.2 商品選択の戦略
 
-**For complete setup checklists by platform**: See [references/platform-setup-checklists.md](references/platform-setup-checklists.md)
+スポンサーブランド広告に表示する3商品の選び方：
+- **パターンA（ベストセラー型）**：売上上位3商品を表示し、信頼感を訴求
+- **パターンB（ラインナップ型）**：異なるカテゴリーの代表商品を表示し、ブランドの幅を訴求
+- **パターンC（クロスセル型）**：一緒に購入されやすい商品の組み合わせ
 
-### Universal Pre-Launch Checklist
-- [ ] Conversion tracking tested with real conversion
-- [ ] Landing page loads fast (<3 sec)
-- [ ] Landing page mobile-friendly
-- [ ] UTM parameters working
-- [ ] Budget set correctly
-- [ ] Targeting matches intended audience
+### 6.3 ブランドストアの最適化
 
----
+SB広告のクリック先となるブランドストアの品質が広告効果を大きく左右する。
 
-## Common Mistakes to Avoid
-
-### Strategy
-- Launching without conversion tracking
-- Too many campaigns (fragmenting budget)
-- Not giving algorithms enough learning time
-- Optimizing for wrong metric
-
-### Targeting
-- Audiences too narrow or too broad
-- Not excluding existing customers
-- Overlapping audiences competing
-
-### Creative
-- Only one ad per ad set
-- Not refreshing creative (fatigue)
-- Mismatch between ad and landing page
-
-### Budget
-- Spreading too thin across campaigns
-- Making big budget changes (disrupts learning)
-- Stopping campaigns during learning phase
+**ブランドストア設計のポイント：**
+- トップページにブランドの世界観と主力商品を配置
+- カテゴリー別のサブページを用意
+- ライフスタイル画像で使用シーンを訴求
+- ベストセラー商品を目立つ位置に配置
+- モバイルでの表示を最優先で最適化
 
 ---
 
-## Task-Specific Questions
+## 7. スポンサーブランド動画広告の制作指針
 
-1. What platform(s) are you currently running or want to start with?
-2. What's your monthly ad budget?
-3. What does a successful conversion look like (and what's it worth)?
-4. Do you have existing creative assets or need to create them?
-5. What landing page will ads point to?
-6. Do you have pixel/conversion tracking set up?
+### 7.1 動画の基本仕様
+
+- 長さ：6〜45秒（推奨：15〜30秒）
+- アスペクト比：16:9
+- 解像度：1920x1080以上
+- 音声は必須ではないが推奨
+
+### 7.2 効果的な動画の構成
+
+```
+[0〜3秒] フック：視聴者の注意を引く（課題提示 or 商品のインパクトショット）
+[3〜15秒] 価値提案：商品の主要ベネフィットを3つ以内で紹介
+[15〜25秒] 証拠：使用シーン、Before/After、レビュー抜粋等
+[25〜30秒] CTA：行動喚起（「今すぐチェック」等は不要、商品の最終ショットで十分）
+```
+
+### 7.3 制作のポイント
+
+- **最初の3秒が勝負**：スクロールを止めさせる強いビジュアルが必要
+- **音声なしでも伝わる設計**：テキストオーバーレイを活用（多くのユーザーが音声OFFで閲覧）
+- **商品を大きく見せる**：スマートフォンの小さい画面でも商品が明確に認識できるサイズ
+- **ブランドロゴの表示**：動画の最初と最後にブランドロゴを配置
+- **レターボックス禁止**：黒い帯は視聴体験を損なうため、16:9を完全に使い切る
 
 ---
 
-## Tool Integrations
+## 8. ネガティブキーワード戦略
 
-For implementation, see the [tools registry](../../tools/REGISTRY.md). Key advertising platforms:
+### 8.1 ネガティブキーワードの重要性
 
-| Platform | Best For | MCP | Guide |
-|----------|----------|:---:|-------|
-| **Google Ads** | Search intent, high-intent traffic | ✓ | [google-ads.md](../../tools/integrations/google-ads.md) |
-| **Meta Ads** | Demand gen, visual products, B2C | - | [meta-ads.md](../../tools/integrations/meta-ads.md) |
-| **LinkedIn Ads** | B2B, job title targeting | - | [linkedin-ads.md](../../tools/integrations/linkedin-ads.md) |
-| **TikTok Ads** | Younger demographics, video | - | [tiktok-ads.md](../../tools/integrations/tiktok-ads.md) |
+不要なキーワードでの広告表示を防止し、広告費の無駄遣いを削減する。適切なネガティブキーワード管理はACOS改善の最も効果的な手段の一つ。
 
-For tracking, see also: [ga4.md](../../tools/integrations/ga4.md), [segment.md](../../tools/integrations/segment.md)
+### 8.2 ネガティブキーワードを追加すべきケース
+
+- **クリックはあるがCVRが極端に低いキーワード**（20クリック以上で0コンバージョン）
+- **商品と無関係なキーワード**（自動キャンペーンで拾った無関係な検索語句）
+- **競合ブランド名**（意図しない場合。意図的なターゲティングは別キャンペーンで管理）
+- **情報探索的なキーワード**（「○○ とは」「○○ 比較」等、購入意図が低い）
+
+### 8.3 ネガティブキーワードの管理方法
+
+```
+【ネガティブキーワード管理シート】
+
+■ 完全一致ネガティブ（特定のKWのみブロック）
+- [キーワード] / 追加理由 / 追加日
+- [キーワード] / 追加理由 / 追加日
+
+■ フレーズ一致ネガティブ（フレーズを含むKWをブロック）
+- [キーワード] / 追加理由 / 追加日
+- [キーワード] / 追加理由 / 追加日
+
+■ 定期レビュー（月次）
+- 最終レビュー日：
+- 次回レビュー予定日：
+```
+
+### 8.4 ネガティブキーワード追加時の注意
+
+- 手動キャンペーンでのネガティブ追加は慎重に（将来有望なKWを誤ってブロックしないよう注意）
+- 自動キャンペーンから手動キャンペーンに移行したKWは、自動側でネガティブ完全一致に追加
+- 定期的にネガティブKWリストを見直し、不要になったものは解除
 
 ---
 
-## Related Skills
+## 9. 新商品ローンチ時の広告戦略
 
-- **copywriting**: For landing page copy that converts ad traffic
-- **analytics-tracking**: For proper conversion tracking setup
-- **ab-test-setup**: For landing page testing to improve ROAS
-- **page-cro**: For optimizing post-click conversion rates
+### 9.1 フェーズ別戦略
+
+**Phase 0：ローンチ前準備（発売2週間前）**
+- 商品リスティングの最適化完了（タイトル、画像、Bullet、A+コンテンツ）
+- キーワードリサーチの完了と初期キーワードリストの作成
+- 広告予算の確保（初月は月間売上目標の30%〜50%を広告費に充てる覚悟）
+- 競合の広告出稿状況を調査
+
+**Phase 1：露出最大化期（発売〜2週間）**
+- 自動キャンペーンを高めの予算で開始（推奨入札の100%〜120%）
+- 主力キーワードの手動キャンペーン（完全一致＋フレーズ一致）を同時開始
+- ACOSは気にしない。インプレッション数とクリック数を重視
+- 1日あたりの予算消化率をモニタリング
+
+**Phase 2：データ収集・最適化期（2〜4週間目）**
+- 自動キャンペーンの検索語句レポートを分析
+- 成果の出たキーワードを手動キャンペーンに追加
+- ネガティブキーワードの追加開始
+- 入札単価の初回調整
+
+**Phase 3：効率化期（1〜3ヶ月目）**
+- ACOS目標に向けた入札最適化
+- SB広告の追加（ブランド登録済みの場合）
+- SD広告でのリターゲティング開始
+- 予算配分の最適化（高パフォーマンスキャンペーンに集中）
+
+**Phase 4：安定運用期（3ヶ月目〜）**
+- 週次のルーティン最適化
+- 新規キーワードの継続的な発掘
+- 季節変動への対応
+- 広告費の利益最大化への転換
+
+### 9.2 ローンチ時の予算配分目安
+
+| 広告タイプ | 予算比率 | 備考 |
+|---|---|---|
+| SP自動 | 25% | キーワード発掘用 |
+| SP手動（完全一致） | 35% | 主力KWでの露出確保 |
+| SP手動（フレーズ一致） | 20% | 関連KWの拡張 |
+| SP商品ターゲティング | 15% | 競合商品ページへの表示 |
+| SB/SD | 5% | ローンチ初期は少額でテスト |
+
+---
+
+## 10. 大型セール時の広告戦略
+
+### 10.1 セール前の準備（2〜4週間前）
+
+- **予算の増額**：通常の1.5〜3倍を確保
+- **入札単価の事前調整**：セール中はCPCが高騰するため、事前に入札上限を設定
+- **キャンペーン構成の見直し**：セール対象商品専用のキャンペーンを作成
+- **クリエイティブの準備**：SB広告の見出しにセール訴求を追加
+
+### 10.2 セール中の運用
+
+- **1日複数回の予算・入札モニタリング**：早い時間帯に予算が枯渇しないよう管理
+- **高パフォーマンスキーワードへの集中投資**：セール中は確実に成果が出るKWに予算を集中
+- **動的入札（アップとダウン）の活用**：コンバージョンが発生しやすい状況で自動的に入札を引き上げ
+- **在庫状況との連動**：在庫が少なくなったら広告を抑制
+
+### 10.3 セール後の対応
+
+- 予算と入札を通常に戻す（段階的に）
+- セール中に蓄積されたデータの分析
+- 新規に発見されたキーワードの整理
+- セール効果の総括レポート作成
+
+---
+
+## 11. 週次・月次レポーティング指標
+
+### 11.1 週次モニタリング項目
+
+```
+【週次広告レポート】
+期間：20XX年XX月XX日 〜 XX日
+
+■ 全体サマリー
+- 総広告費：¥_____
+- 広告経由売上：¥_____
+- ACOS：____%
+- TACoS：____%
+- インプレッション数：_____
+- クリック数：_____
+- CTR：____%
+- CVR：____%
+- CPC平均：¥_____
+
+■ キャンペーン別パフォーマンス
+[キャンペーン名] / 広告費 / 売上 / ACOS / CTR / CVR
+
+■ トップパフォーマンスKW（上位5）
+[KW] / クリック / CVR / ACOS / 売上
+
+■ ワーストパフォーマンスKW（下位5）
+[KW] / クリック / CVR / ACOS / 対応策
+
+■ 今週の対応事項
+- 入札調整：
+- ネガティブKW追加：
+- 新規KW追加：
+- 予算調整：
+```
+
+### 11.2 月次レポーティング項目
+
+週次項目に加えて以下を報告：
+- 月間トレンド（前月比、前年同月比）
+- TACoSの推移グラフ
+- 広告タイプ別のROI分析
+- 新規キーワードの発掘数と成果
+- 翌月の戦略方針と予算計画
+
+### 11.3 KPIダッシュボードの構成
+
+| 指標 | 日次 | 週次 | 月次 |
+|---|---|---|---|
+| 広告費 | ○ | ○ | ○ |
+| ACOS | - | ○ | ○ |
+| TACoS | - | - | ○ |
+| インプレッション | ○ | ○ | ○ |
+| CTR | - | ○ | ○ |
+| CVR | - | ○ | ○ |
+| CPC | - | ○ | ○ |
+| 新規KW追加数 | - | ○ | ○ |
+| ネガティブKW追加数 | - | ○ | ○ |
+
+---
+
+## 12. よくあるミスと回避策
+
+### 12.1 構造上のミス
+
+| ミス | 影響 | 回避策 |
+|---|---|---|
+| 1つのキャンペーンに大量のKWを詰め込む | 予算が分散し、重要KWにインプレッションが行き渡らない | KWグループごとにキャンペーンを分ける |
+| 自動と手動でキーワードが重複 | 自社キャンペーン同士で入札競争が発生 | 手動に移したKWは自動でネガティブに追加 |
+| 全商品を1キャンペーンで管理 | 商品ごとの最適化が困難 | 商品（群）ごとにキャンペーンを分離 |
+
+### 12.2 入札・予算のミス
+
+| ミス | 影響 | 回避策 |
+|---|---|---|
+| 入札単価を一度も調整しない | 市場変動に対応できず効率が悪化 | 最低週次で入札を見直す |
+| 日予算が少なすぎる | 午前中に予算消化されてゴールデンタイムに広告が出ない | 1日を通じて配信されるよう予算設定 |
+| セール前に予算を増やし忘れ | CPC高騰で早期に予算枯渇 | セール2週間前に予算計画を立てる |
+
+### 12.3 キーワードのミス
+
+| ミス | 影響 | 回避策 |
+|---|---|---|
+| ネガティブKWを一切追加しない | 無関係なKWに広告費が流出 | 週次で検索語句レポートを確認 |
+| ブランドKWを広告に出さない | 競合にブランド検索の上位を奪われる | ブランド防御キャンペーンを常時運用 |
+| 完全一致のみで運用 | 新しいKW機会を見逃す | フレーズ一致・自動も並行運用 |
+
+### 12.4 分析のミス
+
+| ミス | 影響 | 回避策 |
+|---|---|---|
+| ACOSだけで判断 | オーガニック売上への貢献を無視 | TACoSも併せて評価 |
+| 短期間のデータで判断 | 統計的に有意でないデータで誤った最適化 | 最低2週間・30クリック以上のデータで判断 |
+| アトリビューション期間を考慮しない | 広告クリックから購入まで最大14日のラグがある | レポート確認は2週間前のデータを基準にする |
+
+---
+
+## 13. 広告運用チェックリスト
+
+### 日次チェック
+
+- [ ] 各キャンペーンの予算消化率を確認（昼時点で50%以上消化していれば予算増額を検討）
+- [ ] 在庫切れ商品の広告が停止されているか確認
+
+### 週次チェック
+
+- [ ] 検索語句レポートの確認と分析
+- [ ] ネガティブキーワードの追加
+- [ ] 新規キーワードの追加
+- [ ] 入札単価の調整
+- [ ] ACOS/TACoSの確認と目標との比較
+- [ ] 新しい広告グループ・キャンペーンの作成検討
+
+### 月次チェック
+
+- [ ] 月次パフォーマンスレポートの作成
+- [ ] 予算配分の見直し（広告タイプ間、キャンペーン間）
+- [ ] SB広告クリエイティブのA/Bテスト結果確認
+- [ ] 翌月の広告戦略と予算計画の策定
+- [ ] 新商品・季節商品の広告準備

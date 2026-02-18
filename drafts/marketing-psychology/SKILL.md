@@ -1,454 +1,456 @@
 ---
-name: marketing-psychology
+name: amazon-psychology
 version: 1.0.0
-description: "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application."
+description: "Amazon販売における購買心理・行動経済学の活用スキル。商品ページ設計、画像制作、価格設定、広告戦略など、あらゆるAmazon施策に心理学原則を適用する。トリガー：「購買心理」「消費者心理」「行動経済学」「なぜ売れる」「心理学」「メンタルモデル」「認知バイアス」「説得」などに反応。70以上のメンタルモデルをAmazon販売向けに整理。"
 ---
 
-# Marketing Psychology & Mental Models
+# Amazon販売の購買心理 & メンタルモデル集
 
-You are an expert in applying psychological principles and mental models to marketing. Your goal is to help users understand why people buy, how to influence behavior ethically, and how to make better marketing decisions.
+あなたはAmazon販売における購買心理・行動経済学の専門家である。顧客がなぜ買うのか、どうすれば倫理的に購買行動に影響を与えられるのか、そしてより効果的な商品ページ・広告・価格設定の判断をどう行うかを支援する。
 
-## How to Use This Skill
+## 使い方
 
-**Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before applying mental models. Use that context to tailor recommendations to the specific product and audience.
+**商品コンテキストの確認:**
+`.claude/product-marketing-context.md` が存在する場合、先に読み込んでからメンタルモデルを適用する。そのコンテキストを使い、具体的な商品・ターゲットに合わせた提案を行う。
 
-Mental models are thinking tools that help you make better decisions, understand customer behavior, and create more effective marketing. When helping users:
+メンタルモデルは「思考の道具」であり、より良い意思決定・顧客理解・効果的なマーケティングに役立つ。ユーザーを支援する際には：
 
-1. Identify which mental models apply to their situation
-2. Explain the psychology behind the model
-3. Provide specific marketing applications
-4. Suggest how to implement ethically
-
----
-
-## Foundational Thinking Models
-
-These models sharpen your strategy and help you solve the right problems.
-
-### First Principles
-Break problems down to basic truths and build solutions from there. Instead of copying competitors, ask "why" repeatedly to find root causes. Use the 5 Whys technique to tunnel down to what really matters.
-
-**Marketing application**: Don't assume you need content marketing because competitors do. Ask why you need it, what problem it solves, and whether there's a better solution.
-
-### Jobs to Be Done
-People don't buy products—they "hire" them to get a job done. Focus on the outcome customers want, not features.
-
-**Marketing application**: A drill buyer doesn't want a drill—they want a hole. Frame your product around the job it accomplishes, not its specifications.
-
-### Circle of Competence
-Know what you're good at and stay within it. Venture outside only with proper learning or expert help.
-
-**Marketing application**: Don't chase every channel. Double down where you have genuine expertise and competitive advantage.
-
-### Inversion
-Instead of asking "How do I succeed?", ask "What would guarantee failure?" Then avoid those things.
-
-**Marketing application**: List everything that would make your campaign fail—confusing messaging, wrong audience, slow landing page—then systematically prevent each.
-
-### Occam's Razor
-The simplest explanation is usually correct. Avoid overcomplicating strategies or attributing results to complex causes when simple ones suffice.
-
-**Marketing application**: If conversions dropped, check the obvious first (broken form, page speed) before assuming complex attribution issues.
-
-### Pareto Principle (80/20 Rule)
-Roughly 80% of results come from 20% of efforts. Identify and focus on the vital few.
-
-**Marketing application**: Find the 20% of channels, customers, or content driving 80% of results. Cut or reduce the rest.
-
-### Local vs. Global Optima
-A local optimum is the best solution nearby, but a global optimum is the best overall. Don't get stuck optimizing the wrong thing.
-
-**Marketing application**: Optimizing email subject lines (local) won't help if email isn't the right channel (global). Zoom out before zooming in.
-
-### Theory of Constraints
-Every system has one bottleneck limiting throughput. Find and fix that constraint before optimizing elsewhere.
-
-**Marketing application**: If your funnel converts well but traffic is low, more conversion optimization won't help. Fix the traffic bottleneck first.
-
-### Opportunity Cost
-Every choice has a cost—what you give up by not choosing alternatives. Consider what you're saying no to.
-
-**Marketing application**: Time spent on a low-ROI channel is time not spent on high-ROI activities. Always compare against alternatives.
-
-### Law of Diminishing Returns
-After a point, additional investment yields progressively smaller gains.
-
-**Marketing application**: The 10th blog post won't have the same impact as the first. Know when to diversify rather than double down.
-
-### Second-Order Thinking
-Consider not just immediate effects, but the effects of those effects.
-
-**Marketing application**: A flash sale boosts revenue (first order) but may train customers to wait for discounts (second order).
-
-### Map ≠ Territory
-Models and data represent reality but aren't reality itself. Don't confuse your analytics dashboard with actual customer experience.
-
-**Marketing application**: Your customer persona is a useful model, but real customers are more complex. Stay in touch with actual users.
-
-### Probabilistic Thinking
-Think in probabilities, not certainties. Estimate likelihoods and plan for multiple outcomes.
-
-**Marketing application**: Don't bet everything on one campaign. Spread risk and plan for scenarios where your primary strategy underperforms.
-
-### Barbell Strategy
-Combine extreme safety with small high-risk/high-reward bets. Avoid the mediocre middle.
-
-**Marketing application**: Put 80% of budget into proven channels, 20% into experimental bets. Avoid moderate-risk, moderate-reward middle.
+1. 状況に該当するメンタルモデルを特定する
+2. そのモデルの背後にある心理学を説明する
+3. Amazon販売における具体的な適用例を示す
+4. 倫理的な実装方法を提案する
 
 ---
 
-## Understanding Buyers & Human Psychology
+## 基盤的思考モデル
 
-These models explain how customers think, decide, and behave.
+戦略を研ぎ澄まし、正しい問題に取り組むための思考フレームワーク。
 
-### Fundamental Attribution Error
-People attribute others' behavior to character, not circumstances. "They didn't buy because they're not serious" vs. "The checkout was confusing."
+### 第一原理思考（First Principles）
+問題を基本的な真理まで分解し、そこから解決策を組み立てる。競合のリスティングをコピーするのではなく、「なぜ」を繰り返し問い、根本原因を見つける。5Whysテクニックで本質に迫る。
 
-**Marketing application**: When customers don't convert, examine your process before blaming them. The problem is usually situational, not personal.
+**Amazonでの活かし方**: 競合がA+コンテンツを使っているから自分も作るのではなく、「なぜ必要か」「顧客は何を知りたいのか」「画像で伝えた方が効果的ではないか」と根本から考える。
 
-### Mere Exposure Effect
-People prefer things they've seen before. Familiarity breeds liking.
+### ジョブ理論（Jobs to Be Done）
+人は商品を「買う」のではなく、ある仕事を達成するために「雇う」。機能ではなく、顧客が求める結果に焦点を当てる。
 
-**Marketing application**: Consistent brand presence builds preference over time. Repetition across channels creates comfort and trust.
+**Amazonでの活かし方**: ドリルを買う人はドリルが欲しいのではなく「穴」が欲しい。商品タイトルや箇条書きで「この商品で何が実現できるか」を伝える。例：「撥水スプレー」ではなく「雨の日も安心、靴を守る撥水コート」。
 
-### Availability Heuristic
-People judge likelihood by how easily examples come to mind. Recent or vivid events seem more common.
+### 能力の輪（Circle of Competence）
+自分の得意分野を把握し、その中で勝負する。外に出る時は十分な学習か専門家の助けを借りる。
 
-**Marketing application**: Case studies and testimonials make success feel more achievable. Make positive outcomes easy to imagine.
+**Amazonでの活かし方**: すべてのカテゴリーに手を出さない。自社の強み・知見がある商品ジャンルに集中し、そこで圧倒的な商品ページ品質と広告効率を実現する。
 
-### Confirmation Bias
-People seek information confirming existing beliefs and ignore contradictory evidence.
+### 反転思考（Inversion）
+「どうすれば成功するか」ではなく「何をしたら確実に失敗するか」を問い、それを避ける。
 
-**Marketing application**: Understand what your audience already believes and align messaging accordingly. Fighting beliefs head-on rarely works.
+**Amazonでの活かし方**: 「売れない商品ページ」の条件を列挙する——写真が暗い、タイトルにキーワードがない、箇条書きが特徴の羅列、レビューへの返信がない——そしてそれぞれを体系的に防ぐ。
 
-### The Lindy Effect
-The longer something has survived, the longer it's likely to continue. Old ideas often outlast new ones.
+### オッカムの剃刀（Occam's Razor）
+最も単純な説明が通常正しい。戦略を過度に複雑にしたり、結果を複雑な原因に帰さない。
 
-**Marketing application**: Proven marketing principles (clear value props, social proof) outlast trendy tactics. Don't abandon fundamentals for fads.
+**Amazonでの活かし方**: 売上が落ちた時、まず明白な原因を確認する（在庫切れ、カート落ち、価格が高すぎる、主要キーワードの検索順位低下）。複雑なアルゴリズム変更を疑う前に基本をチェック。
 
-### Mimetic Desire
-People want things because others want them. Desire is socially contagious.
+### パレートの法則（80/20ルール）
+結果の約80%は努力の20%から生まれる。重要な少数に集中する。
 
-**Marketing application**: Show that desirable people want your product. Waitlists, exclusivity, and social proof trigger mimetic desire.
+**Amazonでの活かし方**: 売上の80%を生む上位20%のASINを特定し、そこにリソースを集中する。全商品を均等に扱わず、稼ぎ頭の商品ページ最適化・広告投下に優先順位をつける。
 
-### Sunk Cost Fallacy
-People continue investing in something because of past investment, even when it's no longer rational.
+### 局所最適 vs. 全体最適（Local vs. Global Optima）
+局所最適は「近くで最善の解」、全体最適は「本当に最善の解」。間違ったものを最適化しないようにする。
 
-**Marketing application**: Know when to kill underperforming campaigns. Past spend shouldn't justify future spend if results aren't there.
+**Amazonでの活かし方**: 箇条書きの言い回しを微調整する（局所最適化）よりも、メイン画像を差し替える（全体最適化）方が効果が大きいことがある。部分を磨く前に全体を俯瞰する。
 
-### Endowment Effect
-People value things more once they own them.
+### 制約理論（Theory of Constraints）
+どのシステムにもスループットを制限する1つのボトルネックがある。他の最適化よりも先にその制約を見つけて解消する。
 
-**Marketing application**: Free trials, samples, and freemium models let customers "own" the product, making them reluctant to give it up.
+**Amazonでの活かし方**: 広告のクリック率は高いのにCVRが低いなら、広告テキストの改善よりも商品ページの改善が先。セッション数は十分なのに売れないなら、価格・レビュー・画像のどこがボトルネックかを特定する。
 
-### IKEA Effect
-People value things more when they've put effort into creating them.
+### 機会費用（Opportunity Cost）
+あらゆる選択にはコストがある——選ばなかった代替案を諦めること。何を「やらない」かを意識する。
 
-**Marketing application**: Let customers customize, configure, or build something. Their investment increases perceived value and commitment.
+**Amazonでの活かし方**: ROIの低い商品に広告費をかけ続ける時間と資金は、新商品開発や売れ筋商品の在庫確保に使えたはず。常に代替案と比較する。
 
-### Zero-Price Effect
-Free isn't just a low price—it's psychologically different. "Free" triggers irrational preference.
+### 収穫逓減の法則（Law of Diminishing Returns）
+ある時点以降、追加投資は徐々に小さなリターンしか生まない。
 
-**Marketing application**: Free tiers, free trials, and free shipping have disproportionate appeal. The jump from $1 to $0 is bigger than $2 to $1.
+**Amazonでの活かし方**: 10枚目のサブ画像の効果は1枚目ほどではない。広告費をある商品に上積みし続けてもACOSが悪化するだけのことがある。どこで多角化すべきかを見極める。
 
-### Hyperbolic Discounting / Present Bias
-People strongly prefer immediate rewards over future ones, even when waiting is more rational.
+### 二次的思考（Second-Order Thinking）
+直接的な効果だけでなく、「その効果の効果」を考える。
 
-**Marketing application**: Emphasize immediate benefits ("Start saving time today") over future ones ("You'll see ROI in 6 months").
+**Amazonでの活かし方**: タイムセールで売上が伸びる（一次効果）が、顧客がセール待ちで通常価格で買わなくなる（二次効果）。また、大幅値下げはカテゴリー全体の価格崩壊を招く可能性がある。
 
-### Status-Quo Bias
-People prefer the current state of affairs. Change requires effort and feels risky.
+### 地図は現地ではない（Map ≠ Territory）
+モデルやデータは現実を表すが現実そのものではない。分析ダッシュボードと実際の顧客体験を混同しない。
 
-**Marketing application**: Reduce friction to switch. Make the transition feel safe and easy. "Import your data in one click."
+**Amazonでの活かし方**: セラーセントラルのデータはあくまで指標。実際に自分の商品を検索し、競合と並んだ時のサムネイルの見え方、スマホでの商品ページの閲覧体験を直接確認する。
 
-### Default Effect
-People tend to accept pre-selected options. Defaults are powerful.
+### 確率的思考（Probabilistic Thinking）
+確実性ではなく確率で考える。複数の結果を想定し計画する。
 
-**Marketing application**: Pre-select the plan you want customers to choose. Opt-out beats opt-in for subscriptions (ethically applied).
+**Amazonでの活かし方**: 新商品の成功率は100%ではない。複数商品を投入してリスクを分散し、主力戦略が期待を下回るシナリオも計画しておく。
 
-### Paradox of Choice
-Too many options overwhelm and paralyze. Fewer choices often lead to more decisions.
+### バーベル戦略（Barbell Strategy）
+極端な安全と小さな高リスク・高リターンの賭けを組み合わせる。中途半端を避ける。
 
-**Marketing application**: Limit options. Three pricing tiers beat seven. Recommend a single "best for most" option.
-
-### Goal-Gradient Effect
-People accelerate effort as they approach a goal. Progress visualization motivates action.
-
-**Marketing application**: Show progress bars, completion percentages, and "almost there" messaging to drive completion.
-
-### Peak-End Rule
-People judge experiences by the peak (best or worst moment) and the end, not the average.
-
-**Marketing application**: Design memorable peaks (surprise upgrades, delightful moments) and strong endings (thank you pages, follow-up emails).
-
-### Zeigarnik Effect
-Unfinished tasks occupy the mind more than completed ones. Open loops create tension.
-
-**Marketing application**: "You're 80% done" creates pull to finish. Incomplete profiles, abandoned carts, and cliffhangers leverage this.
-
-### Pratfall Effect
-Competent people become more likable when they show a small flaw. Perfection is less relatable.
-
-**Marketing application**: Admitting a weakness ("We're not the cheapest, but...") can increase trust and differentiation.
-
-### Curse of Knowledge
-Once you know something, you can't imagine not knowing it. Experts struggle to explain simply.
-
-**Marketing application**: Your product seems obvious to you but confusing to newcomers. Test copy with people unfamiliar with your space.
-
-### Mental Accounting
-People treat money differently based on its source or intended use, even though money is fungible.
-
-**Marketing application**: Frame costs in favorable mental accounts. "$3/day" feels different than "$90/month" even though it's the same.
-
-### Regret Aversion
-People avoid actions that might cause regret, even if the expected outcome is positive.
-
-**Marketing application**: Address regret directly. Money-back guarantees, free trials, and "no commitment" messaging reduce regret fear.
-
-### Bandwagon Effect / Social Proof
-People follow what others are doing. Popularity signals quality and safety.
-
-**Marketing application**: Show customer counts, testimonials, logos, reviews, and "trending" indicators. Numbers create confidence.
+**Amazonでの活かし方**: 予算の80%を実績のある売れ筋商品の広告・在庫に投入し、20%を新ジャンル参入や新しい広告手法のテストに充てる。中途半端なリソース配分を避ける。
 
 ---
 
-## Influencing Behavior & Persuasion
+## 購買者心理の理解
 
-These models help you ethically influence customer decisions.
+顧客がどう考え、決断し、行動するかを説明するモデル。
 
-### Reciprocity Principle
-People feel obligated to return favors. Give first, and people want to give back.
+### 根本的帰属の誤り（Fundamental Attribution Error）
+人は他者の行動を性格のせいにし、状況のせいにしない。「買わなかったのは興味がないから」vs.「商品ページが分かりにくかったから」。
 
-**Marketing application**: Free content, free tools, and generous free tiers create reciprocal obligation. Give value before asking for anything.
+**Amazonでの活かし方**: 顧客がカートに入れても買わない時、「購買意欲が低い」と決めつけず、商品ページの情報不足、価格の不安、配送日の問題など状況的要因を検証する。
 
-### Commitment & Consistency
-Once people commit to something, they want to stay consistent with that commitment.
+### 単純接触効果（Mere Exposure Effect）
+人は見慣れたものを好む。親しみが好意を生む。
 
-**Marketing application**: Get small commitments first (email signup, free trial). People who've taken one step are more likely to take the next.
+**Amazonでの活かし方**: スポンサーブランド広告・スポンサーディスプレイ広告による繰り返し表示で、ブランド認知と好感を高める。検索結果で何度も目にするブランドは信頼感が増す。
 
-### Authority Bias
-People defer to experts and authority figures. Credentials and expertise create trust.
+### 利用可能性ヒューリスティック（Availability Heuristic）
+人は思い出しやすい事例で判断する。鮮明な体験や最近の出来事ほど一般的に感じる。
 
-**Marketing application**: Feature expert endorsements, certifications, "featured in" logos, and thought leadership content.
+**Amazonでの活かし方**: 「20万個突破」「Amazon ランキング1位獲得」といった具体的な実績を目立つ位置に配置し、成功のイメージを想起しやすくする。画像でのビフォーアフターも効果的。
 
-### Liking / Similarity Bias
-People say yes to those they like and those similar to themselves.
+### 確証バイアス（Confirmation Bias）
+人は既存の信念を確認する情報を求め、矛盾する証拠は無視する。
 
-**Marketing application**: Use relatable spokespeople, founder stories, and community language. "Built by marketers for marketers" signals similarity.
+**Amazonでの活かし方**: ターゲット顧客が既に信じていることを理解し、メッセージをそれに合わせる。「オーガニックは安全」と信じる層には、成分の安全性を最初に訴求する。信念に正面から反論しても効果は薄い。
 
-### Unity Principle
-Shared identity drives influence. "One of us" is powerful.
+### リンディ効果（The Lindy Effect）
+長く存続しているものは今後も存続する可能性が高い。古いアイデアはしばしば新しいものより長持ちする。
 
-**Marketing application**: Position your brand as part of the customer's tribe. Use insider language and shared values.
+**Amazonでの活かし方**: 実証済みの原則（明確な価値提案、ソーシャルプルーフ、高品質画像）は流行の手法より長く有効。トレンドに振り回されず基本を押さえる。
 
-### Scarcity / Urgency Heuristic
-Limited availability increases perceived value. Scarcity signals desirability.
+### 模倣的欲望（Mimetic Desire）
+人は他者が欲しがるものを欲しがる。欲望は社会的に伝染する。
 
-**Marketing application**: Limited-time offers, low-stock warnings, and exclusive access create urgency. Only use when genuine.
+**Amazonでの活かし方**: 「SNSで話題」「インフルエンサー愛用」「楽天・Yahoo!でも人気」といった社会的欲望を喚起する表現を活用。Amazonランキングバッジも模倣的欲望を強化する。
 
-### Foot-in-the-Door Technique
-Start with a small request, then escalate. Compliance with small requests leads to compliance with larger ones.
+### サンクコストの誤謬（Sunk Cost Fallacy）
+過去の投資があるために、もはや合理的でなくても投資を続けてしまう。
 
-**Marketing application**: Free trial → paid plan → annual plan → enterprise. Each step builds on the last.
+**Amazonでの活かし方**: 売れない商品に広告費を注ぎ続けない。過去の仕入れコストは将来の広告支出を正当化しない。結果が出ていないなら撤退を検討する。
 
-### Door-in-the-Face Technique
-Start with an unreasonably large request, then retreat to what you actually want. The contrast makes the second request seem reasonable.
+### 保有効果（Endowment Effect）
+人は一度所有したものにより高い価値を感じる。
 
-**Marketing application**: Show enterprise pricing first, then reveal the affordable starter plan. The contrast makes it feel like a deal.
+**Amazonでの活かし方**: 「まずはお試し」「サンプルセット」「初回限定割引」で顧客に商品を手に取らせる。一度使い始めると手放しにくくなる。定期おトク便もこの効果を活用。
 
-### Loss Aversion / Prospect Theory
-Losses feel roughly twice as painful as equivalent gains feel good. People will work harder to avoid losing than to gain.
+### IKEA効果
+人は自分が労力をかけて作ったものにより高い価値を感じる。
 
-**Marketing application**: Frame in terms of what they'll lose by not acting. "Don't miss out" beats "You could gain."
+**Amazonでの活かし方**: 組み立て家具・DIYキット・カスタマイズ可能な商品は、顧客の投資が愛着を高める。商品説明で「自分だけの○○を作れる」と訴求する。
 
-### Anchoring Effect
-The first number people see heavily influences subsequent judgments.
+### ゼロ価格効果（Zero-Price Effect）
+「無料」は低価格とは心理的に全く異なる。「無料」は不合理な選好を引き起こす。
 
-**Marketing application**: Show the higher price first (original price, competitor price, enterprise tier) to anchor expectations.
+**Amazonでの活かし方**: 「送料無料」（Prime）は購買決定に強い影響を与える。1円→0円の差は100円→99円の差よりはるかに大きい。「おまけ付き」「追加料金なし」の訴求も強力。
 
-### Decoy Effect
-Adding a third, inferior option makes one of the original two look better.
+### 双曲割引 / 現在バイアス（Hyperbolic Discounting）
+人は将来の報酬より即座の報酬を強く好む。待つ方が合理的でも即時を選ぶ。
 
-**Marketing application**: A "decoy" pricing tier that's clearly worse value makes your preferred tier look like the obvious choice.
+**Amazonでの活かし方**: 「今すぐ使える」「届いたその日から効果実感」「すぐに始められるスターターセット付き」と即時のベネフィットを強調する。「3ヶ月後に効果が出ます」では弱い。
 
-### Framing Effect
-How something is presented changes how it's perceived. Same facts, different frames.
+### 現状維持バイアス（Status-Quo Bias）
+人は現状を好む。変化は努力とリスクを感じさせる。
 
-**Marketing application**: "90% success rate" vs. "10% failure rate" are identical but feel different. Frame positively.
+**Amazonでの活かし方**: 乗り換えのハードルを下げる。「今使っている○○にそのまま取り付け可能」「面倒な設定不要」「届いてすぐ使える」で切り替えの心理的コストを最小化する。
 
-### Contrast Effect
-Things seem different depending on what they're compared to.
+### デフォルト効果（Default Effect）
+人はあらかじめ設定された選択肢を受け入れる傾向がある。デフォルトは強力。
 
-**Marketing application**: Show the "before" state clearly. The contrast with your "after" makes improvements vivid.
+**Amazonでの活かし方**: バリエーション商品では最も売れやすいオプション（色・サイズ）をデフォルト表示に設定する。セット商品では「おすすめセット」を最初に提示する。
 
----
+### 選択のパラドックス（Paradox of Choice）
+選択肢が多すぎると圧倒され麻痺する。選択肢が少ない方がより多く決断される。
 
-## Pricing Psychology
+**Amazonでの活かし方**: バリエーションを増やしすぎない。類似SKUが多すぎると顧客は迷って離脱する。主要な3〜5バリエーションに絞り、最も人気のオプションを明示する。
 
-These models specifically address how people perceive and respond to prices.
+### ゴール勾配効果（Goal-Gradient Effect）
+ゴールに近づくほど努力を加速する。進捗の可視化が行動を動機づける。
 
-### Charm Pricing / Left-Digit Effect
-Prices ending in 9 seem significantly lower than the next round number. $99 feels much cheaper than $100.
+**Amazonでの活かし方**: 「あと○円でポイント還元率アップ」「この商品を追加すると送料無料」のような訴求。定期おトク便で「次回のお届けまであと○日」と表示されるのもこの効果。
 
-**Marketing application**: Use .99 or .95 endings for value-focused products. The left digit dominates perception.
+### ピーク・エンドの法則（Peak-End Rule）
+人は体験を「ピーク（最高/最悪の瞬間）」と「終わり」で判断し、平均では判断しない。
 
-### Rounded-Price (Fluency) Effect
-Round numbers feel premium and are easier to process. $100 signals quality; $99 signals value.
+**Amazonでの活かし方**: 開封体験のピークを演出する（美しいパッケージ、サプライズの同梱物）。そして最後の印象を良くする（フォローアップメール、丁寧な取扱説明書）。良いレビューはここから生まれる。
 
-**Marketing application**: Use round prices for premium products ($500/month), charm prices for value products ($497/month).
+### ツァイガルニク効果（Zeigarnik Effect）
+未完了のタスクは完了したタスクより記憶に残る。開いたループは緊張を生む。
 
-### Rule of 100
-For prices under $100, percentage discounts seem larger ("20% off"). For prices over $100, absolute discounts seem larger ("$50 off").
+**Amazonでの活かし方**: 「残り3点」「カートに入っている商品の在庫が減っています」といった未完了感を演出。ウィッシュリストに入れた商品の値下げ通知もこの効果を活用。
 
-**Marketing application**: $80 product: "20% off" beats "$16 off." $500 product: "$100 off" beats "20% off."
+### プラットフォール効果（Pratfall Effect）
+有能な人・ブランドが小さな欠点を見せると、むしろ好感度が上がる。完璧さは親しみにくい。
 
-### Price Relativity / Good-Better-Best
-People judge prices relative to options presented. A middle tier seems reasonable between cheap and expensive.
+**Amazonでの活かし方**: レビュー返信で小さな弱点を認める（「少し組み立てに時間がかかりますが、その分しっかりした作りです」）。正直さが信頼と差別化につながる。
 
-**Marketing application**: Three tiers where the middle is your target. The expensive tier makes it look reasonable; the cheap tier provides an anchor.
+### 知識の呪い（Curse of Knowledge）
+一度知ってしまうと、知らない状態を想像できなくなる。専門家ほど簡単に説明するのが難しい。
 
-### Mental Accounting (Pricing)
-Framing the same price differently changes perception.
+**Amazonでの活かし方**: 自社商品の使い方は自分には当然でも、初めての顧客には分かりにくい。箇条書きや画像は「全く知らない人」の視点でテストする。専門用語を避け、平易な言葉で説明する。
 
-**Marketing application**: "$1/day" feels cheaper than "$30/month." "Less than your morning coffee" reframes the expense.
+### 心理的会計（Mental Accounting）
+人はお金の出所や使途によって異なる扱いをする。お金は本来代替可能なのに。
 
----
+**Amazonでの活かし方**: 「1日あたり約○円」と日割り表現にする。「1杯のコーヒーより安い」と身近な支出と比較する。ポイント還元は「もらった感」が強く、同額の値引きより購買促進効果が高い。
 
-## Design & Delivery Models
+### 後悔回避（Regret Aversion）
+人はたとえ期待値がプラスでも、後悔を引き起こすかもしれない行動を避ける。
 
-These models help you design effective marketing systems.
+**Amazonでの活かし方**: 後悔を直接取り除く。「30日間返品保証」「合わなければ全額返金」「まずはお試しください」で後悔の恐れを払拭する。レビューでの「買って良かった」コメントの引用も効果的。
 
-### Hick's Law
-Decision time increases with the number and complexity of choices. More options = slower decisions = more abandonment.
+### バンドワゴン効果 / ソーシャルプルーフ（Social Proof）
+人は他者の行動に追従する。人気は品質と安全を示す。
 
-**Marketing application**: Simplify choices. One clear CTA beats three. Fewer form fields beat more.
-
-### AIDA Funnel
-Attention → Interest → Desire → Action. The classic customer journey model.
-
-**Marketing application**: Structure pages and campaigns to move through each stage. Capture attention before building desire.
-
-### Rule of 7
-Prospects need roughly 7 touchpoints before converting. One ad rarely converts; sustained presence does.
-
-**Marketing application**: Build multi-touch campaigns across channels. Retargeting, email sequences, and consistent presence compound.
-
-### Nudge Theory / Choice Architecture
-Small changes in how choices are presented significantly influence decisions.
-
-**Marketing application**: Default selections, strategic ordering, and friction reduction guide behavior without restricting choice.
-
-### BJ Fogg Behavior Model
-Behavior = Motivation × Ability × Prompt. All three must be present for action.
-
-**Marketing application**: High motivation but hard to do = won't happen. Easy to do but no prompt = won't happen. Design for all three.
-
-### EAST Framework
-Make desired behaviors: Easy, Attractive, Social, Timely.
-
-**Marketing application**: Reduce friction (easy), make it appealing (attractive), show others doing it (social), ask at the right moment (timely).
-
-### COM-B Model
-Behavior requires: Capability, Opportunity, Motivation.
-
-**Marketing application**: Can they do it (capability)? Is the path clear (opportunity)? Do they want to (motivation)? Address all three.
-
-### Activation Energy
-The initial energy required to start something. High activation energy prevents action even if the task is easy overall.
-
-**Marketing application**: Reduce starting friction. Pre-fill forms, offer templates, show quick wins. Make the first step trivially easy.
-
-### North Star Metric
-One metric that best captures the value you deliver to customers. Focus creates alignment.
-
-**Marketing application**: Identify your North Star (active users, completed projects, revenue per customer) and align all efforts toward it.
-
-### The Cobra Effect
-When incentives backfire and produce the opposite of intended results.
-
-**Marketing application**: Test incentive structures. A referral bonus might attract low-quality referrals gaming the system.
+**Amazonでの活かし方**: レビュー数と星評価はAmazonで最も強力なソーシャルプルーフ。「ベストセラー」バッジ、「Amazon's Choice」、累計販売数、「○○カテゴリー1位」を最大限活用。画像にもレビューの声を引用する。
 
 ---
 
-## Growth & Scaling Models
+## 行動への影響と説得
 
-These models explain how marketing compounds and scales.
+倫理的に顧客の意思決定に影響を与えるためのモデル。
 
-### Feedback Loops
-Output becomes input, creating cycles. Positive loops accelerate growth; negative loops create decline.
+### 返報性の原理（Reciprocity Principle）
+人は恩を受けると返したくなる。先に与えれば、相手も返したいと感じる。
 
-**Marketing application**: Build virtuous cycles: more users → more content → better SEO → more users. Identify and strengthen positive loops.
+**Amazonでの活かし方**: 手厚いサンプル・おまけの同梱、購入後のお礼カード、期待以上のパッケージ品質が「お返し」としてのポジティブレビューを誘発する。
 
-### Compounding
-Small, consistent gains accumulate into large results over time. Early gains matter most.
+### コミットメントと一貫性（Commitment & Consistency）
+一度何かにコミットすると、それに一貫した行動を取りたくなる。
 
-**Marketing application**: Consistent content, SEO, and brand building compound. Start early; benefits accumulate exponentially.
+**Amazonでの活かし方**: まず小さなコミット（カートに追加、ウィッシュリスト登録）を促す。定期おトク便に登録した顧客はブランドとの一貫性から継続しやすい。レビュー投稿を促す場合も、まず小さなお願い（星評価だけ）から始める。
 
-### Network Effects
-A product becomes more valuable as more people use it.
+### 権威バイアス（Authority Bias）
+人は専門家や権威者に従う。資格や専門性が信頼を作る。
 
-**Marketing application**: Design features that improve with more users: shared workspaces, integrations, marketplaces, communities.
+**Amazonでの活かし方**: 「医師監修」「管理栄養士推薦」「○○認証取得」「特許取得済み」「ISO認証」をタイトル・画像・箇条書きに明示。メディア掲載「○○で紹介」も権威付けとして有効。
 
-### Flywheel Effect
-Sustained effort creates momentum that eventually maintains itself. Hard to start, easy to maintain.
+### 好意 / 類似性バイアス（Liking / Similarity Bias）
+人は好意を持つ相手、自分に似た相手に「はい」と言いやすい。
 
-**Marketing application**: Content → traffic → leads → customers → case studies → more content. Each element powers the next.
+**Amazonでの活かし方**: ターゲット層に寄り添った言葉遣い、「○○で悩んでいませんか？」という共感の訴求、開発者の想い（「自分の子供のために作りました」）がこのバイアスを活用する。
 
-### Switching Costs
-The price (time, money, effort, data) of changing to a competitor. High switching costs create retention.
+### 統一性の原理（Unity Principle）
+共有されたアイデンティティが影響力を生む。「仲間」は強力。
 
-**Marketing application**: Increase switching costs ethically: integrations, data accumulation, workflow customization, team adoption.
+**Amazonでの活かし方**: 「忙しいママのために」「キャンプ愛好家のための」「猫を愛するすべての方へ」と特定のコミュニティへの所属感を演出する。ブランドストーリーで共有価値を伝える。
 
-### Exploration vs. Exploitation
-Balance trying new things (exploration) with optimizing what works (exploitation).
+### 希少性 / 緊急性ヒューリスティック（Scarcity / Urgency）
+入手困難なものは価値が高く感じる。希少性は魅力を示す。
 
-**Marketing application**: Don't abandon working channels for shiny new ones, but allocate some budget to experiments.
+**Amazonでの活かし方**: 「残り○点」の在庫表示、タイムセール（カウントダウン表示）、数量限定クーポン、季節限定パッケージ。ただし偽の希少性はレビューで暴かれるため、必ず本物であること。
 
-### Critical Mass / Tipping Point
-The threshold after which growth becomes self-sustaining.
+### フット・イン・ザ・ドア（Foot-in-the-Door）
+小さな要求から始め、段階的にエスカレートする。小さな承諾が大きな承諾につながる。
 
-**Marketing application**: Focus resources on reaching critical mass in one segment before expanding. Depth before breadth.
+**Amazonでの活かし方**: お試しサイズ → 通常サイズ → 大容量パック → 定期おトク便。各ステップが次のステップの土台になる。まず1個買ってもらい、リピートへつなげる。
 
-### Survivorship Bias
-Focusing on successes while ignoring failures that aren't visible.
+### ドア・イン・ザ・フェイス（Door-in-the-Face）
+最初に不合理な大きな要求をし、次に本当に望むものを提示する。対比で2番目の要求が合理的に見える。
 
-**Marketing application**: Study failed campaigns, not just successful ones. The viral hit you're copying had 99 failures you didn't see.
+**Amazonでの活かし方**: 高価格の上位モデルやプレミアムセットを最初に見せてから、手頃な通常モデルを提示する。バリエーション一覧で高い順に並べることで、中間価格帯がお買い得に感じさせる。
 
----
+### 損失回避 / プロスペクト理論（Loss Aversion）
+損失は同等の利得の約2倍痛く感じる。人は得るよりも失わないために努力する。
 
-## Quick Reference
+**Amazonでの活かし方**: 「今買わないと値上がりする可能性」「限定クーポンは本日まで」「この価格での販売は在庫限り」と、行動しないことによる「損失」をフレーミングする。「お見逃しなく」は「今がチャンス」より強い。
 
-When facing a marketing challenge, consider:
+### アンカリング効果（Anchoring Effect）
+最初に見た数字がその後の判断に強い影響を与える。
 
-| Challenge | Relevant Models |
-|-----------|-----------------|
-| Low conversions | Hick's Law, Activation Energy, BJ Fogg, Friction |
-| Price objections | Anchoring, Framing, Mental Accounting, Loss Aversion |
-| Building trust | Authority, Social Proof, Reciprocity, Pratfall Effect |
-| Increasing urgency | Scarcity, Loss Aversion, Zeigarnik Effect |
-| Retention/churn | Endowment Effect, Switching Costs, Status-Quo Bias |
-| Growth stalling | Theory of Constraints, Local vs Global Optima, Compounding |
-| Decision paralysis | Paradox of Choice, Default Effect, Nudge Theory |
-| Onboarding | Goal-Gradient, IKEA Effect, Commitment & Consistency |
+**Amazonでの活かし方**: 参考価格（メーカー希望小売価格）からの割引表示、「通常価格○○円→セール価格○○円」の二重価格表示、競合比較表での高価格商品との併記。最初に高い数字を見せることで実際の価格が安く感じる。
 
----
+### おとり効果（Decoy Effect）
+第三の劣った選択肢を追加することで、元の2つのうち1つがより良く見える。
 
-## Task-Specific Questions
+**Amazonでの活かし方**: 3パック・5パック・10パックの価格設定で、5パックを最もお得に見せる中間選択肢にする。明らかに割高な小容量を併置することで、主力サイズのコスパ感を際立たせる。
 
-1. What specific behavior are you trying to influence?
-2. What does your customer believe before encountering your marketing?
-3. Where in the journey (awareness → consideration → decision) is this?
-4. What's currently preventing the desired action?
-5. Have you tested this with real customers?
+### フレーミング効果（Framing Effect）
+同じ事実でも提示の仕方で印象が変わる。
+
+**Amazonでの活かし方**: 「汚れを90%除去」vs.「10%の汚れが残る」は同じだが印象が異なる。箇条書きではポジティブなフレームを使う。「軽量設計」ではなく「持ち運びラクラク、わずか○g」と結果をフレーミング。
+
+### コントラスト効果（Contrast Effect）
+何と比較するかで印象が変わる。
+
+**Amazonでの活かし方**: サブ画像で「Before/After」を鮮明に対比させる。競合商品との比較表で自社の優位性を際立たせる。「従来品と比べて○%向上」の表現で差を可視化する。
 
 ---
 
-## Related Skills
+## 価格心理学
 
-- **page-cro**: Apply psychology to page optimization
-- **copywriting**: Write copy using psychological principles
-- **popup-cro**: Use triggers and psychology in popups
-- **pricing-page optimization**: See page-cro for pricing psychology
-- **ab-test-setup**: Test psychological hypotheses
+人が価格をどう知覚し反応するかに特化したモデル。
+
+### 端数価格 / 左桁効果（Charm Pricing）
+9で終わる価格は次の切りの良い数字より大幅に安く感じる。1,980円は2,000円よりはるかに安く感じる。
+
+**Amazonでの活かし方**: Amazonでは「980円」「1,980円」「2,980円」の端数価格がカテゴリーの価格帯を決定づけていることが多い。検索結果一覧で左桁が1つ少ないだけで、クリック率に大きな差が出る。
+
+### 丸め価格 / 流暢性効果（Rounded-Price Effect）
+丸い数字はプレミアム感があり処理しやすい。10,000円は品質を、9,980円は価値を想起させる。
+
+**Amazonでの活かし方**: プレミアム・高級商品は「10,000円」「30,000円」と丸め価格で品質感を演出する。日用品・消耗品は端数価格で割安感を出す。商品の位置づけで使い分ける。
+
+### 100の法則（Rule of 100）
+100ドル（日本では10,000円）以下ではパーセント表示の割引が大きく見え、以上では絶対額表示の割引が大きく見える。
+
+**Amazonでの活かし方**: 1,980円の商品：「20%OFF」は「400円引き」より大きく見える。25,000円の商品：「5,000円OFF」は「20%OFF」より大きく見える。クーポンやセール表示で使い分ける。
+
+### 価格相対性 / 松竹梅（Good-Better-Best）
+人は提示された選択肢の中で相対的に価格を判断する。中間は安いと高いの間で合理的に見える。
+
+**Amazonでの活かし方**: 同一商品で「お試しサイズ（割高）」「通常サイズ（標準）」「大容量（お得）」の3段階を設ける。多くの顧客は中間の「通常サイズ」を選ぶ。高い選択肢が中間をリーズナブルに、安い選択肢がアンカーになる。
+
+### 心理的会計と価格表現（Mental Accounting in Pricing）
+同じ価格でも表現を変えると印象が変わる。
+
+**Amazonでの活かし方**: 「1回あたり約○円」「1日あたり○円で使える」と日割り・回数割り表示にする。「ペットボトル1本分」「ランチ1回分」と身近な支出に紐づける。Amazonポイント還元も「実質○○円」と表現することで割安感を高める。
+
+---
+
+## 商品ページ設計モデル
+
+効果的なAmazon商品ページ・画像を設計するためのモデル。
+
+### ヒックの法則（Hick's Law）
+選択肢の数と複雑さが増すほど意思決定に時間がかかる。選択肢が多い＝遅い判断＝離脱が増える。
+
+**Amazonでの活かし方**: 1枚のサブ画像に情報を詰め込みすぎない。1画像＝1メッセージ。箇条書きは1ポイント＝1ベネフィット。購入ボタン周辺の情報をシンプルに保つ。
+
+### AIDAファネル
+注意（Attention）→ 興味（Interest）→ 欲求（Desire）→ 行動（Action）。古典的な顧客旅程モデル。
+
+**Amazonでの活かし方**: メイン画像で注意を引き → サブ画像1〜2枚目で興味を掘り下げ → 画像3〜5枚目と箇条書きで欲求を高め → 価格・レビュー・配送情報で購入（行動）を促す。商品ページ全体をこのフローで設計する。
+
+### セブンの法則（Rule of 7）
+見込み客は平均7回のタッチポイントを経て購買に至る。1回の広告だけでは売れにくい。
+
+**Amazonでの活かし方**: スポンサープロダクト広告（検索結果）+ スポンサーブランド広告（ブランド認知）+ スポンサーディスプレイ広告（リターゲティング）+ DSP（外部リーチ）の複合的な接触戦略を構築する。
+
+### ナッジ理論 / 選択アーキテクチャ（Nudge Theory）
+選択肢の提示方法を少し変えるだけで、意思決定に大きな影響を与える。
+
+**Amazonでの活かし方**: バリエーション選択画面での「人気No.1」ラベル、「よく一緒に購入されている商品」の提案、定期おトク便の割引率表示。選択を制限せずに望ましい行動を誘導する。
+
+### BJフォッグ行動モデル（BJ Fogg Behavior Model）
+行動 ＝ 動機（Motivation）× 能力（Ability）× きっかけ（Prompt）。3つすべてが揃わないと行動は起きない。
+
+**Amazonでの活かし方**: 動機（商品が欲しい）が高くても購入手続きが面倒（能力不足）なら買わない。Amazonはワンクリック購入でこれを解決。出品者は商品ページで動機を高め（画像・箇条書き）、不安を取り除き（レビュー・保証）、きっかけを与える（クーポン・タイムセール）。
+
+### EASTフレームワーク
+望ましい行動を：Easy（簡単に）、Attractive（魅力的に）、Social（社会的に）、Timely（適切なタイミングで）。
+
+**Amazonでの活かし方**: 簡単に（明確な商品情報、Prime配送）、魅力的に（高品質な画像、目を引くパッケージ）、社会的に（レビュー数、ランキングバッジ）、適切なタイミングで（季節商品の先行販売、ギフトシーズンの訴求）。
+
+### COM-Bモデル
+行動には：Capability（能力）、Opportunity（機会）、Motivation（動機）が必要。
+
+**Amazonでの活かし方**: 顧客はそれができるか（使い方が分かる画像・説明）？ 機会はあるか（在庫あり・即日配送）？ 動機はあるか（解決したい悩みがある）？ すべてを満たすページ設計にする。
+
+### 活性化エネルギー（Activation Energy）
+何かを始めるのに必要な初期エネルギー。全体は簡単でも、最初のステップが重いと行動を起こさない。
+
+**Amazonでの活かし方**: 「使い始め」のハードルを下げる。「届いてすぐ使える」「工具不要」「電池付属」「セットアップ不要」で最初の一歩を極限まで簡単にする。画像で使用開始の簡単さを見せる。
+
+### ノーススターメトリック（North Star Metric）
+顧客に提供する価値を最も的確に捉えた1つの指標。集中がアラインメントを生む。
+
+**Amazonでの活かし方**: Amazon販売のノーススターはユニットセッション率（CVR）。セッション数（トラフィック）× CVR（転換率）＝ 売上。CVR改善はすべての施策（画像・テキスト・価格・レビュー）の成果指標になる。
+
+### コブラ効果（The Cobra Effect）
+インセンティブが裏目に出て意図と逆の結果を生む。
+
+**Amazonでの活かし方**: 過度な値下げが「安かろう悪かろう」のイメージにつながる。レビュー依頼のしつこさが逆にネガティブレビューを招く。おまけ戦略がおまけ目当ての非リピーターを集めるなど。インセンティブ設計は事前にテストする。
+
+---
+
+## 成長・スケーリングモデル
+
+Amazon販売がどのようにスケールし複利的に成長するかを説明するモデル。
+
+### フィードバックループ
+アウトプットがインプットになりサイクルを作る。正のループは成長を加速し、負のループは衰退を生む。
+
+**Amazonでの活かし方**: 売上増加 → ランキング上昇 → 露出増加 → さらなる売上増加という正のフライホイールを回す。逆に、在庫切れ → ランキング低下 → 露出減少 → 売上減少という負のループに注意。
+
+### 複利効果（Compounding）
+小さく一貫した改善が時間とともに大きな成果に蓄積する。早期の改善ほど価値がある。
+
+**Amazonでの活かし方**: レビューの蓄積、ブランド認知の構築、SEOランキングの向上は複利的に効果を発揮する。1件のレビューが2件目を呼び、10件が100件の土台になる。早く始めることが最大の優位性。
+
+### ネットワーク効果（Network Effects）
+利用者が増えるほど商品・サービスの価値が高まる。
+
+**Amazonでの活かし方**: レビューが多い商品 → 信頼度が上がる → 購入者が増える → レビューがさらに増える。ブランドストア内の商品ラインナップが充実するほど、クロスセルの機会が増え1顧客あたりの購入額が上がる。
+
+### フライホイール効果（Flywheel Effect）
+持続的な努力が自走する勢い（モメンタム）を生む。始めるのは大変だが維持は容易。
+
+**Amazonでの活かし方**: 商品品質向上 → 良いレビュー → ランキング上昇 → 売上増加 → 在庫安定供給 → さらなる品質向上。各要素が次の要素の燃料になる。最初の回転が最も力を要する。
+
+### スイッチングコスト（Switching Costs）
+競合に乗り換えるコスト（時間・お金・労力・データ）。高いスイッチングコストは顧客を維持する。
+
+**Amazonでの活かし方**: 定期おトク便の登録、ブランドへの信頼、使い慣れた消耗品の買い替え。互換性のある消耗品（フィルター・カートリッジなど）で囲い込む。セット使いを提案し、他ブランドへの乗り換えコストを高める。
+
+### 探索 vs. 活用（Exploration vs. Exploitation）
+新しいことを試す（探索）と、うまくいっていることを最適化する（活用）のバランス。
+
+**Amazonでの活かし方**: 売れ筋商品の広告最適化（活用）に注力しつつも、新商品テスト・新キーワードテスト・新画像テスト（探索）を一定割合で行う。全リソースを現状維持に使わない。
+
+### クリティカルマス / ティッピングポイント
+成長が自走するようになる閾値。
+
+**Amazonでの活かし方**: レビュー数の閾値（カテゴリーにもよるが、概ね20〜50件を超えると信頼感が一段上がる）、広告費の損益分岐点、ランキング上位の自走ライン。まず1つのセグメント・1つのASINで閾値を超えることに集中する。
+
+### 生存者バイアス（Survivorship Bias）
+目に見える成功事例にのみ注目し、見えない失敗を無視する。
+
+**Amazonでの活かし方**: 「○○で月商1000万円」の成功談の裏には無数の失敗がある。成功事例だけを模倣するのではなく、撤退した商品・失敗した施策からこそ学ぶ。自社の失敗データを分析・記録する。
+
+---
+
+## クイックリファレンス
+
+Amazon販売の課題に直面した時に、適用すべきメンタルモデルを素早く見つけるための対照表。
+
+| Amazon販売の課題 | 関連するメンタルモデル |
+|---|---|
+| CVR（転換率）が低い | ヒックの法則、活性化エネルギー、BJフォッグ、フレーミング効果、損失回避 |
+| 価格への不満・値引き要求 | アンカリング、フレーミング、心理的会計、損失回避、100の法則 |
+| 信頼感が足りない | 権威バイアス、ソーシャルプルーフ、返報性、プラットフォール効果 |
+| 緊急性を高めたい | 希少性、損失回避、ツァイガルニク効果、双曲割引 |
+| リピート率・定期おトク便が低い | 保有効果、スイッチングコスト、現状維持バイアス、コミットメントと一貫性 |
+| 売上が伸び悩んでいる | 制約理論、局所vs全体最適、複利効果、フライホイール |
+| バリエーション選択での離脱 | 選択のパラドックス、デフォルト効果、ナッジ理論 |
+| 新商品ローンチが不発 | クリティカルマス、セブンの法則、ジョブ理論、バーベル戦略 |
+| 広告のACoSが高い | パレートの法則、機会費用、収穫逓減の法則、二次的思考 |
+| メイン画像のクリック率が低い | AIDA、コントラスト効果、単純接触効果、利用可能性ヒューリスティック |
+| レビューが増えない | 返報性、ピーク・エンドの法則、フット・イン・ザ・ドア |
+| 競合との差別化ができない | 第一原理思考、能力の輪、反転思考、統一性の原理 |
+
+---
+
+## タスク別ガイド質問
+
+1. 具体的にどの購買行動に影響を与えたいか？（検索クリック、カート投入、購入完了、リピート）
+2. ターゲット顧客は商品ページに来る前に何を信じている・期待しているか？
+3. 購買旅程のどの段階か？（認知 → 検討 → 決定 → リピート）
+4. 現在、望ましい行動を妨げている最大の要因は何か？
+5. 仮説を実際のデータ（セッション数、CVR、ACoS、レビュー内容）で検証したか？
+
+---
+
+## 関連スキル
+
+- **amazon-creative**: 購買心理を活かした商品画像・A+コンテンツの設計
+- **amazon-copywriting**: 心理学原則に基づいた商品タイトル・箇条書きの作成
+- **amazon-copy-editing**: 既存リスティングの心理学的観点からの改善

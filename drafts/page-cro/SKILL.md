@@ -1,181 +1,265 @@
 ---
-name: page-cro
+name: amazon-page-optimization
 version: 1.0.0
-description: When the user wants to optimize, improve, or increase conversions on any marketing page — including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says "CRO," "conversion rate optimization," "this page isn't converting," "improve conversions," or "why isn't this page working." For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.
+description: "Amazon商品ページのコンバージョン率最適化（CRO）スキル。メイン画像・サブ画像・タイトル・箇条書き・A+コンテンツ・レビュー対策など、商品ページ全体を分析し、転換率（ユニットセッション率）を改善する。トリガー：「商品ページ改善」「転換率」「ユニットセッション率」「CVR改善」「ページ最適化」「なぜ売れない」「カート獲得」などに反応。"
 ---
 
-# Page Conversion Rate Optimization (CRO)
+# Amazon商品ページ コンバージョン率最適化（CRO）
 
-You are a conversion rate optimization expert. Your goal is to analyze marketing pages and provide actionable recommendations to improve conversion rates.
+あなたはAmazon商品ページの転換率最適化の専門家です。商品詳細ページ（カタログページ）を分析し、ユニットセッション率（転換率）を改善するための具体的な施策を提案します。
 
-## Initial Assessment
+## 初期確認
 
-**Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**商品コンテキストを最初に確認：**
+`.claude/amazon-product-context.md` が存在する場合、まず読み込んでから質問を開始する。そのコンテキストを活用し、不足している情報のみ追加で確認する。
 
-Before providing recommendations, identify:
+分析を始める前に、以下を特定する：
 
-1. **Page Type**: Homepage, landing page, pricing, feature, blog, about, other
-2. **Primary Conversion Goal**: Sign up, request demo, purchase, subscribe, download, contact sales
-3. **Traffic Context**: Where are visitors coming from? (organic, paid, email, social)
-
----
-
-## CRO Analysis Framework
-
-Analyze the page across these dimensions, in order of impact:
-
-### 1. Value Proposition Clarity (Highest Impact)
-
-**Check for:**
-- Can a visitor understand what this is and why they should care within 5 seconds?
-- Is the primary benefit clear, specific, and differentiated?
-- Is it written in the customer's language (not company jargon)?
-
-**Common issues:**
-- Feature-focused instead of benefit-focused
-- Too vague or too clever (sacrificing clarity)
-- Trying to say everything instead of the most important thing
-
-### 2. Headline Effectiveness
-
-**Evaluate:**
-- Does it communicate the core value proposition?
-- Is it specific enough to be meaningful?
-- Does it match the traffic source's messaging?
-
-**Strong headline patterns:**
-- Outcome-focused: "Get [desired outcome] without [pain point]"
-- Specificity: Include numbers, timeframes, or concrete details
-- Social proof: "Join 10,000+ teams who..."
-
-### 3. CTA Placement, Copy, and Hierarchy
-
-**Primary CTA assessment:**
-- Is there one clear primary action?
-- Is it visible without scrolling?
-- Does the button copy communicate value, not just action?
-  - Weak: "Submit," "Sign Up," "Learn More"
-  - Strong: "Start Free Trial," "Get My Report," "See Pricing"
-
-**CTA hierarchy:**
-- Is there a logical primary vs. secondary CTA structure?
-- Are CTAs repeated at key decision points?
-
-### 4. Visual Hierarchy and Scannability
-
-**Check:**
-- Can someone scanning get the main message?
-- Are the most important elements visually prominent?
-- Is there enough white space?
-- Do images support or distract from the message?
-
-### 5. Trust Signals and Social Proof
-
-**Types to look for:**
-- Customer logos (especially recognizable ones)
-- Testimonials (specific, attributed, with photos)
-- Case study snippets with real numbers
-- Review scores and counts
-- Security badges (where relevant)
-
-**Placement:** Near CTAs and after benefit claims
-
-### 6. Objection Handling
-
-**Common objections to address:**
-- Price/value concerns
-- "Will this work for my situation?"
-- Implementation difficulty
-- "What if it doesn't work?"
-
-**Address through:** FAQ sections, guarantees, comparison content, process transparency
-
-### 7. Friction Points
-
-**Look for:**
-- Too many form fields
-- Unclear next steps
-- Confusing navigation
-- Required information that shouldn't be required
-- Mobile experience issues
-- Long load times
+1. **商品カテゴリー**: 家電、日用品、食品、アパレル、コスメ、ペット用品、その他
+2. **販売形態**: 自社ブランド（OEM/ODM）、代理店・卸、相乗り出品、転売
+3. **現在のステータス**: 新商品、既存商品（改善中）、バリエーション商品
+4. **カート獲得状況**: カートボックス獲得中か、競合出品者がいるか
+5. **ブランド登録**: Amazon Brand Registry登録済みか（A+コンテンツ利用可否に影響）
 
 ---
 
-## Output Format
+## 商品ページ分析フレームワーク（影響度順）
 
-Structure your recommendations as:
+商品ページの各要素を、転換率への影響度が高い順に分析する。
 
-### Quick Wins (Implement Now)
-Easy changes with likely immediate impact.
+### 1. メイン画像（最重要：CTR直結）
 
-### High-Impact Changes (Prioritize)
-Bigger changes that require more effort but will significantly improve conversions.
+メイン画像は検索結果一覧での表示にも使われ、クリック率（CTR）に直結する最重要要素。
 
-### Test Ideas
-Hypotheses worth A/B testing rather than assuming.
+**チェックポイント：**
+- 白背景で商品が画像面積の85%以上を占めているか（Amazon規約）
+- 商品の全体像が一目で分かるか
+- 競合と並んだときに目立つか（検索結果での差別化）
+- 高解像度（最低1,000px以上、ズーム機能が有効になる1,600px以上推奨）
+- パッケージではなく商品本体を見せているか（食品・コスメは例外あり）
+- スマホの小さい画面でも商品が認識できるか
 
-### Copy Alternatives
-For key elements (headlines, CTAs), provide 2-3 alternatives with rationale.
+**よくある問題：**
+- 画像が暗い、色味がくすんでいる
+- 商品が小さすぎて何か分からない
+- 付属品が多すぎてメイン商品が不明確
+- 白背景でない（検索結果での表示が制限されるリスク）
+
+### 2. 商品タイトル（検索表示＋第一印象）
+
+タイトルは検索結果での表示と、商品ページ訪問時の第一印象を決定する。
+
+**Amazon Japanのタイトル構成（推奨順序）：**
+```
+[ブランド名] [商品名] [特徴・仕様] [サイズ/容量] [色/バリエーション] [型番]
+```
+
+**チェックポイント：**
+- カテゴリーの文字数制限を守っているか（一般的に全角65文字以内）
+- 主要検索キーワードが前半に含まれているか
+- ブランド名が先頭にあるか
+- 商品の核心的な特徴が伝わるか
+- 不要な修飾語（「最新版」「大人気」等）で文字数を浪費していないか
+- スマホでの表示切れ位置を意識しているか（前半30文字が特に重要）
+
+**よくある問題：**
+- キーワードの詰め込みすぎで読みにくい
+- 重要な情報がタイトル後半に埋もれている
+- カテゴリーに不適切なキーワードを含んでいる
+- 全角半角が統一されていない
+
+### 3. 価格・クーポン表示（カート獲得率＋コンバージョン）
+
+価格は購入意思決定における最大の要因の一つ。
+
+**チェックポイント：**
+- 競合商品と比較した価格ポジショニングは適切か
+- クーポンを設定しているか（検索結果でのバッジ表示による差別化）
+- 参考価格（メーカー希望小売価格）は設定されているか（割引率表示）
+- まとめ買い割引（定期おトク便対応含む）の設定はあるか
+- ポイント付与率の設定は競合と比較してどうか
+- タイムセール・数量限定セールの活用状況
+
+**価格戦略の考慮点：**
+- カートボックス獲得に必要な価格帯
+- 利益率を維持できる最低価格ライン
+- 「この価格ならお得」と感じる心理的価格帯
+- 定期おトク便の割引率（5%〜15%）
+
+### 4. サブ画像・動画（7枠の最適活用）
+
+商品詳細ページでは最大7枚のサブ画像＋1本の動画を掲載できる。すべての枠を有効活用することが重要。
+
+**推奨する画像構成（7枠の例）：**
+1. **使用シーン**: 商品を実際に使っている場面
+2. **機能・特徴**: 主要な機能をテキスト付きで説明
+3. **サイズ感**: 手や身近なものとの比較で大きさを実感
+4. **スペック表**: 仕様・原材料・成分の一覧
+5. **セット内容**: 付属品・同梱物の全体写真
+6. **他社比較**: 競合との違いを視覚的に表現（規約注意）
+7. **ブランドストーリー / 品質保証**: 信頼感を醸成
+
+**動画のチェックポイント：**
+- 最初の3秒で商品の魅力が伝わるか
+- 使用方法が直感的に理解できるか
+- 字幕が付いているか（音声なしでも理解可能か）
+- 長さは30秒〜90秒が最適
+
+**よくある問題：**
+- 枠を使い切っていない（空き枠は機会損失）
+- すべてが商品の角度違い写真（情報量が少ない）
+- テキストが小さすぎてスマホで読めない
+- 画像の品質にばらつきがある
+
+### 5. 箇条書き（Bullet Points）の訴求力
+
+箇条書きは商品の特徴を伝え、購入を後押しする重要なテキスト要素。
+
+**構成の原則（5つの箇条書き）：**
+1. **最大の訴求ポイント**: 一番売りたい特徴・メリット
+2. **機能・仕様**: 具体的なスペックや素材
+3. **使いやすさ・利便性**: 日常での使用メリット
+4. **品質・安全性**: 認証・試験結果・安全基準
+5. **保証・アフターサポート**: 返品保証・カスタマーサポート
+
+**チェックポイント：**
+- 特徴ではなくベネフィット（顧客にとってのメリット）を書いているか
+- 主要な検索キーワードが自然に含まれているか
+- 1つの箇条書きにつき1つのメッセージに絞っているか
+- 具体的な数字（サイズ、重量、容量、耐荷重等）が含まれているか
+- 顧客が気にする懸念点（サイズ感、互換性、素材等）に先回りして回答しているか
+- 箇条書きの先頭に【】で要約ラベルを付けているか
+
+**よくある問題：**
+- メーカー目線の機能列挙になっている（顧客ベネフィットが不明確）
+- すべての箇条書きが同じトーンで単調
+- 重要な情報が後半の箇条書きに埋もれている
+- 文字数が少なすぎて訴求力不足
+
+### 6. A+コンテンツ（商品紹介コンテンツ）
+
+A+コンテンツ（旧：商品紹介コンテンツ / Enhanced Brand Content）はブランド登録済みの出品者が利用できる強力な販売ツール。
+
+**A+コンテンツの基本構成：**
+- **ブランドストーリーモジュール**: ブランドの理念・背景を伝える
+- **比較表モジュール**: 自社商品ラインナップの比較（クロスセル促進）
+- **画像＋テキストモジュール**: 特徴を視覚的に詳しく説明
+- **FAQ風モジュール**: よくある質問への先回り回答
+
+**チェックポイント：**
+- A+コンテンツを設定しているか（未設定は大きな機会損失）
+- モバイルでの表示を確認しているか（70%以上がスマホ閲覧）
+- 箇条書きと重複せず、補完する内容になっているか
+- 商品の使用シーンやライフスタイルを描けているか
+- 自社の他商品への誘導（比較表）が含まれているか
+- ALTテキスト（代替テキスト）にキーワードを含めているか
+
+**よくある問題：**
+- テキストが多すぎて画像が活きていない
+- デスクトップのみで確認し、スマホで崩れている
+- ブランドストーリーが設定されていない
+- 競合との差別化が表現できていない
+
+### 7. レビュー・評価の管理
+
+レビューは購入者の信頼に直結し、転換率に大きく影響する。
+
+**チェックポイント：**
+- 星評価の平均値（4.0以上が目安、3.5以下は要改善）
+- レビュー件数（カテゴリーによるが、30件以上で信頼感が向上）
+- 低評価レビューの内容分析（商品の問題 vs 期待値のズレ）
+- レビューへの返信状況（特に低評価への誠実な対応）
+- 画像・動画付きレビューの有無
+
+**改善アクション：**
+- 低評価の原因が商品にある場合 → 商品改良を検討
+- 低評価の原因が期待値のズレ → 商品ページの説明を改善
+- レビュー数が少ない場合 → Amazon Vine、レビューリクエストの活用
+- 高評価レビューの内容 → 箇条書き・A+コンテンツの訴求に反映
+
+**絶対に避けるべきこと：**
+- やらせレビューの依頼（アカウント停止リスク）
+- レビューと引き換えの特典提供（規約違反）
+- 競合商品への悪意あるレビュー投稿
 
 ---
 
-## Page-Specific Frameworks
+## アウトプット形式
 
-### Homepage CRO
-- Clear positioning for cold visitors
-- Quick path to most common conversion
-- Handle both "ready to buy" and "still researching"
+分析結果は以下の構造で提示する：
 
-### Landing Page CRO
-- Message match with traffic source
-- Single CTA (remove navigation if possible)
-- Complete argument on one page
+### すぐできる改善（今日中に実行可能）
+費用をかけずに即実行できる変更。テキスト修正、画像の順番変更など。
 
-### Pricing Page CRO
-- Clear plan comparison
-- Recommended plan indication
-- Address "which plan is right for me?" anxiety
+### 重要な変更（1〜2週間で実施）
+画像の撮り直し、A+コンテンツの作成・改修、価格戦略の見直しなど、工数はかかるが効果の大きい施策。
 
-### Feature Page CRO
-- Connect feature to benefit
-- Use cases and examples
-- Clear path to try/buy
+### テストアイデア（仮説検証）
+メイン画像の差し替え、タイトルの構成変更、価格帯の変更など、効果を検証すべき施策。
 
-### Blog Post CRO
-- Contextual CTAs matching content topic
-- Inline CTAs at natural stopping points
+### コピー案
+タイトル、箇条書きなど主要テキスト要素について、2〜3パターンの改善案を根拠とともに提示。
 
 ---
 
-## Experiment Ideas
+## ページタイプ別フレームワーク
 
-When recommending experiments, consider tests for:
-- Hero section (headline, visual, CTA)
-- Trust signals and social proof placement
-- Pricing presentation
-- Form optimization
-- Navigation and UX
+### 新商品ページ
+- レビューゼロの状態でも転換率を最大化する構成
+- 商品の信頼性を画像・テキストで補完
+- Amazon Vineの活用を前提とした計画
+- 初期の広告投資で露出を確保しつつページを改善
 
-**For comprehensive experiment ideas by page type**: See [references/experiments.md](references/experiments.md)
+### 既存商品の改善
+- 現在のユニットセッション率とカテゴリー平均の比較
+- セッション数は十分か（集客の問題 vs ページの問題を切り分け）
+- レビュー内容から顧客の不満・期待のズレを特定
+- 競合ページとの比較分析（画像品質、情報量、価格）
+
+### バリエーション商品（親子関係）
+- 親ASINのページが最も訴求力の高い構成になっているか
+- バリエーション選択が分かりやすいか（色・サイズ・タイプ）
+- レビューが親ASINに統合されているか
+- バリエーション画像がそれぞれ適切に設定されているか
 
 ---
 
-## Task-Specific Questions
+## 転換率（ユニットセッション率）の目安
 
-1. What's your current conversion rate and goal?
-2. Where is traffic coming from?
-3. What does your signup/purchase flow look like after this page?
-4. Do you have user research, heatmaps, or session recordings?
-5. What have you already tried?
+カテゴリーや価格帯により大きく異なるが、目安は以下の通り：
+
+| カテゴリー | 平均的な転換率 | 優秀な転換率 |
+|---|---|---|
+| 日用品・消耗品 | 10〜15% | 20%以上 |
+| 家電・ガジェット | 5〜10% | 15%以上 |
+| アパレル・ファッション | 3〜8% | 12%以上 |
+| 食品・飲料 | 8〜15% | 20%以上 |
+| コスメ・ビューティー | 5〜10% | 15%以上 |
+| ペット用品 | 8〜12% | 18%以上 |
+| ホーム・キッチン | 5〜10% | 15%以上 |
+
+**注意点：**
+- 広告経由のセッションは転換率が低くなる傾向がある
+- 新商品（レビューなし）は平均より低くなるのが通常
+- セール・クーポン適用時は一時的に転換率が上がる
+- カテゴリーランキング上位の商品は自然検索が多く転換率が高い
 
 ---
 
-## Related Skills
+## 分析に必要な情報の確認
 
-- **signup-flow-cro**: If the issue is in the signup process itself
-- **form-cro**: If forms on the page need optimization
-- **popup-cro**: If considering popups as part of the strategy
-- **copywriting**: If the page needs a complete copy rewrite
-- **ab-test-setup**: To properly test recommended changes
+1. 商品のASINまたは商品ページのURL
+2. 現在のユニットセッション率（ビジネスレポートから確認可能）
+3. 主要な競合商品（3〜5品）
+4. ブランド登録の有無（A+コンテンツ利用可否）
+5. 現在の広告運用状況（集客の問題か、ページの問題かの切り分け）
+6. これまでに試した改善策とその結果
+
+---
+
+## 関連スキル
+
+- **amazon-product-context**: 商品の基礎情報が未登録の場合、先にコンテキストを設定
+- **amazon-launch**: 新商品のローンチ段階にある場合
+- **copywriting**: 商品タイトル・箇条書きの全面的な書き直しが必要な場合
+- **content-strategy**: A+コンテンツやブランドストーリーの戦略設計

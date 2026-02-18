@@ -1,240 +1,306 @@
 ---
-name: product-marketing-context
+name: amazon-product-context
 version: 1.0.0
-description: "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' or wants to avoid repeating foundational information across marketing tasks. Creates `.claude/product-marketing-context.md` that other marketing skills reference."
+description: "Amazon販売商品のマーケティングコンテキストを一元管理するスキル。商品情報・ターゲット顧客・競合・差別化ポイントなどの基礎情報を `.claude/amazon-product-context.md` に保存し、他のAmazonスキルが自動参照する。トリガー：「商品コンテキスト」「商品情報登録」「ポジショニング」「コンテキスト設定」「商品プロファイル」などに反応。"
 ---
 
-# Product Marketing Context
+# Amazon商品マーケティングコンテキスト
 
-You help users create and maintain a product marketing context document. This captures foundational positioning and messaging information that other marketing skills reference, so users don't repeat themselves.
+ユーザーがAmazonで販売する商品のマーケティング基礎情報を作成・管理する。この情報は `.claude/amazon-product-context.md` に保存され、他のAmazon関連スキル（amazon-page-optimization、amazon-launch等）が自動的に参照する。
 
-The document is stored at `.claude/product-marketing-context.md`.
+ドキュメントの保存先：`.claude/amazon-product-context.md`
 
-## Workflow
+## ワークフロー
 
-### Step 1: Check for Existing Context
+### ステップ1：既存コンテキストの確認
 
-First, check if `.claude/product-marketing-context.md` already exists.
+まず `.claude/amazon-product-context.md` が存在するか確認する。
 
-**If it exists:**
-- Read it and summarize what's captured
-- Ask which sections they want to update
-- Only gather info for those sections
+**存在する場合：**
+- 読み込んで、登録済みの内容を要約して表示
+- どのセクションを更新・追加したいか確認
+- 該当セクションのみ情報収集を行う
+- 複数商品が登録されている場合、対象商品を特定する
 
-**If it doesn't exist, offer two options:**
+**存在しない場合、2つの方法を提案：**
 
-1. **Auto-draft from codebase** (recommended): You'll study the repo—README, landing pages, marketing copy, package.json, etc.—and draft a V1 of the context document. The user then reviews, corrects, and fills gaps. This is faster than starting from scratch.
+1. **ASINから自動下書き（推奨）**: ASINまたは商品URLを教えてもらい、現在の商品ページの情報をもとにV1を下書きする。ユーザーが確認・修正・補完してから保存する。既に出品済みの商品に最適。
 
-2. **Start from scratch**: Walk through each section conversationally, gathering info one section at a time.
+2. **ゼロから作成**: 各セクションを順番にヒアリングして情報を収集する。まだ出品前の新商品に適している。
 
-Most users prefer option 1. After presenting the draft, ask: "What needs correcting? What's missing?"
+ほとんどの場合、方法1が効率的。下書きを提示した後に「修正が必要な箇所はありますか？足りない情報はありますか？」と確認する。
 
-### Step 2: Gather Information
+### ステップ2：情報収集
 
-**If auto-drafting:**
-1. Read the codebase: README, landing pages, marketing copy, about pages, meta descriptions, package.json, any existing docs
-2. Draft all sections based on what you find
-3. Present the draft and ask what needs correcting or is missing
-4. Iterate until the user is satisfied
+**ASINから自動下書きの場合：**
+1. ユーザーからASINまたは商品URLを取得
+2. 商品ページの情報（タイトル、箇条書き、A+コンテンツ、レビュー等）をもとに各セクションを下書き
+3. 下書きを提示し、修正・追加が必要な箇所を確認
+4. ユーザーが満足するまで修正を繰り返す
 
-**If starting from scratch:**
-Walk through each section below conversationally, one at a time. Don't dump all questions at once.
+**ゼロから作成の場合：**
+各セクションを順番にヒアリングする。すべての質問を一度に投げかけず、セクションごとに進行する。
 
-For each section:
-1. Briefly explain what you're capturing
-2. Ask relevant questions
-3. Confirm accuracy
-4. Move to the next
+各セクションで：
+1. 何の情報を集めるか簡潔に説明
+2. 関連する質問をする
+3. 回答の正確性を確認
+4. 次のセクションへ進む
 
-**Important:** Push for verbatim customer language. Exact phrases are more valuable than polished descriptions.
-
----
-
-## Sections to Capture
-
-### 1. Product Overview
-- One-line description
-- What it does (2-3 sentences)
-- Product category (what "shelf" you sit on—how customers search for you)
-- Product type (SaaS, marketplace, e-commerce, service, etc.)
-- Business model and pricing
-
-### 2. Target Audience
-- Target company type (industry, size, stage)
-- Target decision-makers (roles, departments)
-- Primary use case (the main problem you solve)
-- Jobs to be done (2-3 things customers "hire" you for)
-- Specific use cases or scenarios
-
-### 3. Personas (B2B only)
-If multiple stakeholders are involved in buying, capture for each:
-- User, Champion, Decision Maker, Financial Buyer, Technical Influencer
-- What each cares about, their challenge, and the value you promise them
-
-### 4. Problems & Pain Points
-- Core challenge customers face before finding you
-- Why current solutions fall short
-- What it costs them (time, money, opportunities)
-- Emotional tension (stress, fear, doubt)
-
-### 5. Competitive Landscape
-- **Direct competitors**: Same solution, same problem (e.g., Calendly vs SavvyCal)
-- **Secondary competitors**: Different solution, same problem (e.g., Calendly vs Superhuman scheduling)
-- **Indirect competitors**: Conflicting approach (e.g., Calendly vs personal assistant)
-- How each falls short for customers
-
-### 6. Differentiation
-- Key differentiators (capabilities alternatives lack)
-- How you solve it differently
-- Why that's better (benefits)
-- Why customers choose you over alternatives
-
-### 7. Objections & Anti-Personas
-- Top 3 objections heard in sales and how to address them
-- Who is NOT a good fit (anti-persona)
-
-### 8. Switching Dynamics
-The JTBD Four Forces:
-- **Push**: What frustrations drive them away from current solution
-- **Pull**: What attracts them to you
-- **Habit**: What keeps them stuck with current approach
-- **Anxiety**: What worries them about switching
-
-### 9. Customer Language
-- How customers describe the problem (verbatim)
-- How they describe your solution (verbatim)
-- Words/phrases to use
-- Words/phrases to avoid
-- Glossary of product-specific terms
-
-### 10. Brand Voice
-- Tone (professional, casual, playful, etc.)
-- Communication style (direct, conversational, technical)
-- Brand personality (3-5 adjectives)
-
-### 11. Proof Points
-- Key metrics or results to cite
-- Notable customers/logos
-- Testimonial snippets
-- Main value themes and supporting evidence
-
-### 12. Goals
-- Primary business goal
-- Key conversion action (what you want people to do)
-- Current metrics (if known)
+**重要：** 顧客の生の声（レビューで実際に使われている表現）をそのまま記録することを重視する。きれいに整えた表現よりも、実際の言葉のほうがマーケティングに有効。
 
 ---
 
-## Step 3: Create the Document
+## 収集するセクション
 
-After gathering information, create `.claude/product-marketing-context.md` with this structure:
+### 1. 商品概要
+- **商品名**: 正式な商品名
+- **ASIN**: Amazon標準識別番号
+- **JANコード / EANコード**: バーコード番号
+- **カテゴリー**: Amazon上のカテゴリー（ブラウズノード）
+- **サブカテゴリー**: より詳細な分類
+- **販売形態**: 自社ブランド（OEM/ODM）/ 代理店 / 卸 / その他
+- **仕入先**: メーカー名、産地
+- **販売価格帯**: 通常価格、セール価格
+- **原価・利益率**: 仕入原価、FBA手数料込みの利益率
+- **バリエーション**: 色、サイズ、セット数などの展開
+
+### 2. ターゲット顧客
+- **誰が買うか**: 年齢層、性別、ライフスタイル
+- **購入シーン**: 自分用 / ギフト / 業務用
+- **使用シーン**: いつ、どこで、どのように使うか
+- **ペルソナ例**: 典型的な購入者のプロフィール
+  - 例：「30代の共働き主婦、時短家事に関心が高く、Amazonプライム会員」
+- **購入頻度**: 一度きり / リピート購入 / 消耗品として定期購入
+
+### 3. 顧客の悩み・ニーズ
+- **購入前の課題**: どんな問題を抱えて商品を探しているか
+- **既存商品への不満**: 競合商品のレビューで見られる不満点
+- **理想の状態**: 商品を使った後にどうなりたいか
+- **購入の障壁**: 何が購入を躊躇させるか（価格、品質不安、サイズ不明等）
+- **検索時のキーワード**: 顧客がどんな言葉で商品を探すか
+
+### 4. 競合環境
+- **直接競合**: 同じ商品カテゴリーで同価格帯の商品（ASIN、商品名、価格、レビュー数、星評価）
+  - 例：「ASIN: B0XXXXXXX - 〇〇ブランド △△ - ¥2,980 - 星4.3 (1,200件)」
+- **間接競合**: 同じ課題を別の方法で解決する商品
+  - 例：「電動ブラシの競合として手動高級ブラシ」
+- **価格帯分布**: カテゴリー内の価格帯マッピング
+  - 低価格帯：¥〜¥
+  - 中価格帯：¥〜¥（当社のポジション）
+  - 高価格帯：¥〜¥
+- **競合の強み**: 競合が勝っている点（レビュー数、ブランド認知、価格等）
+- **競合の弱み**: 競合のレビューで見られる不満（当社が差別化できるポイント）
+
+### 5. 差別化ポイント
+- **機能面の違い**: 競合にない機能・仕様
+- **品質面の違い**: 素材、製造方法、耐久性
+- **付属品・同梱物**: 競合より充実している点
+- **ブランド力**: ブランドの認知度、信頼性、歴史
+- **保証・サポート**: 返品保証、保証期間、日本語サポート
+- **価格競争力**: 同品質で安い、または同価格で高品質
+- **一言で言う差別化**: 「〇〇なのに△△」のような端的な表現
+
+### 6. よくある質問・懸念
+- **サイズ・寸法**: 「思ったより大きい/小さい」の懸念
+- **素材・成分**: アレルギー、安全性、環境配慮
+- **耐久性**: 「すぐ壊れないか」の懸念
+- **互換性**: 他の製品との適合性（家電アクセサリー等）
+- **使い方**: 「自分に使えるか」の不安
+- **返品・交換**: 万が一合わなかった場合のポリシー
+- **配送**: FBA対応、配送日数、ギフトラッピング
+
+### 7. 顧客の声（レビューからの抜粋）
+- **高評価レビューの頻出表現**: 顧客が繰り返し使う肯定的な言葉
+  - 例：「思った以上にしっかりしている」「コスパ最高」
+- **低評価レビューの頻出表現**: 改善の糸口になる不満の言葉
+  - 例：「説明書が分かりにくい」「写真と色が違う」
+- **購入の決め手**: 「〇〇だから買いました」の理由
+- **他の人へのおすすめ表現**: 「〇〇な人にはおすすめ」のパターン
+- **顧客が重視する機能**: レビューで言及される機能の頻度
+
+### 8. ブランドボイス
+- **トーン**: 親しみやすい / 専門的 / 高級感 / カジュアル
+- **スタイル**: 丁寧語 / です・ます調 / 簡潔 / 詳細
+- **ブランドの人格**: ブランドを人に例えると（3〜5つの形容詞）
+  - 例：「信頼できる、優しい、実用的」
+- **禁止表現**: 使わない言葉やトーン
+  - 例：「最安値」「業界No.1」（根拠なし）、過度な煽り表現
+- **Amazon規約上の注意**: 「最高」「最安」「No.1」等の最上級表現は根拠が必要
+
+### 9. 証拠・エビデンス
+- **認証・規格**: PSE、食品衛生法、JIS規格、ISO認証等
+- **試験結果**: 耐久試験、安全性試験、成分分析
+- **受賞歴**: 業界賞、デザイン賞、楽天・Yahoo等の受賞
+- **メディア掲載**: テレビ、雑誌、ウェブメディアでの紹介
+- **販売実績**: 累計販売数、ランキング実績
+  - 例：「Amazon家電カテゴリー1位獲得（2025年10月）」
+- **専門家の推薦**: 医師監修、管理栄養士推薦等
+
+### 10. 画像・クリエイティブの方向性
+- **商品写真のスタイル**: ナチュラル / スタジオ / ライフスタイル
+- **色味・トーン**: 明るい / 落ち着いた / ポップ / シック
+- **モデル使用**: 使用する / しない / ハンドモデルのみ
+- **テキストオーバーレイ**: 多め（訴求重視）/ 少なめ（写真重視）
+- **参考にしている商品ページ**: 「この商品の画像が理想に近い」というASIN
+- **インフォグラフィックの方向性**: 図解多め / シンプル / データ重視
+
+### 11. KPI・目標
+- **目標月間販売数**: 月〇個
+- **目標売上**: 月〇円
+- **目標ユニットセッション率**: 〇%
+- **目標ACOS**: 〇%（広告費売上比率）
+- **目標TACOS**: 〇%（総広告費売上比率）
+- **目標カテゴリーランキング**: 〇位以内
+- **目標レビュー数**: 〇件以上
+- **目標星評価**: 星〇以上
+- **短期目標**（3ヶ月以内）:
+- **中期目標**（6ヶ月〜1年）:
+
+---
+
+## ステップ3：ドキュメント作成
+
+情報収集が完了したら、以下の構造で `.claude/amazon-product-context.md` を作成する：
 
 ```markdown
-# Product Marketing Context
+# Amazon商品マーケティングコンテキスト
 
-*Last updated: [date]*
+*最終更新: [日付]*
 
-## Product Overview
-**One-liner:**
-**What it does:**
-**Product category:**
-**Product type:**
-**Business model:**
+---
 
-## Target Audience
-**Target companies:**
-**Decision-makers:**
-**Primary use case:**
-**Jobs to be done:**
+## 商品概要
+**商品名:**
+**ASIN:**
+**JANコード:**
+**カテゴリー:**
+**サブカテゴリー:**
+**販売形態:**
+**仕入先:**
+**販売価格:** ¥
+**原価率:** %
+**バリエーション:**
 -
-**Use cases:**
+
+## ターゲット顧客
+**メインターゲット:**
+**購入シーン:**
+**使用シーン:**
+**ペルソナ:**
+>
+**購入頻度:**
+
+## 顧客の悩み・ニーズ
+**購入前の課題:**
+-
+**既存商品への不満:**
+-
+**理想の状態:**
+**購入の障壁:**
+-
+**検索キーワード:**
 -
 
-## Personas
-| Persona | Cares about | Challenge | Value we promise |
-|---------|-------------|-----------|------------------|
-| | | | |
+## 競合環境
+### 直接競合
+| ASIN | 商品名 | 価格 | レビュー数 | 星評価 | 強み | 弱み |
+|------|--------|------|-----------|--------|------|------|
+| | | ¥ | | | | |
 
-## Problems & Pain Points
-**Core problem:**
-**Why alternatives fall short:**
+### 間接競合
 -
-**What it costs them:**
-**Emotional tension:**
 
-## Competitive Landscape
-**Direct:** [Competitor] — falls short because...
-**Secondary:** [Approach] — falls short because...
-**Indirect:** [Alternative] — falls short because...
+### 価格帯分布
+- 低価格帯: ¥〜¥
+- 中価格帯: ¥〜¥ ← 当社
+- 高価格帯: ¥〜¥
 
-## Differentiation
-**Key differentiators:**
+## 差別化ポイント
+**機能:**
 -
-**How we do it differently:**
-**Why that's better:**
-**Why customers choose us:**
+**品質:**
+-
+**付属品:**
+-
+**保証・サポート:**
+**一言差別化:** 「」
 
-## Objections
-| Objection | Response |
-|-----------|----------|
+## よくある質問・懸念
+| 質問・懸念 | 回答 |
+|-----------|------|
 | | |
 
-**Anti-persona:**
+## 顧客の声
+**高評価で頻出する表現:**
+- 「」
+**低評価で頻出する表現:**
+- 「」
+**購入の決め手:**
+- 「」
+**おすすめ表現:**
+- 「〇〇な人にはおすすめ」
 
-## Switching Dynamics
-**Push:**
-**Pull:**
-**Habit:**
-**Anxiety:**
+## ブランドボイス
+**トーン:**
+**スタイル:**
+**ブランドの人格:**
+**禁止表現:**
+-
 
-## Customer Language
-**How they describe the problem:**
-- "[verbatim]"
-**How they describe us:**
-- "[verbatim]"
-**Words to use:**
-**Words to avoid:**
-**Glossary:**
-| Term | Meaning |
-|------|---------|
-| | |
+## 証拠・エビデンス
+**認証・規格:**
+-
+**試験結果:**
+-
+**販売実績:**
+-
+**メディア掲載:**
+-
 
-## Brand Voice
-**Tone:**
-**Style:**
-**Personality:**
+## 画像・クリエイティブ方向性
+**写真スタイル:**
+**色味・トーン:**
+**モデル使用:**
+**参考ASIN:**
 
-## Proof Points
-**Metrics:**
-**Customers:**
-**Testimonials:**
-> "[quote]" — [who]
-**Value themes:**
-| Theme | Proof |
-|-------|-------|
-| | |
-
-## Goals
-**Business goal:**
-**Conversion action:**
-**Current metrics:**
+## KPI・目標
+**月間目標販売数:** 個
+**目標ユニットセッション率:** %
+**目標ACOS:** %
+**目標カテゴリーランキング:** 位以内
+**短期目標（3ヶ月）:**
+**中期目標（6ヶ月〜1年）:**
 ```
 
 ---
 
-## Step 4: Confirm and Save
+## ステップ4：確認と保存
 
-- Show the completed document
-- Ask if anything needs adjustment
-- Save to `.claude/product-marketing-context.md`
-- Tell them: "Other marketing skills will now use this context automatically. Run `/product-marketing-context` anytime to update it."
+- 完成したドキュメントを表示する
+- 修正が必要な箇所がないか確認する
+- `.claude/amazon-product-context.md` に保存する
+- 以下のメッセージを伝える：
+
+> 「他のAmazonスキル（商品ページ最適化、ローンチ戦略等）はこのコンテキストを自動的に参照します。商品情報に変更があった場合は、いつでも `/amazon-product-context` で更新できます。」
 
 ---
 
-## Tips
+## 複数商品の管理
 
-- **Be specific**: Ask "What's the #1 frustration that brings them to you?" not "What problem do they solve?"
-- **Capture exact words**: Customer language beats polished descriptions
-- **Ask for examples**: "Can you give me an example?" unlocks better answers
-- **Validate as you go**: Summarize each section and confirm before moving on
-- **Skip what doesn't apply**: Not every product needs all sections (e.g., Personas for B2C)
+複数商品を販売している場合の運用方針：
+
+- **1ファイルに複数商品を記載**: 商品ごとにセクションを分ける（`## 商品1: [商品名]` のように見出しで区切る）
+- **商品数が5つ以上になる場合**: 主力商品のみ記載し、他は別ファイル（`.claude/amazon-product-context-[カテゴリー名].md`）に分離を検討
+- **他のスキルから参照する際**: 対象商品のASINまたは商品名を指定してもらう
+
+---
+
+## 情報収集のコツ
+
+- **具体的に聞く**: 「どんな人が買いますか？」ではなく「直近10件の注文者に共通する特徴はありますか？」
+- **レビューを活用**: 「競合商品の低評価レビューでよく見る不満は何ですか？」
+- **数字で確認**: 「何%くらいですか？」「月に何個くらいですか？」
+- **実物を見せてもらう**: 画像や商品ページURLを共有してもらうと正確な情報が得られる
+- **分からない項目はスキップ**: すべてを埋める必要はない。後から追加・更新できる
+- **レビューの原文を記録**: きれいに言い換えず、顧客の言葉そのものを記録する

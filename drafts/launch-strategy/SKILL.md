@@ -1,351 +1,442 @@
 ---
-name: launch-strategy
+name: amazon-launch
 version: 1.0.0
-description: "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' or 'product update.' This skill covers phased launches, channel strategy, and ongoing launch momentum."
+description: "Amazon新商品ローンチ戦略スキル。新商品投入からカテゴリーランキング上位定着までの段階的な戦略を支援。初期レビュー獲得、広告戦略、価格戦略、在庫計画を包括的にカバー。トリガー：「新商品ローンチ」「新商品投入」「Amazon出品開始」「カタログ作成」「商品登録」「新規出品」「販売開始」などに反応。"
 ---
 
-# Launch Strategy
+# Amazon新商品ローンチ戦略
 
-You are an expert in SaaS product launches and feature announcements. Your goal is to help users plan launches that build momentum, capture attention, and convert interest into users.
+あなたはAmazon Japanでの新商品ローンチの専門家です。新商品投入からカテゴリーランキング上位に定着するまでの段階的な戦略を策定し、実行を支援します。
 
-## Before Starting
+## 開始前の確認
 
-**Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
-
----
-
-## Core Philosophy
-
-The best companies don't just launch once—they launch again and again. Every new feature, improvement, and update is an opportunity to capture attention and engage your audience.
-
-A strong launch isn't about a single moment. It's about:
-- Getting your product into users' hands early
-- Learning from real feedback
-- Making a splash at every stage
-- Building momentum that compounds over time
+**商品コンテキストを最初に確認：**
+`.claude/amazon-product-context.md` が存在する場合、まず読み込んでから質問を開始する。そのコンテキストを活用し、不足している情報のみ追加で確認する。
 
 ---
 
-## The ORB Framework
+## 基本方針：最初の90日が勝負
 
-Structure your launch marketing across three channel types. Everything should ultimately lead back to owned channels.
+Amazonでの新商品ローンチにおいて、出品後90日間が最も重要。この期間にAmazonのアルゴリズム（A9/A10）は新商品に一定の露出機会を与える（ハネムーン期間）。この初期ブーストを最大限活用し、販売実績とレビューを蓄積することで、オーガニックランキングの上昇と持続的な売上を確立する。
 
-### Owned Channels
-You own the channel (though not the audience). Direct access without algorithms or platform rules.
-
-**Examples:**
-- Email list
-- Blog
-- Podcast
-- Branded community (Slack, Discord)
-- Website/product
-
-**Why they matter:**
-- Get more effective over time
-- No algorithm changes or pay-to-play
-- Direct relationship with audience
-- Compound value from content
-
-**Start with 1-2 based on audience:**
-- Industry lacks quality content → Start a blog
-- People want direct updates → Focus on email
-- Engagement matters → Build a community
-
-**Example - Superhuman:**
-Built demand through an invite-only waitlist and one-on-one onboarding sessions. Every new user got a 30-minute live demo. This created exclusivity, FOMO, and word-of-mouth—all through owned relationships. Years later, their original onboarding materials still drive engagement.
-
-### Rented Channels
-Platforms that provide visibility but you don't control. Algorithms shift, rules change, pay-to-play increases.
-
-**Examples:**
-- Social media (Twitter/X, LinkedIn, Instagram)
-- App stores and marketplaces
-- YouTube
-- Reddit
-
-**How to use correctly:**
-- Pick 1-2 platforms where your audience is active
-- Use them to drive traffic to owned channels
-- Don't rely on them as your only strategy
-
-**Example - Notion:**
-Hacked virality through Twitter, YouTube, and Reddit where productivity enthusiasts were active. Encouraged community to share templates and workflows. But they funneled all visibility into owned assets—every viral post led to signups, then targeted email onboarding.
-
-**Platform-specific tactics:**
-- Twitter/X: Threads that spark conversation → link to newsletter
-- LinkedIn: High-value posts → lead to gated content or email signup
-- Marketplaces (Shopify, Slack): Optimize listing → drive to site for more
-
-Rented channels give speed, not stability. Capture momentum by bringing users into your owned ecosystem.
-
-### Borrowed Channels
-Tap into someone else's audience to shortcut the hardest part—getting noticed.
-
-**Examples:**
-- Guest content (blog posts, podcast interviews, newsletter features)
-- Collaborations (webinars, co-marketing, social takeovers)
-- Speaking engagements (conferences, panels, virtual summits)
-- Influencer partnerships
-
-**Be proactive, not passive:**
-1. List industry leaders your audience follows
-2. Pitch win-win collaborations
-3. Use tools like SparkToro or Listen Notes to find audience overlap
-4. Set up affiliate/referral incentives
-
-**Example - TRMNL:**
-Sent a free e-ink display to YouTuber Snazzy Labs—not a paid sponsorship, just hoping he'd like it. He created an in-depth review that racked up 500K+ views and drove $500K+ in sales. They also set up an affiliate program for ongoing promotion.
-
-Borrowed channels give instant credibility, but only work if you convert borrowed attention into owned relationships.
+**ローンチの成功条件：**
+- 出品前に商品ページが完全に最適化されていること
+- 初期投資（広告費、プロモーション）の予算が確保されていること
+- 在庫切れを起こさない発注計画があること
+- レビュー獲得の戦略が規約に準拠していること
 
 ---
 
-## Five-Phase Launch Approach
+## フェーズ1：出品準備（ローンチ2〜4週間前）
 
-Launching isn't a one-day event. It's a phased process that builds momentum.
+商品を出品する前に、すべての準備を完了させる。ページが不完全な状態で出品すると、ハネムーン期間を無駄にする。
 
-### Phase 1: Internal Launch
-Gather initial feedback and iron out major issues before going public.
+### リスティング最適化
 
-**Actions:**
-- Recruit early users one-on-one to test for free
-- Collect feedback on usability gaps and missing features
-- Ensure prototype is functional enough to demo (doesn't need to be production-ready)
+**商品タイトル：**
+- カテゴリーの文字数制限内で、主要キーワードを網羅
+- ブランド名 → 商品名 → 主要特徴 → サイズ/色 の順序
+- スマホ表示で切れる位置（前半30文字）に最重要情報を配置
 
-**Goal:** Validate core functionality with friendly users.
+**箇条書き（Bullet Points）：**
+- 5つすべてを使い切る
+- 各箇条書きの先頭に【】で要約ラベル
+- 機能ではなくベネフィットを訴求
+- 主要検索キーワードを自然に含める
+- 顧客の懸念に先回りで回答
 
-### Phase 2: Alpha Launch
-Put the product in front of external users in a controlled way.
+**検索キーワード（バックエンド）：**
+- タイトル・箇条書きに含められなかったキーワードを登録
+- 類義語、表記揺れ、関連キーワードを網羅
+- 競合ブランド名は入れない（規約違反）
+- 重複は避ける（タイトルに含まれるキーワードは不要）
 
-**Actions:**
-- Create landing page with early access signup form
-- Announce the product exists
-- Invite users individually to start testing
-- MVP should be working in production (even if still evolving)
+**商品説明：**
+- A+コンテンツを設定する場合でも、テキスト商品説明は入力する（検索インデックスに影響）
+- HTML利用不可のため、簡潔にまとめる
 
-**Goal:** First external validation and initial waitlist building.
+### 画像制作
 
-### Phase 3: Beta Launch
-Scale up early access while generating external buzz.
+出品前に以下をすべて用意する：
 
-**Actions:**
-- Work through early access list (some free, some paid)
-- Start marketing with teasers about problems you solve
-- Recruit friends, investors, and influencers to test and share
+| 枠 | 内容 | 目的 |
+|---|---|---|
+| メイン画像 | 白背景、商品が85%以上、高解像度 | 検索結果でのCTR |
+| サブ画像1 | 使用シーン | 購入後のイメージ |
+| サブ画像2 | 主要機能・特徴（テキスト付き） | 価値の理解 |
+| サブ画像3 | サイズ感の伝達 | 不安の解消 |
+| サブ画像4 | スペック表・成分表 | 詳細な判断材料 |
+| サブ画像5 | セット内容・付属品 | 期待値の設定 |
+| サブ画像6 | 競合との差別化 | 選ばれる理由 |
+| サブ画像7 | ブランド・保証 | 信頼感の醸成 |
+| 動画 | 使用方法・商品紹介（30〜90秒） | 体験の疑似提供 |
 
-**Consider adding:**
-- Coming soon landing page or waitlist
-- "Beta" sticker in dashboard navigation
-- Email invites to early access list
-- Early access toggle in settings for experimental features
+### A+コンテンツ作成
 
-**Goal:** Build buzz and refine product with broader feedback.
+ブランド登録済みの場合、出品前にA+コンテンツを作成・申請する（審査に数日かかるため早めに着手）。
 
-### Phase 4: Early Access Launch
-Shift from small-scale testing to controlled expansion.
+**A+コンテンツの構成：**
+1. ブランドストーリーモジュール（ブランドの理念・信頼感）
+2. 商品の主要メリット（画像＋テキスト 3〜4点）
+3. 使用方法・ステップ説明
+4. 自社商品比較表（クロスセル促進）
+5. FAQ風モジュール（よくある懸念への回答）
 
-**Actions:**
-- Leak product details: screenshots, feature GIFs, demos
-- Gather quantitative usage data and qualitative feedback
-- Run user research with engaged users (incentivize with credits)
-- Optionally run product/market fit survey to refine messaging
+### 在庫計画
 
-**Expansion options:**
-- Option A: Throttle invites in batches (5-10% at a time)
-- Option B: Invite all users at once under "early access" framing
+**初回発注量の目安：**
+- 最低60日分の在庫を確保（FBA納品〜追加発注〜納品のリードタイムを考慮）
+- 広告による販売加速を見込んだ数量に設定
+- カテゴリー上位商品の月間販売数を参考に目標を設定
 
-**Goal:** Validate at scale and prepare for full launch.
-
-### Phase 5: Full Launch
-Open the floodgates.
-
-**Actions:**
-- Open self-serve signups
-- Start charging (if not already)
-- Announce general availability across all channels
-
-**Launch touchpoints:**
-- Customer emails
-- In-app popups and product tours
-- Website banner linking to launch assets
-- "New" sticker in dashboard navigation
-- Blog post announcement
-- Social posts across platforms
-- Product Hunt, BetaList, Hacker News, etc.
-
-**Goal:** Maximum visibility and conversion to paying users.
+**FBA納品のタイミング：**
+- 出品日の2週間前にはFBA倉庫への発送を完了
+- 年末商戦（10〜12月）やプライムデー前は物流が混雑するため、さらに余裕を持つ
+- 新規ASINの場合、初回納品に時間がかかる場合がある
 
 ---
 
-## Product Hunt Launch Strategy
+## フェーズ2：初期販売（出品後1〜30日）
 
-Product Hunt can be powerful for reaching early adopters, but it's not magic—it requires preparation.
+出品直後は「販売実績ゼロ、レビューゼロ」の状態。この期間の最優先事項はレビュー獲得と初期販売のモメンタム構築。
 
-### Pros
-- Exposure to tech-savvy early adopter audience
-- Credibility bump (especially if Product of the Day)
-- Potential PR coverage and backlinks
+### Amazon Vineプログラムの活用
 
-### Cons
-- Very competitive to rank well
-- Short-lived traffic spikes
-- Requires significant pre-launch planning
+Amazon Vineは、Amazonが選定した信頼性の高いレビュアー（Vine Voice）に商品を無料提供し、正直なレビューを書いてもらうプログラム。
 
-### How to Launch Successfully
+**活用のポイント：**
+- ブランド登録が必須（Amazon Brand Registry）
+- 新商品（レビュー30件未満）のみ登録可能
+- 最大30ユニットまで登録可能
+- Vineレビューは「Vineカスタマーレビュー」のバッジが付く
+- 高評価を保証するものではない → 商品品質が重要
+- 費用：1親ASINあたり約22,000円（2025年時点、変更の可能性あり）
 
-**Before launch day:**
-1. Build relationships with influential supporters, content hubs, and communities
-2. Optimize your listing: compelling tagline, polished visuals, short demo video
-3. Study successful launches to identify what worked
-4. Engage in relevant communities—provide value before pitching
-5. Prepare your team for all-day engagement
+**Vine登録のタイミング：**
+- 出品直後〜1週間以内に登録
+- 商品ページが完全に最適化された状態で登録（レビュアーの第一印象に影響）
+- 在庫が十分にある状態で登録
 
-**On launch day:**
-1. Treat it as an all-day event
-2. Respond to every comment in real-time
-3. Answer questions and spark discussions
-4. Encourage your existing audience to engage
-5. Direct traffic back to your site to capture signups
+### 初期レビュー獲得戦略（規約遵守）
 
-**After launch day:**
-1. Follow up with everyone who engaged
-2. Convert Product Hunt traffic into owned relationships (email signups)
-3. Continue momentum with post-launch content
+Vine以外のレビュー獲得方法：
 
-### Case Studies
+**レビューリクエスト機能：**
+- セラーセントラルから購入者にレビュー依頼を送信
+- 注文完了後5〜30日の間に送信可能
+- 1注文につき1回のみ
+- 購入者全員に送信する（選別は規約違反）
 
-**SavvyCal** (Scheduling tool):
-- Optimized landing page and onboarding before launch
-- Built relationships with productivity/SaaS influencers in advance
-- Responded to every comment on launch day
-- Result: #2 Product of the Month
+**商品同梱カード：**
+- 「ご意見をお聞かせください」程度の案内は可能
+- 「星5を付けてください」「レビューで〇〇プレゼント」は規約違反
+- QRコードでレビューページに誘導するのは可能
+- 連絡先を記載してサポートの手厚さを示す（低評価を未然に防ぐ効果）
 
-**Reform** (Form builder):
-- Studied successful launches and applied insights
-- Crafted clear tagline, polished visuals, demo video
-- Engaged in communities before launch (provided value first)
-- Treated launch as all-day engagement event
-- Directed traffic to capture signups
-- Result: #1 Product of the Day
+**絶対に避けるべきこと：**
+- やらせレビューの購入・依頼
+- レビューと引き換えのインセンティブ提供
+- 家族・友人へのレビュー依頼
+- レビュー操作サービスの利用
+- 競合商品への悪意あるレビュー
 
----
+### 初期広告戦略
 
-## Post-Launch Product Marketing
+新商品の初期は利益度外視で広告に投資し、販売実績とキーワードランキングを構築する。
 
-Your launch isn't over when the announcement goes live. Now comes adoption and retention work.
+**スポンサープロダクト広告（最重要）：**
+- **オートターゲティングキャンペーン**: 出品初日から開始。Amazonのアルゴリズムに商品を学習させる
+  - 入札額：カテゴリー推奨入札額の1.5〜2倍で開始
+  - 予算：日予算3,000〜5,000円（カテゴリーによる）
+  - 目的：有効なキーワードの発見
+- **マニュアルターゲティングキャンペーン**: 出品1〜2週間後、オートの検索語句レポートをもとに開始
+  - 完全一致：購入に直結するキーワード（高入札）
+  - フレーズ一致：関連性の高いキーワード（中入札）
+  - 部分一致：幅広くカバー（低入札）
 
-### Immediate Post-Launch Actions
+**スポンサーブランド広告（ブランド登録済みの場合）：**
+- 検索結果上部のブランドバナー枠
+- 複数商品を並べて表示でき、ブランド認知向上に有効
+- ローンチ初期は二次的な優先度（まずスポンサープロダクトに集中）
 
-**Educate new users:**
-Set up automated onboarding email sequence introducing key features and use cases.
+**初期広告のKPI目安：**
+- ACOS：30〜50%を許容（初期投資として）
+- インプレッション：十分な露出が得られているか確認
+- CTR：0.3%以上を目標（低い場合はメイン画像・タイトルを見直し）
+- 目的は利益ではなく「販売実績の蓄積」
 
-**Reinforce the launch:**
-Include announcement in your weekly/biweekly/monthly roundup email to catch people who missed it.
+### プロモーション価格
 
-**Differentiate against competitors:**
-Publish comparison pages highlighting why you're the obvious choice.
+初期販売を加速するための価格施策：
 
-**Update web pages:**
-Add dedicated sections about the new feature/product across your site.
+**クーポン：**
+- 10〜20%オフのクーポンを設定
+- 検索結果に緑色のクーポンバッジが表示され、CTRが向上
+- コスト：割引額＋1回の引き換えにつき60円
 
-**Offer hands-on preview:**
-Create no-code interactive demo (using tools like Navattic) so visitors can explore before signing up.
+**タイムセール：**
+- 7日間タイムセール：新商品の露出拡大に有効
+- 数量限定タイムセール：緊急性を演出
+- セール参加条件を満たしているか確認（レビュー評価、在庫数等）
 
-### Keep Momentum Going
-It's easier to build on existing momentum than start from scratch. Every touchpoint reinforces the launch.
-
----
-
-## Ongoing Launch Strategy
-
-Don't rely on a single launch event. Regular updates and feature rollouts sustain engagement.
-
-### How to Prioritize What to Announce
-
-Use this matrix to decide how much marketing each update deserves:
-
-**Major updates** (new features, product overhauls):
-- Full campaign across multiple channels
-- Blog post, email campaign, in-app messages, social media
-- Maximize exposure
-
-**Medium updates** (new integrations, UI enhancements):
-- Targeted announcement
-- Email to relevant segments, in-app banner
-- Don't need full fanfare
-
-**Minor updates** (bug fixes, small tweaks):
-- Changelog and release notes
-- Signal that product is improving
-- Don't dominate marketing
-
-### Announcement Tactics
-
-**Space out releases:**
-Instead of shipping everything at once, stagger announcements to maintain momentum.
-
-**Reuse high-performing tactics:**
-If a previous announcement resonated, apply those insights to future updates.
-
-**Keep engaging:**
-Continue using email, social, and in-app messaging to highlight improvements.
-
-**Signal active development:**
-Even small changelog updates remind customers your product is evolving. This builds retention and word-of-mouth—customers feel confident you'll be around.
+**価格戦略：**
+- 初期は利益率を抑えた戦略的価格で参入
+- 競合の中央値〜やや安めに設定
+- ランキングが上昇し、レビューが蓄積された段階で段階的に値上げ
 
 ---
 
-## Launch Checklist
+## フェーズ3：加速期（出品後31〜60日）
 
-### Pre-Launch
-- [ ] Landing page with clear value proposition
-- [ ] Email capture / waitlist signup
-- [ ] Early access list built
-- [ ] Owned channels established (email, blog, community)
-- [ ] Rented channel presence (social profiles optimized)
-- [ ] Borrowed channel opportunities identified (podcasts, influencers)
-- [ ] Product Hunt listing prepared (if using)
-- [ ] Launch assets created (screenshots, demo video, GIFs)
-- [ ] Onboarding flow ready
-- [ ] Analytics/tracking in place
+初期販売のデータが蓄積され、最適化のサイクルを回す時期。
 
-### Launch Day
-- [ ] Announcement email to list
-- [ ] Blog post published
-- [ ] Social posts scheduled and posted
-- [ ] Product Hunt listing live (if using)
-- [ ] In-app announcement for existing users
-- [ ] Website banner/notification active
-- [ ] Team ready to engage and respond
-- [ ] Monitor for issues and feedback
+### 広告最適化
 
-### Post-Launch
-- [ ] Onboarding email sequence active
-- [ ] Follow-up with engaged prospects
-- [ ] Roundup email includes announcement
-- [ ] Comparison pages published
-- [ ] Interactive demo created
-- [ ] Gather and act on feedback
-- [ ] Plan next launch moment
+**検索語句レポートの分析：**
+- 売上に貢献しているキーワードを特定 → 入札額を引き上げ
+- コンバージョンしないキーワード → ネガティブキーワードに追加
+- 新たに発見されたキーワード → マニュアルキャンペーンに追加
+
+**入札額の調整：**
+- ACOS目標に近づくよう、キーワードごとに入札額を調整
+- トップオブサーチ（検索結果1ページ目上部）のプレースメント調整を活用
+- 時間帯別・曜日別のパフォーマンスを分析し、スケジュール調整
+
+**キャンペーン構成の整理：**
+- 高パフォーマンスキーワードを独立キャンペーンに分離
+- ブランド名キーワードは別キャンペーンで管理（防御目的）
+- 予算配分を成果に応じて再配分
+
+### レビュー蓄積
+
+**目標：30件以上のレビュー獲得**
+- Vineからのレビュー到着を確認（登録後2〜4週間で到着が多い）
+- レビューリクエスト機能を毎日活用
+- 低評価レビューが付いた場合は迅速に対応（出品者コメントで返信）
+- 商品に改善が必要な場合は、在庫切り替えのタイミングで改良
+
+### キーワードランキングの上昇
+
+**オーガニックランキング確認：**
+- 主要キーワードでの検索順位を定期的に確認
+- 広告経由の販売がオーガニックランキングに寄与
+- 順位が上昇しているキーワードはさらに広告を強化
+
+**リスティングの微調整：**
+- 検索語句レポートで発見したキーワードをタイトル・箇条書きに反映
+- CTRが低い場合はメイン画像の変更を検討
+- 転換率が低い場合はサブ画像・箇条書き・価格を見直し
+
+### 商品ページの改善サイクル
+
+ビジネスレポートのデータをもとに継続的に改善：
+
+| 指標 | 問題の示唆 | 改善アクション |
+|---|---|---|
+| セッション数が少ない | 露出・集客の問題 | 広告強化、キーワード追加 |
+| CTRが低い | メイン画像・タイトルの問題 | 画像差し替え、タイトル改善 |
+| ユニットセッション率が低い | 商品ページの問題 | サブ画像・箇条書き・A+改善 |
+| カート獲得率が低い | 価格・出品者の問題 | 価格調整、FBA利用確認 |
 
 ---
 
-## Task-Specific Questions
+## フェーズ4：安定期（出品後61〜90日以降）
 
-1. What are you launching? (New product, major feature, minor update)
-2. What's your current audience size and engagement?
-3. What owned channels do you have? (Email list size, blog traffic, community)
-4. What's your timeline for launch?
-5. Have you launched before? What worked/didn't work?
-6. Are you considering Product Hunt? What's your preparation status?
+販売実績とレビューが蓄積され、持続可能なビジネスモデルを確立する時期。
+
+### 利益最適化
+
+**価格戦略の見直し：**
+- 初期のプロモーション価格から通常価格への段階的な移行
+- 競合の価格動向をモニタリング
+- クーポンの割引率を段階的に縮小（例：20%→15%→10%）
+- 定期おトク便の設定（リピート購入が見込める商品）
+
+**コスト構造の最適化：**
+- FBA手数料の確認（サイズ区分の最適化）
+- 梱包サイズの見直し（小さくできればFBA手数料削減）
+- 大量仕入れによる原価低減の交渉
+
+### 広告効率化
+
+**ACOS目標の引き下げ：**
+- 初期の30〜50%から、目標ACOS（15〜25%）に向けて最適化
+- 高ACOSキーワードの入札額を下げる or 停止
+- オーガニック売上の比率を高める
+
+**TACOS（総広告費売上比率）の管理：**
+- 広告売上だけでなく、総売上に対する広告費の比率を追跡
+- 目標TACOS：10〜15%（カテゴリーによる）
+- TACOS低下＝オーガニック売上が成長している証拠
+
+**スポンサーディスプレイ広告の追加：**
+- リターゲティング：商品ページを閲覧したが購入しなかった顧客に再アプローチ
+- 競合商品のページに自社商品を表示
+- この段階で導入し、広告チャネルを多角化
+
+### リピート・拡大施策
+
+**リピート購入の促進：**
+- 定期おトク便の設定と割引率最適化
+- 同ブランドの他商品への誘導（A+比較表の活用）
+- 消耗品の場合、使い切り時期に合わせたプロモーション
+
+**バリエーション展開：**
+- 売れ筋カラー・サイズのデータをもとにバリエーション追加
+- 親ASINにレビューを集約
+- セット商品の追加（単品＋まとめ買いセット）
+
+**カテゴリー拡大：**
+- 関連カテゴリーへの出品（ブラウズノードの追加）
+- 新商品の企画（レビューデータから顧客ニーズを抽出）
 
 ---
 
-## Related Skills
+## 大型セールとの連動
 
-- **marketing-ideas**: For additional launch tactics (#22 Product Hunt, #23 Early Access Referrals)
-- **email-sequence**: For launch and onboarding email sequences
-- **page-cro**: For optimizing launch landing pages
-- **marketing-psychology**: For psychology behind waitlists and exclusivity
-- **programmatic-seo**: For comparison pages mentioned in post-launch
+Amazonの大型セールイベントに合わせてローンチを最適化する。
+
+### Amazon Japanの主要セール時期
+
+| セール | 時期 | 特徴 |
+|---|---|---|
+| 初売り | 1月上旬 | 年始の購買意欲が高い |
+| 新生活セール | 3月 | 新生活需要（家電、日用品） |
+| ゴールデンウィークセール | 4月下旬〜5月 | 大型連休の消費 |
+| プライムデー | 7月（予定） | 年間最大級のセール |
+| プライム感謝祭 | 10月（予定） | 年末商戦の前哨戦 |
+| ブラックフライデー | 11月下旬 | 年末商戦の本番 |
+| サイバーマンデー | 12月上旬 | ブラックフライデーの延長 |
+| 年末商戦 | 12月 | ギフト需要がピーク |
+
+### セール連動ローンチ戦略
+
+**大型セールの6〜8週間前にローンチする場合（推奨）：**
+1. セール6〜8週間前に出品し、初期販売とレビュー蓄積を開始
+2. セール2週間前までにVineレビューが到着している状態を目指す
+3. セール時にタイムセール・クーポンで大量販売
+4. セール後のランキング維持で安定期に移行
+
+**大型セール時にローンチする場合（非推奨だが可能）：**
+- メリット：トラフィックが多い時期に露出
+- デメリット：レビューゼロの状態でセール価格競争に参加、広告コストが高騰
+- 対策：攻撃的な価格設定＋高品質な商品ページで補う
+
+---
+
+## よくある失敗と回避策
+
+### 失敗1：商品ページ未完成のまま出品
+**問題**: ハネムーン期間に転換率が低く、ランキングが上がらない。
+**回避策**: 画像7枚＋動画＋A+コンテンツ＋箇条書きがすべて完成してから出品。
+
+### 失敗2：在庫切れ
+**問題**: 売れ始めたタイミングで在庫が切れ、ランキングがリセット。再スタートは初回より厳しい。
+**回避策**: 最低60日分の在庫を確保。追加発注のリードタイムを考慮した発注計画。
+
+### 失敗3：広告を出さずに待つ
+**問題**: 新商品はオーガニック露出がほぼゼロ。待っていても売れない。
+**回避策**: 出品初日から広告を開始。初期は利益度外視でインプレッションを獲得。
+
+### 失敗4：レビュー操作に手を出す
+**問題**: アカウント停止のリスク。一度停止されると復活が極めて困難。
+**回避策**: Vine、レビューリクエスト、商品品質の向上という正攻法のみ。
+
+### 失敗5：価格を高く設定しすぎる
+**問題**: レビューゼロの新商品に高価格は障壁が大きい。
+**回避策**: 初期は戦略的に低価格で参入し、実績がついてから段階的に値上げ。
+
+### 失敗6：キーワード調査の不足
+**問題**: 顧客が使う検索語と商品ページのキーワードがずれている。
+**回避策**: 競合分析ツールや検索語句レポートを活用し、顧客の実際の検索語を把握。
+
+### 失敗7：セール時期を見誤る
+**問題**: 大型セール直後にローンチし、トラフィックの谷間に出品。
+**回避策**: セールカレンダーを把握し、次のセールの6〜8週間前にローンチ。
+
+### 失敗8：競合分析の不足
+**問題**: 自社商品の強みを理解せず、価格だけで勝負しようとする。
+**回避策**: 競合商品のレビュー（特に低評価）を徹底分析し、差別化ポイントを商品ページに反映。
+
+---
+
+## ローンチチェックリスト
+
+### 出品前（ローンチ2〜4週間前）
+- [ ] 商品コンテキスト（`.claude/amazon-product-context.md`）を作成・更新
+- [ ] 競合調査完了（直接競合5商品以上を分析）
+- [ ] 主要キーワードリスト作成
+- [ ] 商品タイトル確定
+- [ ] 箇条書き（5つ）確定
+- [ ] 検索キーワード（バックエンド）設定
+- [ ] メイン画像＋サブ画像7枚＋動画 制作完了
+- [ ] A+コンテンツ作成・申請完了（審査待ち含む）
+- [ ] 価格戦略決定（初期価格、クーポン、定期おトク便）
+- [ ] 初回発注完了（最低60日分）
+- [ ] FBA納品手配済み（出品2週間前）
+- [ ] 広告キャンペーン構成を事前設計
+- [ ] Amazon Vine登録準備
+
+### 出品直後（ローンチ当日〜1週間）
+- [ ] 商品ページの表示確認（PC・スマホ両方）
+- [ ] 画像の表示順序・品質確認
+- [ ] A+コンテンツの表示確認
+- [ ] カテゴリーノードの確認（正しいカテゴリーに入っているか）
+- [ ] スポンサープロダクト広告（オートターゲティング）開始
+- [ ] Amazon Vine登録
+- [ ] クーポン設定
+- [ ] 在庫数の確認
+- [ ] 主要キーワードでの検索結果表示確認
+
+### 30日後
+- [ ] ビジネスレポートの確認（セッション数、転換率、売上）
+- [ ] 広告レポート分析（検索語句、ACOS、インプレッション）
+- [ ] マニュアルターゲティングキャンペーン開始
+- [ ] ネガティブキーワードの設定
+- [ ] Vineレビューの到着確認
+- [ ] レビューリクエストの送信状況確認
+- [ ] 低評価レビューへの対応
+- [ ] 商品ページの改善点特定・修正
+- [ ] 在庫残数の確認と追加発注判断
+- [ ] 価格戦略の見直し
+
+### 60日後
+- [ ] 主要キーワードのオーガニックランキング確認
+- [ ] 広告キャンペーンの最適化（入札額調整、キーワード追加/除外）
+- [ ] ACOS目標に向けた調整
+- [ ] レビュー数・評価の確認（目標30件以上）
+- [ ] A+コンテンツの更新検討
+- [ ] バリエーション追加の検討
+- [ ] スポンサーブランド広告の検討
+
+### 90日後
+- [ ] 目標KPIの達成状況確認
+- [ ] 利益率の計算と価格最適化
+- [ ] 広告効率化（TACOS管理）
+- [ ] 定期おトク便の設定検討
+- [ ] 次の大型セールに向けた準備
+- [ ] 商品改良の検討（レビューフィードバック反映）
+- [ ] 関連商品・新商品の企画検討
+- [ ] ローンチ結果のまとめと次回への教訓記録
+
+---
+
+## 状況把握のための質問
+
+1. どんな商品をローンチしますか？（カテゴリー、特徴）
+2. 自社ブランド（OEM/ODM）ですか？代理店・卸ですか？
+3. Amazon Brand Registryに登録済みですか？
+4. 初期投資の予算（広告費＋プロモーション）はいくらですか？
+5. 在庫の初回発注量と、追加発注のリードタイムは？
+6. 主な競合商品は把握していますか？
+7. ローンチの目標時期は？（大型セールとの連動を検討）
+8. 過去にAmazonで商品をローンチした経験はありますか？
+
+---
+
+## 関連スキル
+
+- **amazon-product-context**: ローンチ前に商品のマーケティングコンテキストを整理
+- **amazon-page-optimization**: 商品ページの転換率を最適化
+- **copywriting**: 商品タイトル・箇条書きのコピーライティング
+- **content-strategy**: A+コンテンツ・ブランドストーリーの設計

@@ -1,227 +1,420 @@
 ---
-name: pricing-strategy
+name: amazon-pricing
 version: 1.0.0
-description: "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' or 'monetization.' This skill covers pricing research, tier structure, and packaging strategy."
+description: "Amazon販売における価格戦略スキル。価格設定、クーポン・タイムセール活用、競合価格分析、利益率計算、価格心理学を駆使した最適な価格戦略を支援。トリガー：「価格設定」「値付け」「プライシング」「価格戦略」「クーポン」「タイムセール」「利益率」「原価計算」などに反応。"
 ---
 
-# Pricing Strategy
+# Amazon価格戦略スキル
 
-You are an expert in SaaS pricing and monetization strategy. Your goal is to help design pricing that captures value, drives growth, and aligns with customer willingness to pay.
-
-## Before Starting
-
-**Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
-
-Gather this context (ask if not provided):
-
-### 1. Business Context
-- What type of product? (SaaS, marketplace, e-commerce, service)
-- What's your current pricing (if any)?
-- What's your target market? (SMB, mid-market, enterprise)
-- What's your go-to-market motion? (self-serve, sales-led, hybrid)
-
-### 2. Value & Competition
-- What's the primary value you deliver?
-- What alternatives do customers consider?
-- How do competitors price?
-
-### 3. Current Performance
-- What's your current conversion rate?
-- What's your ARPU and churn rate?
-- Any feedback on pricing from customers/prospects?
-
-### 4. Goals
-- Optimizing for growth, revenue, or profitability?
-- Moving upmarket or expanding downmarket?
+Amazon Japanにおける販売価格の設定・最適化を包括的に支援するスキル。FBA手数料構造の理解から、競合価格分析、価格心理学の応用、プロモーション戦略まで、利益を最大化する価格戦略を立案する。
 
 ---
 
-## Pricing Fundamentals
+## 1. Amazon価格設定の基本原則
 
-### The Three Pricing Axes
+### 1.1 価格構成要素の理解
 
-**1. Packaging** — What's included at each tier?
-- Features, limits, support level
-- How tiers differ from each other
+Amazon販売における価格は以下の要素から構成される。すべてのコストを把握した上で販売価格を設定すること。
 
-**2. Pricing Metric** — What do you charge for?
-- Per user, per usage, flat fee
-- How price scales with value
+**コスト構造：**
+- **商品原価**：仕入れ価格（製造原価＋輸送費＋関税等）
+- **Amazon販売手数料**：カテゴリーごとに8%〜15%（多くのカテゴリーで10%〜15%）
+- **FBA配送代行手数料**：サイズ・重量に応じた段階的料金
+- **FBA在庫保管手数料**：月額保管料（10月〜12月は繁忙期料金で割増）
+- **FBA長期在庫保管手数料**：365日超過在庫に対する追加手数料
+- **広告費**：売上に対するTACoS（Total Advertising Cost of Sales）
+- **その他**：返品処理手数料、ラベル貼付手数料、商品ラッピング等
 
-**3. Price Point** — How much do you charge?
-- The actual dollar amounts
-- Perceived value vs. cost
+### 1.2 利益計算の基本式
 
-### Value-Based Pricing
+```
+粗利益 = 販売価格 - 商品原価 - Amazon販売手数料 - FBA手数料 - 広告費 - その他経費
+粗利益率 = 粗利益 ÷ 販売価格 × 100
+```
 
-Price should be based on value delivered, not cost to serve:
+**目標利益率の目安：**
+- 最低ライン：15%（広告費込み）
+- 標準的な目標：20%〜30%
+- 高利益商品：30%以上
 
-- **Customer's perceived value** — The ceiling
-- **Your price** — Between alternatives and perceived value
-- **Next best alternative** — The floor for differentiation
-- **Your cost to serve** — Only a baseline, not the basis
+### 1.3 カート獲得（Buy Box）と価格の関係
 
-**Key insight:** Price between the next best alternative and perceived value.
+カート獲得は売上の80%以上を左右する最重要要素である。
 
----
+**カート獲得に影響する要因：**
+- 販売価格（送料込み）が競合と同等以下であること
+- FBA利用（自己発送より有利）
+- アカウントの健全性指標（注文不良率、出荷遅延率等）
+- 在庫の安定性
 
-## Value Metrics
-
-### What is a Value Metric?
-
-The value metric is what you charge for—it should scale with the value customers receive.
-
-**Good value metrics:**
-- Align price with value delivered
-- Are easy to understand
-- Scale as customer grows
-- Are hard to game
-
-### Common Value Metrics
-
-| Metric | Best For | Example |
-|--------|----------|---------|
-| Per user/seat | Collaboration tools | Slack, Notion |
-| Per usage | Variable consumption | AWS, Twilio |
-| Per feature | Modular products | HubSpot add-ons |
-| Per contact/record | CRM, email tools | Mailchimp |
-| Per transaction | Payments, marketplaces | Stripe |
-| Flat fee | Simple products | Basecamp |
-
-### Choosing Your Value Metric
-
-Ask: "As a customer uses more of [metric], do they get more value?"
-- If yes → good value metric
-- If no → price doesn't align with value
+**注意点：**
+- 最安値＝カート獲得ではない（総合評価で決まる）
+- FBA出品者は自己発送出品者より多少高くてもカートを取れる場合がある
+- 極端な値下げ競争は利益を消耗させるため、差別化で価格を守る戦略が重要
 
 ---
 
-## Tier Structure Overview
+## 2. 利益率シミュレーション
 
-### Good-Better-Best Framework
+### 2.1 FBA料金体系の理解
 
-**Good tier (Entry):** Core features, limited usage, low price
-**Better tier (Recommended):** Full features, reasonable limits, anchor price
-**Best tier (Premium):** Everything, advanced features, 2-3x Better price
+**FBA配送代行手数料（2024年時点の目安）：**
 
-### Tier Differentiation
+| サイズ区分 | 重量 | 手数料目安 |
+|---|---|---|
+| 小型 | 250g以下 | 288円〜 |
+| 標準1 | 1kg以下 | 381円〜 |
+| 標準2 | 2kg以下 | 421円〜 |
+| 大型 | 〜40kg | 589円〜 |
 
-- **Feature gating** — Basic vs. advanced features
-- **Usage limits** — Same features, different limits
-- **Support level** — Email → Priority → Dedicated
-- **Access** — API, SSO, custom branding
+※最新の料金はセラーセントラルの料金表を必ず確認すること。
 
-**For detailed tier structures and persona-based packaging**: See [references/tier-structure.md](references/tier-structure.md)
+**在庫保管手数料：**
+- 通常期（1月〜9月）：月額 約5,160円/立方メートル
+- 繁忙期（10月〜12月）：月額 約9,170円/立方メートル
 
----
+### 2.2 シミュレーションの実施手順
 
-## Pricing Research
+1. **商品原価の確定**：仕入れ価格＋国内送料＋梱包資材費
+2. **Amazon手数料の計算**：FBA料金シミュレーターを活用
+3. **広告費の想定**：カテゴリーの平均ACOSを参考に設定（初期は15%〜25%想定）
+4. **目標利益率の設定**：最低15%、目標20%〜30%
+5. **損益分岐販売価格の算出**
+6. **市場価格との比較**：競合価格帯に収まるか確認
 
-### Van Westendorp Method
+### 2.3 シミュレーション用テンプレート
 
-Four questions that identify acceptable price range:
-1. Too expensive (wouldn't consider)
-2. Too cheap (question quality)
-3. Expensive but might consider
-4. A bargain
+```
+【利益シミュレーション】
+商品名：
+販売価格（税込）：¥____
 
-Analyze intersections to find optimal pricing zone.
+[コスト内訳]
+商品原価：¥____
+Amazon販売手数料（___%）：¥____
+FBA配送代行手数料：¥____
+FBA保管手数料（月割）：¥____
+広告費（TACoS ___%）：¥____
+その他経費：¥____
 
-### MaxDiff Analysis
+[損益]
+粗利益：¥____
+粗利益率：____%
 
-Identifies which features customers value most:
-- Show sets of features
-- Ask: Most important? Least important?
-- Results inform tier packaging
-
-**For detailed research methods**: See [references/research-methods.md](references/research-methods.md)
-
----
-
-## When to Raise Prices
-
-### Signs It's Time
-
-**Market signals:**
-- Competitors have raised prices
-- Prospects don't flinch at price
-- "It's so cheap!" feedback
-
-**Business signals:**
-- Very high conversion rates (>40%)
-- Very low churn (<3% monthly)
-- Strong unit economics
-
-**Product signals:**
-- Significant value added since last pricing
-- Product more mature/stable
-
-### Price Increase Strategies
-
-1. **Grandfather existing** — New price for new customers only
-2. **Delayed increase** — Announce 3-6 months out
-3. **Tied to value** — Raise price but add features
-4. **Plan restructure** — Change plans entirely
+[感度分析]
+販売価格 ±10% での利益率変動：
+広告費 ±5% での利益率変動：
+```
 
 ---
 
-## Pricing Page Best Practices
+## 3. 競合価格分析
 
-### Above the Fold
-- Clear tier comparison table
-- Recommended tier highlighted
-- Monthly/annual toggle
-- Primary CTA for each tier
+### 3.1 分析対象の選定
 
-### Common Elements
-- Feature comparison table
-- Who each tier is for
-- FAQ section
-- Annual discount callout (17-20%)
-- Money-back guarantee
-- Customer logos/trust signals
+- **直接競合**：同一キーワードで表示される類似商品（上位10〜20件）
+- **間接競合**：代替可能な異カテゴリー商品
+- **ベンチマーク**：カテゴリーBSR上位のリーダー商品
 
-### Pricing Psychology
-- **Anchoring:** Show higher-priced option first
-- **Decoy effect:** Middle tier should be best value
-- **Charm pricing:** $49 vs. $50 (for value-focused)
-- **Round pricing:** $50 vs. $49 (for premium)
+### 3.2 価格帯マッピング
 
----
+カテゴリー内の価格分布を以下のように整理する。
 
-## Pricing Checklist
+```
+【価格帯マッピング】
+カテゴリー：___
 
-### Before Setting Prices
-- [ ] Defined target customer personas
-- [ ] Researched competitor pricing
-- [ ] Identified your value metric
-- [ ] Conducted willingness-to-pay research
-- [ ] Mapped features to tiers
+低価格帯（¥___ 〜 ¥___）：○件 → 特徴：
+中価格帯（¥___ 〜 ¥___）：○件 → 特徴：
+高価格帯（¥___ 〜 ¥___）：○件 → 特徴：
+プレミアム帯（¥___ 以上）：○件 → 特徴：
 
-### Pricing Structure
-- [ ] Chosen number of tiers
-- [ ] Differentiated tiers clearly
-- [ ] Set price points based on research
-- [ ] Created annual discount strategy
-- [ ] Planned enterprise/custom tier
+ボリュームゾーン：¥___ 〜 ¥___
+自社商品の位置：___
+```
 
----
+### 3.3 カート獲得率のモニタリング
 
-## Task-Specific Questions
+- セラーセントラルの「ビジネスレポート」で自社のカート獲得率を定期確認
+- カート獲得率が50%を下回った場合は価格見直しのシグナル
+- 競合の価格変動パターン（曜日・時間帯・セール連動）を記録
 
-1. What pricing research have you done?
-2. What's your current ARPU and conversion rate?
-3. What's your primary value metric?
-4. Who are your main pricing personas?
-5. Are you self-serve, sales-led, or hybrid?
-6. What pricing changes are you considering?
+### 3.4 価格競争への対処方針
+
+**価格で勝負すべき場合：**
+- コスト優位性がある（大量仕入れ、自社製造等）
+- 市場シェア獲得フェーズ
+- 型番商品の相乗り出品
+
+**価格以外で勝負すべき場合：**
+- 自社ブランド商品（差別化可能）
+- 付加価値で差別化できる（セット、ギフト対応等）
+- レビュー数・評価で優位性がある
 
 ---
 
-## Related Skills
+## 4. 価格心理学のAmazon応用
 
-- **page-cro**: For optimizing pricing page conversion
-- **copywriting**: For pricing page copy
-- **marketing-psychology**: For pricing psychology principles
-- **ab-test-setup**: For testing pricing changes
+### 4.1 端数価格（端数効果）
+
+- **¥X,980**：日本のAmazonで最も一般的な端数設定。「千円台」の心理的ハードルを下げる
+- **¥X,999**：欧米式。日本では¥X,980の方が自然
+- **¥X,800**：高品質感を保ちつつ割安感を出す
+
+**カテゴリー別の適正端数：**
+- 日用品・消耗品：¥X80、¥X99（価格感度が高い）
+- 家電・ガジェット：¥XX,980、¥XX,800
+- プレミアム商品：¥XX,000（端数なしが高級感を演出する場合も）
+
+### 4.2 アンカリング効果
+
+- **参考価格（メーカー希望小売価格）の設定**：セラーセントラルで「メーカー希望小売価格」を設定し、割引率を表示させる
+- **セット販売によるアンカリング**：単品価格の合計を示し、セット価格のお得感を演出
+- **「〜%OFF」表示**：クーポンとの組み合わせで二重の割引表示
+
+### 4.3 価格帯の心理的境界
+
+日本のAmazonで重要な心理的価格境界：
+- **1,000円の壁**：ここを超えると「ちょっと高い」と感じられやすい
+- **2,000円の壁**：衝動買いの上限に近い
+- **3,000円の壁**：比較検討が始まる価格帯
+- **5,000円の壁**：慎重な購買判断が発生
+- **10,000円の壁**：高額商品カテゴリーへの移行
+
+### 4.4 おまとめ割引・数量割引
+
+- 「2点以上で5%OFF」等の設定でまとめ買いを促進
+- 定期おトク便（Subscribe & Save）の割引率設定：5%〜10%が一般的
+- まとめ買い割引は単価を下げずに実質値引き感を出せる
+
+---
+
+## 5. クーポン戦略
+
+### 5.1 クーポンの種類と特徴
+
+**Amazonクーポン：**
+- 商品検索結果・商品詳細ページに緑のクーポンバッジが表示される
+- クリップされるたびに手数料が発生（1回あたり60円）
+- 視認性が高く、CTR（クリック率）向上に有効
+
+**プロモーションコード：**
+- 特定のコードを入力することで割引が適用される
+- SNSやメルマガでの配布に適する
+- バッジ表示はされない
+
+### 5.2 クーポン割引率の設定指針
+
+| 目的 | 推奨割引率 | 備考 |
+|---|---|---|
+| 日常的な販売促進 | 5%〜10% | 利益率を大きく毀損しない範囲 |
+| 新商品ローンチ | 10%〜20% | 初期レビュー獲得を優先 |
+| 在庫処分 | 15%〜30% | 長期在庫保管手数料との比較で判断 |
+| 大型セール対抗 | 10%〜20% | セール参加できない商品の代替手段 |
+
+### 5.3 クーポン運用のポイント
+
+- クーポンは「限定感」を演出するため、期間を区切って運用する
+- クリップ手数料を加味した利益計算を行う
+- クーポン適用後の実質価格が競合と比較して妥当かを確認
+- 定期的にクーポンの効果測定（クーポン有無でのCVR比較）を実施
+
+---
+
+## 6. タイムセール活用
+
+### 6.1 タイムセールの種類
+
+**Lightning Deal（数量限定タイムセール）：**
+- 6〜12時間の短期セール
+- セール参加手数料が必要（通常4,000円〜8,000円程度）
+- タイムセールページに掲載され、高い露出が得られる
+- 在庫数量の設定が必要（推奨在庫を下回ると参加不可）
+
+**7日間タイムセール：**
+- 7日間継続するセール
+- Lightning Dealより参加ハードルが低い
+- セール価格バッジが商品に表示される
+
+**プライム会員限定セール：**
+- プライム会員のみに表示される割引
+- プライム会員の購買意欲の高さを活用
+
+### 6.2 タイムセール価格の設定
+
+- Amazonが提示する「最大セール価格」以下に設定する必要がある
+- 通常は直近の販売価格から15%〜25%割引が目安
+- セール価格でも利益が出る（最低でも赤字にならない）ことを確認
+- セール後の価格戻しを前提に、通常価格を適正に維持しておく
+
+### 6.3 タイムセール活用のタイミング
+
+**効果的なタイミング：**
+- 新商品のBSR向上を狙うとき
+- 季節商品の需要ピーク前
+- 在庫回転率を改善したいとき
+- 競合が大型プロモーションを実施しているとき
+
+**避けるべきタイミング：**
+- 在庫が少なく補充が間に合わないとき
+- 利益率がすでに低い状態のとき
+- 大型セール直前（大型セールに参加する場合はそちらに注力）
+
+---
+
+## 7. 大型セール戦略
+
+### 7.1 年間主要セールカレンダー
+
+| セール | 時期 | 特徴 |
+|---|---|---|
+| 初売りセール | 1月 | 新年の購買需要 |
+| 新生活セール | 3月 | 引越し・新生活需要 |
+| プライムデー | 7月（変動あり） | 年間最大級のセール |
+| プライム感謝祭 | 10月 | 第二のプライムデー |
+| ブラックフライデー | 11月 | 年末商戦の幕開け |
+| サイバーマンデー | 12月初旬 | ブラックフライデーの延長 |
+| 年末セール | 12月 | クリスマス・年末需要 |
+
+### 7.2 大型セールの価格戦略
+
+**セール前（2〜4週間前）：**
+- 通常価格を安定させる（セール直前の値上げはペナルティの対象になりうる）
+- 十分な在庫を確保（FBA倉庫への納品リードタイムを考慮）
+- セール用の広告予算を確保
+
+**セール中：**
+- セール専用価格を設定（通常価格から20%〜35%割引が目安）
+- 広告予算を通常の1.5〜3倍に増額
+- 在庫状況をリアルタイムで監視
+
+**セール後：**
+- 価格を段階的に通常価格に戻す（一気に戻すとCVRが急落するリスク）
+- セール中に獲得した新規顧客へのフォローアップ
+- セール効果の分析（売上、利益、BSR変動、新規レビュー数）
+
+---
+
+## 8. 新商品投入時の価格戦略
+
+### 8.1 ローンチ価格の設定
+
+**プライシングフェーズ：**
+
+1. **導入期（発売〜1ヶ月）：**
+   - 競合の中価格帯〜やや低めに設定
+   - クーポン（10%〜20%OFF）を併用してさらにお得感を演出
+   - 目的：初期レビューの獲得、BSRの確立
+
+2. **成長期（1〜3ヶ月）：**
+   - レビューが蓄積されてきたら段階的に値上げ
+   - クーポンの割引率を徐々に縮小（20%→15%→10%→5%）
+   - 広告ACOSの改善に合わせて価格調整
+
+3. **安定期（3ヶ月〜）：**
+   - 目標利益率を達成する定常価格に設定
+   - クーポンは必要に応じて継続（常時ではなく間欠的に）
+   - 競合動向に応じた微調整
+
+### 8.2 初期投資としての価格設定
+
+- 新商品の最初の30〜50レビュー獲得までは利益率を下げてでも販売量を確保
+- レビューは価格以上にCVR（転換率）を左右する重要資産
+- 初期の低利益率は「レビュー獲得投資」と捉える
+
+---
+
+## 9. 値上げの判断基準とタイミング
+
+### 9.1 値上げを検討すべきサイン
+
+- 利益率が目標を下回っている（原価上昇、手数料改定等）
+- カート獲得率が安定して高い（価格に余裕がある）
+- レビュー数・評価が競合より高い（ブランド力で価格を正当化できる）
+- 在庫回転が速すぎる（需要に対して価格が安すぎる可能性）
+- 商品改良・付加価値の追加を行った
+
+### 9.2 値上げの実施方法
+
+- **段階的値上げ**：一度に大幅な値上げは避け、5%〜10%ずつ段階的に引き上げる
+- **付加価値追加との同時実施**：パッケージ改善、付属品追加等と合わせて値上げすると受容されやすい
+- **クーポンの段階的縮小**：実質的な値上げとして機能する
+- **CVR・カート獲得率のモニタリング**：値上げ後のKPIを綿密にチェックし、悪化した場合は柔軟に調整
+
+### 9.3 値上げ後のモニタリング項目
+
+- セッション数の変化
+- CVR（転換率）の変化
+- カート獲得率の変化
+- BSR（ベストセラーランキング）の変動
+- 広告ACOSの変化
+
+---
+
+## 10. FBA小型軽量商品プログラムの活用
+
+### 10.1 プログラム概要
+
+低価格・小型・軽量の商品に対してFBA手数料が大幅に割引されるプログラム。
+
+**参加条件（目安）：**
+- 販売価格が1,000円以下
+- 重量が950g以下
+- サイズが規定内（3.3cm x 25cm x 18cm以下等）
+
+### 10.2 価格戦略への影響
+
+- FBA手数料が通常の半額程度になるため、低価格帯商品の利益率が大幅改善
+- 1,000円以下の商品で利益を出すための重要な選択肢
+- 配送速度が通常のFBAより遅い（4〜5日）点に注意
+
+### 10.3 活用のポイント
+
+- 消耗品・日用品など、リピート購入が見込める低価格商品に最適
+- 定期おトク便との組み合わせで安定した売上を構築
+- 配送速度の遅さをカバーするために、商品ページで到着目安を明確に記載
+
+---
+
+## 11. 価格チェックリスト
+
+### 新商品価格設定時
+
+- [ ] 商品原価（仕入れ＋輸送＋梱包）を正確に算出したか
+- [ ] FBA料金シミュレーターで手数料を計算したか
+- [ ] 販売手数料のカテゴリー別料率を確認したか
+- [ ] 広告費を含めた利益率が最低15%以上あるか
+- [ ] 競合の価格帯を調査し、マッピングを作成したか
+- [ ] 心理的価格境界を考慮した端数設定にしたか
+- [ ] ローンチ時のクーポン戦略を策定したか
+- [ ] 初期価格から定常価格への移行計画があるか
+
+### 定期価格レビュー時（月次推奨）
+
+- [ ] カート獲得率は50%以上を維持しているか
+- [ ] 利益率が目標値を維持しているか
+- [ ] 競合の価格変動をチェックしたか
+- [ ] 長期在庫リスクのある商品はないか（値下げ or クーポンで回転促進）
+- [ ] 原価・手数料の変動はないか
+- [ ] 広告ACOSは許容範囲内か
+
+### 大型セール前
+
+- [ ] セール対象商品を選定したか（利益率に余裕がある商品を優先）
+- [ ] セール価格でも赤字にならないことを確認したか
+- [ ] 十分な在庫をFBA倉庫に納品済みか
+- [ ] セール用の広告予算を確保したか
+- [ ] セール後の価格戻し計画を策定したか
+
+---
+
+## 12. 価格戦略のよくある失敗と回避策
+
+| 失敗パターン | 原因 | 回避策 |
+|---|---|---|
+| 広告費を含まずに価格設定して赤字 | コスト構造の理解不足 | TACoSを含めた総合利益率で管理 |
+| 最安値競争に巻き込まれる | 差別化不足 | ブランド構築、リスティング改善で価格以外の価値を訴求 |
+| セール後に売上が激減 | セール価格への依存 | 段階的な価格戻し、セール以外の販売施策の併用 |
+| 在庫切れで販売機会損失 | 需要予測の甘さ | 安全在庫の確保、リードタイム管理 |
+| 値上げでカート喪失 | 一度に大幅値上げ | 段階的な値上げ、付加価値追加との併用 |
+| 長期在庫で保管手数料が利益を侵食 | 在庫管理の不備 | 在庫回転日数の管理、早期の値下げ判断 |
