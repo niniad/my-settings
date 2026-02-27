@@ -189,6 +189,15 @@ rpt_kpi_monthly には2系統のデータが含まれる。目的に応じて使
 KPI定義・目標値: [references/kpi-targets.md](references/kpi-targets.md)
 
 ```
+■ Phase 0: コンテキストロード（サブエージェントではなく主会話で実行）
+0-1. NocoDB EC_Data_Insights（Status=有効）を全件取得
+0-2. NocoDB PDCA_Actions（Category=EC, Status≠完了,中止）を全件取得
+0-3. 取得した Insights と Actions を要約表示:
+     - 分析対象期間に関連する既知の異常値・データ障害
+     - 期限切れ・期限間近の進行中アクション
+     - 異常値に対して既に実施済み/進行中のアクション（Related_Actionで紐付け）
+※ Phase 0はサブエージェントに委任しない。主会話で実行し、結果をコンテキストに保持する。
+
 ■ Phase 1: 状況把握
 0. データ鮮度: rpt_data_freshness で全ソースの状態確認。異常があれば報告
 1. KPI取得: rpt_kpi_monthly で当月+3ヶ月推移。data_quality列を必ず確認
@@ -213,6 +222,11 @@ KPI定義・目標値: [references/kpi-targets.md](references/kpi-targets.md)
 8. 広告: rpt_ad_cross_purchase で真のROAS確認（広告変更検討時のみ）
 9. 在庫: rpt_inventory_health で補充アラート確認
 
+※ 数値の異常やアラートを検出した場合:
+  1. EC_Data_Insights に該当する既知事実があるか確認 → あれば「既知」と記載し再調査しない
+  2. PDCA_Actions に該当する対応済み/進行中アクションがあるか確認 → あれば「対応済み/進行中」と記載
+  3. いずれにも該当しない場合のみ「新規発見」として深掘り
+
 ■ Phase 4: 戦略判断とアクション提示
 10. 事業継続判断: 3ヶ月連続赤字等の基準に該当するか確認
 11. アクション提示（優先度順）:
@@ -220,7 +234,7 @@ KPI定義・目標値: [references/kpi-targets.md](references/kpi-targets.md)
     - 低労力×高効果のアクション
     - 「現状維持」の場合は中長期アクション（商品開発、ページ改善等）を提案
     - 「今やらないこと」を明示（過剰な最適化の抑制）
-12. 記録: NocoDB KPI_Monthly にスナップショット、PDCA_Actions にアクション
+12. 記録: NocoDB PDCA_Actions にアクション、EC_Data_Insights に新知見
 ```
 
 ### 月次KPI取得SQL
@@ -244,7 +258,7 @@ ORDER BY year_month DESC
 ## アクション管理
 
 ### セッション開始時
-- NocoDB `PDCA_Actions`（m8ocl2tmdt5p0fk）から `Category=EC` かつ `Status≠完了,中止` のアクションを取得
+- NocoDB `PDCA_Actions`（m81djzj3lg2n0u9）から `Category=EC` かつ `Status≠完了,中止` のアクションを取得
 - 期限切れ・期限間近のアクションをフラグ表示
 
 ### 記録
@@ -270,6 +284,28 @@ ORDER BY year_month DESC
 | **長期戦略** | 新商品導入、カテゴリ参入/撤退 | 6ヶ月後のポートフォリオ収益性で評価 |
 
 中期・長期アクションの効果は、個別の因果関係ではなく、ポートフォリオ全体の収益性トレンドで判断する。
+
+## 知見管理（EC_Data_Insights）
+
+### 記録対象
+分析で判明した以下の事実をNocoDB EC_Data_Insightsに記録:
+- 特定期間・SKUの数値異常の原因（Vine配布、セール、手数料計算誤り等）
+- データから確認された季節パターン（入園時期、セール時期等）
+- データに基づく確定済み事業判断
+- データソースの障害・欠損期間
+
+### 記録しないもの（SKILL.mdの管轄）
+- 恒久的なデータ解釈ルール
+- 分析手順・フレームワーク
+- KPI目標値
+
+### Related_Action
+異常値に対してアクションを起こした場合、Related_ActionにPDCA_ActionsのTitleを記録。
+分析時に「この異常は既知で、対応も済んでいる」と即座に判断できるようにする。
+
+### 運用
+- 新知見はユーザー確認後に記録
+- 状況変化（dispute解決、障害復旧等）があればStatusを無効化に更新
 
 ## 広告設定の確認・変更（Amazon Ads MCP）
 
@@ -323,5 +359,5 @@ BigQuery の `amazon_ads_external` は過去のパフォーマンスデータ（
 
 | テーブル | ID |
 |---------|-----|
-| KPI_Monthly | mtjjrfldelt8wlp |
-| PDCA_Actions | m8ocl2tmdt5p0fk |
+| PDCA_Actions | m81djzj3lg2n0u9 |
+| EC_Data_Insights | mf8dwtphhlqflkn |

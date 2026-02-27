@@ -73,5 +73,5 @@ P&L構造（rpt_pnl_monthly_sku）:
 
 | テーブル | ID |
 |---------|-----|
-| KPI_Monthly | mtjjrfldelt8wlp |
-| PDCA_Actions | m8ocl2tmdt5p0fk |
+| PDCA_Actions | m81djzj3lg2n0u9 |
+| EC_Data_Insights | mf8dwtphhlqflkn |
