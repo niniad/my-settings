@@ -88,4 +88,7 @@ for k in ['E_work_finance', 'G_meaning_purpose']:
 3. `hypotheses`（仮説）を更新する
 4. `meta.next_session_priorities` を更新する
 5. **`uv run python scripts/generate_core.py` を実行して `profile-core.json` を再生成する**
-6. EC/業務データは NocoDB に記録（nocodb スキル経由）
+6. プライベート（Life/Work/Finance）の完了アクションは NocoDB に記録（nocodb スキル経由）
+
+> **EC状況確認**: EC事業のアクション管理・KPIレビューは `ec-analytics` スキルに委譲。
+> EC関連の質問が出た場合は ec-analytics スキルを呼び出すこと。

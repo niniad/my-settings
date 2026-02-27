@@ -52,7 +52,7 @@ EC事業の**利益最大化**のための戦略的意思決定を支援する�
 
 ### 事業継続の判断基準
 
-以下に該当する場合、`life` プロジェクトの `action-plan.md` にエスカレーションする。
+以下に該当する場合、**life セッション冒頭で重大アラートとして報告**する。
 
 | 条件 | 判断 |
 |---|---|
@@ -243,10 +243,15 @@ ORDER BY year_month DESC
 
 ## アクション管理
 
+### セッション開始時
+- NocoDB `PDCA_Actions`（m8ocl2tmdt5p0fk）から `Category=EC` かつ `Status≠完了,中止` のアクションを取得
+- 期限切れ・期限間近のアクションをフラグ表示
+
 ### 記録
-- 全てのアクションを NocoDB `PDCA_Actions`（m8ocl2tmdt5p0fk）に記録
-- 記録項目: 日時、アクション内容、変更前後の値、理由、期待効果
+- **ECアクションは全て NocoDB PDCA_Actions に直接記録**する（action-plan.md には書かない）
+- 記録項目: Title, Category=EC, Priority, Status, Created, Due, KPI_Impact, Target_SKU, Metric_Before/After, Metric_Name
 - 広告変更等の実行前に必ず**ユーザー承認**を得る
+- アクション完了時: Status=完了, Completed=日付, Outcome=結果, Metric_After=実績値 を更新
 
 ### 効果測定の原則
 - **評価期間**: 施策前1ヶ月 vs 施策後1ヶ月（7日では判断不可能）
@@ -308,10 +313,11 @@ BigQuery の `amazon_ads_external` は過去のパフォーマンスデータ（
 | リソース | パス |
 |---------|------|
 | EC戦略書 | `C:/Users/ninni/projects/life/docs/ec_strategy.md` |
-| アクションプラン | `C:/Users/ninni/projects/life/docs/action-plan.md` |
 | 会計方針 | `C:/Users/ninni/projects/gcp-main-project-477501/accounting_policies.md` |
 | NocoDB | nocodb スキル経由 |
 | freee | freee スキル経由 |
+
+> **注意**: ECアクションは NocoDB PDCA_Actions で一元管理。`action-plan.md` はプライベート専用のため参照しない。
 
 ## NocoDB テーブルID
 
