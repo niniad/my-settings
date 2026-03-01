@@ -1,6 +1,6 @@
 ---
 name: deep-research
-description: Conduct enterprise-grade research with multi-source synthesis, citation tracking, and verification. Use when user needs comprehensive analysis requiring 10+ sources, verified claims, or comparison of approaches. Triggers include "deep research", "comprehensive analysis", "research report", "compare X vs Y", or "analyze trends". Do NOT use for simple lookups, debugging, or questions answerable with 1-2 searches.
+description: Enterprise-grade research with multi-source synthesis and verification. Use for 10+ source analysis or comparison. Triggers: 'deep research', 'research report', 'compare X vs Y', 'analyze trends'.
 ---
 
 # Deep Research
