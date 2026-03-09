@@ -1,6 +1,6 @@
 ---
 name: deep-research
-description: Enterprise-grade research with multi-source synthesis and verification. Use for 10+ source analysis or comparison. Triggers: 'deep research', 'research report', 'compare X vs Y', 'analyze trends'.
+description: "Enterprise-grade research with multi-source synthesis and verification. Use for 10+ source analysis or comparison. Triggers: 'deep research', 'research report', 'compare X vs Y', 'analyze trends'."
 ---
 
 # Deep Research
@@ -52,7 +52,7 @@ Announce plan and execute immediately (no approval needed):
 **Standard+:** Phase 2 (PLAN), Phase 4 (TRIANGULATE), Phase 4.5 (OUTLINE REFINEMENT), Phase 5 (SYNTHESIZE)
 **Deep+:** Phase 6 (CRITIQUE), Phase 7 (REFINE)
 
-Load phase details from [methodology](./reference/methodology.md) on-demand.
+Load phase details from [methodology](./references/methodology.md) on-demand.
 
 **Parallel Execution (CRITICAL for Speed):**
 - Decompose query into 5-10 independent search angles
@@ -89,7 +89,7 @@ python scripts/validate_report.py --report [path]
 ### 5. Report
 
 **File Organization:**
-Create dedicated folder: `C:/Users/ninni/Documents/[TopicName]_Research_[YYYYMMDD]/`
+Create dedicated folder: `~/Documents/[TopicName]_Research_[YYYYMMDD]/`
 
 **Three formats (all saved to same folder):**
 
@@ -129,7 +129,7 @@ Track `citations_used` list throughout. Progress update after each section.
 
 When report exceeds 18,000 words in single run:
 1. Generate sections 1-10 (stay under 18K words)
-2. Save continuation state to `C:/Users/ninni/.claude/research_output/continuation_state_[report_id].json`
+2. Save continuation state to `~/.claude/research_output/continuation_state_[report_id].json`
 3. Spawn continuation agent via Task tool (general-purpose)
 4. Continuation agent reads state → generates next batch → spawns next agent if needed
 5. Chain continues recursively until complete
@@ -233,7 +233,7 @@ No external dependencies required.
 
 ## Progressive References (Load On-Demand)
 
-- [Complete Methodology](./reference/methodology.md) — 8-phase details
+- [Complete Methodology](./references/methodology.md) — 8-phase details
 - [Report Template](./templates/report_template.md) — Output structure
 
 **Context Management:** Load files on-demand for current phase only. Do not preload all content.

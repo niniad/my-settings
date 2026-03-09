@@ -8,10 +8,5 @@
         "BIGQUERY_PROJECT": "main-project-477501"
       }
     },
-    "amazon-ads": {
-      "command": "uv",
-      "args": ["run", "--project", "C:/Users/ninni/projects/amazon-ads-mcp", "python", "C:/Users/ninni/projects/amazon-ads-mcp/server.py"],
-      "env": {}
-    }
   }
 }
