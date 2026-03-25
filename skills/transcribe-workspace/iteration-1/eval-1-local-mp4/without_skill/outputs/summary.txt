@@ -1,0 +1,44 @@
+# 文字起こし作業サマリー
+
+## 対象ファイル
+- 入力: C:\Users\ninni\projects\awi\tmp\test_audio.mp4
+- 音声長: 8秒、AAC 44100Hz モノラル
+
+## 実施手順
+
+1. **環境確認**
+   - faster-whisper 1.2.1 がインストール済みを確認
+   - ffprobe で音声ファイルのプロパティを確認
+
+2. **前処理: MP4 → WAV 変換**
+   - ffmpeg で 16000Hz モノラル WAV に変換
+   - Whisper は 16kHz WAV を最も正確に処理するため
+
+3. **モデル選定の試行錯誤**
+   - `base` モデル: セグメント 0件（検出失敗）
+   - `base` + language='ja' + vad_filter=False: セグメント 0件
+   - `small` + 閾値緩和: 「エンディング」（no_speech_prob=0.45）
+   - `medium` + 閾値緩和: 「エンディング」（no_speech_prob=0.63）
+   - `large-v2` + 閾値緩和: 「ご視聴ありがとうございました」（no_speech_prob=0.73）
+
+4. **使用パラメータ（最終）**
+   - モデル: large-v2
+   - device: cpu, compute_type: int8
+   - language: ja（明示指定）
+   - vad_filter: False（短い音声のため VAD を無効化）
+   - no_speech_threshold: 0.1（デフォルト 0.6 から緩和）
+   - log_prob_threshold: -2.0（デフォルト -1.0 から緩和）
+
+## 文字起こし結果
+[0.00s - 8.12s] ご視聴ありがとうございました
+
+## 所見
+- 短い音声（8秒）は VAD フィルターを無効にしないと全セグメントが除去される
+- base/small モデルでは日本語の聞き取りが不正確（「エンディング」と誤認識）
+- large-v2 モデルで正確な日本語認識を実現
+- no_speech_prob が 0.73 と高いため、音声が若干不明瞭な可能性あり
+
+## 出力ファイル
+- transcript.txt: 文字起こし結果
+- transcribe.py: 使用した Python スクリプト
+- summary.txt: 本ファイル

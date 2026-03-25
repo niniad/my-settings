@@ -1,0 +1,177 @@
+<!--
+  Pattern: table
+  Theme: Clean Light
+  Category: Data
+  Text Guidelines:
+  - Title: max 30 characters
+  - Columns: max 6 columns
+  - Rows: max 7 rows (including header)
+  - Cell content: max 20 characters per cell
+  - Header: max 15 characters per column
+  Note: For data-heavy slides. Keep cell content concise.
+        Highlight key column with blue header accent.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 470px;
+    padding-top: 16px;
+  }
+  h2 {
+    font-size: 30px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  thead tr {
+    background: #111111;
+    color: white;
+  }
+  thead th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  thead th.highlight {
+    background: #0055CC;
+  }
+  tbody tr {
+    border-bottom: 1px solid #EEEEEE;
+  }
+  tbody tr:nth-child(even) {
+    background: #F9F9F9;
+  }
+  tbody tr:hover {
+    background: #F0F4FF;
+  }
+  tbody td {
+    padding: 9px 12px;
+    color: #333333;
+    font-size: 14px;
+  }
+  tbody td.key-col {
+    font-weight: 700;
+    color: #111111;
+  }
+  tbody td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  tbody td.good { color: #00880A; font-weight: 700; }
+  tbody td.warn { color: #CC6600; font-weight: 700; }
+  tbody td.bad  { color: #CC2200; font-weight: 700; }
+  .note {
+    font-size: 12px; color: #AAAAAA;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">02. 施策比較</p>
+  <p class="page-num">09</p>
+  <div class="slide-inner">
+    <h2>施策別 効果試算・優先度マトリクス</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>施策名</th>
+          <th>担当部門</th>
+          <th>初期コスト</th>
+          <th class="highlight">期待ROI</th>
+          <th>実装期間</th>
+          <th>難易度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="key-col">アプリUX刷新</td>
+          <td>開発部</td>
+          <td class="num">¥4,500万</td>
+          <td class="num good">280%</td>
+          <td>6ヶ月</td>
+          <td class="warn">中</td>
+        </tr>
+        <tr>
+          <td class="key-col">AIレコメンド</td>
+          <td>データ部</td>
+          <td class="num">¥2,200万</td>
+          <td class="num good">320%</td>
+          <td>4ヶ月</td>
+          <td class="warn">中</td>
+        </tr>
+        <tr>
+          <td class="key-col">広告入札最適化</td>
+          <td>マーケ部</td>
+          <td class="num">¥800万</td>
+          <td class="num good">450%</td>
+          <td>1ヶ月</td>
+          <td class="good">低</td>
+        </tr>
+        <tr>
+          <td class="key-col">データ基盤整備</td>
+          <td>IT部</td>
+          <td class="num">¥6,000万</td>
+          <td class="num warn">150%</td>
+          <td>12ヶ月</td>
+          <td class="bad">高</td>
+        </tr>
+        <tr>
+          <td class="key-col">LTV予測モデル</td>
+          <td>データ部</td>
+          <td class="num">¥1,500万</td>
+          <td class="num good">220%</td>
+          <td>3ヶ月</td>
+          <td class="warn">中</td>
+        </tr>
+        <tr>
+          <td class="key-col">カート離脱対策</td>
+          <td>マーケ部</td>
+          <td class="num">¥300万</td>
+          <td class="num good">380%</td>
+          <td>2週間</td>
+          <td class="good">低</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">※ROIは12ヶ月後の試算値。実績は施策開始後3ヶ月で中間評価予定。</p>
+  </div>
+</body>
+</html>

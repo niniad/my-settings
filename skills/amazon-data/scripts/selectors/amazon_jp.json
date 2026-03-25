@@ -1,0 +1,78 @@
+{
+  "_comment": "Amazon.co.jp のスクレイピング用セレクタ定義。DOM変更時はここを編集するだけで対応可能。",
+  "reviews": {
+    "container": [
+      "#cm-cr-dp-review-list",
+      "#reviews-medley-footer",
+      "[data-hook='review-list']"
+    ],
+    "item": [
+      "[data-hook='review']",
+      ".review",
+      ".a-section.review"
+    ],
+    "star": [
+      ".review-rating span.a-icon-alt",
+      "i.a-icon-star span.a-icon-alt",
+      "[data-hook='review-star-rating'] span.a-icon-alt"
+    ],
+    "title": [
+      "[data-hook='review-title'] span:not(.a-icon-alt)",
+      ".review-title span",
+      "a.review-title span"
+    ],
+    "body": [
+      "[data-hook='review-body'] span",
+      ".review-text-content span",
+      ".review-text span"
+    ],
+    "date": [
+      "[data-hook='review-date']",
+      ".review-date"
+    ],
+    "author": [
+      ".a-profile-name",
+      "[data-hook='genome-widget'] .a-profile-name"
+    ],
+    "see_all_link": [
+      "[data-hook='see-all-reviews-link-foot']",
+      "a.a-link-emphasis[href*='product-reviews']"
+    ],
+    "variation": [
+      "[data-hook='format-strip'] .a-size-mini",
+      "[data-hook='format-strip']",
+      ".review-format-strip"
+    ]
+  },
+  "aplus": {
+    "container": [
+      "#aplus",
+      "#aplus_feature_div",
+      "#aplusBrandStory_feature_div"
+    ],
+    "text_sections": [
+      "#aplus .aplus-module",
+      "#aplus .a-section",
+      "#aplus_feature_div .aplus-module"
+    ],
+    "images": [
+      "#aplus img[src]",
+      "#aplus_feature_div img[src]"
+    ]
+  },
+  "product_page": {
+    "title": [
+      "#productTitle",
+      "span#productTitle"
+    ],
+    "bullets": [
+      "#feature-bullets .a-list-item",
+      "#feature-bullets ul li span"
+    ],
+    "price": [
+      ".a-price .a-offscreen",
+      "#priceblock_ourprice",
+      "#priceblock_dealprice"
+    ]
+  }
+}

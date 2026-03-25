@@ -1,0 +1,165 @@
+<!--
+  Pattern: pros-cons
+  Theme: B&W Swiss
+  Category: Comparison
+  Text Guidelines:
+  - Title: max 30 characters
+  - Each side: 3 to 5 items, each max 50 characters
+  - Verdict: max 60 characters
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .band {
+    position: absolute; left: 0; top: 0;
+    width: 50px; height: 100%;
+    background: #000000;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .band-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 70px; top: 40px;
+    width: 860px; height: 460px;
+  }
+  h2 {
+    font-size: 13px; font-weight: 700;
+    color: #666666;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-rule {
+    width: 100%; height: 2px;
+    background: #000000;
+    margin-bottom: 8px;
+  }
+  .slide-title {
+    font-size: 20px; font-weight: 700;
+    color: #000000;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .pc-layout {
+    display: flex; gap: 20px;
+    height: 280px;
+  }
+  .pc-col {
+    flex: 1;
+    padding: 16px 18px;
+    display: flex; flex-direction: column;
+    background: #F5F5F5;
+  }
+  .pc-header {
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+  .pros .pc-header { background: #000000; color: white; }
+  .cons .pc-header { background: #888888; color: white; }
+  .pc-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 9px;
+  }
+  .pc-sign { font-size: 16px; flex-shrink: 0; font-weight: 700; color: #000000; }
+  .cons .pc-sign { color: #888888; }
+  .pc-text {
+    font-size: 14px; color: #333333;
+    line-height: 1.4;
+  }
+  .verdict {
+    margin-top: 14px;
+    background: #000000;
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .verdict-label {
+    font-size: 11px; font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .verdict-text {
+    font-size: 15px; font-weight: 700;
+    color: white;
+  }
+</style>
+</head>
+<body>
+  <div class="band">
+    <p class="band-label">03. Eval</p>
+  </div>
+  <div class="slide-inner">
+    <h2>03 — リスク評価</h2>
+    <div class="title-rule"></div>
+    <p class="slide-title">AIレコメンド導入のメリット・課題整理</p>
+    <div class="pc-layout">
+      <div class="pc-col pros">
+        <span class="pc-header">メリット</span>
+        <div class="pc-item">
+          <span class="pc-sign">＋</span>
+          <span class="pc-text">回遊率・平均購買単価の向上が期待できる</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-sign">＋</span>
+          <span class="pc-text">パーソナライズによる顧客ロイヤリティ向上</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-sign">＋</span>
+          <span class="pc-text">在庫消化の促進と機会損失の削減</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-sign">＋</span>
+          <span class="pc-text">競合他社との差別化要素になる</span>
+        </div>
+      </div>
+      <div class="pc-col cons">
+        <span class="pc-header">課題・リスク</span>
+        <div class="pc-item">
+          <span class="pc-sign">－</span>
+          <span class="pc-text">コールドスタート問題が発生する可能性</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-sign">－</span>
+          <span class="pc-text">導入・チューニングに4〜6ヶ月かかる</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-sign">－</span>
+          <span class="pc-text">プライバシー規制対応の追加工数が必要</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-sign">－</span>
+          <span class="pc-text">保守・改善の専任チームが必要になる</span>
+        </div>
+      </div>
+    </div>
+    <div class="verdict">
+      <span class="verdict-label">推奨</span>
+      <span class="verdict-text">課題は対処可能。メリットの大きさからQ3での段階導入を推奨する。</span>
+    </div>
+  </div>
+</body>
+</html>

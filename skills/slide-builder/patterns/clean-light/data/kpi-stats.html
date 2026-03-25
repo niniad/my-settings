@@ -1,0 +1,135 @@
+<!--
+  Pattern: kpi-stats
+  Theme: Clean Light
+  Category: Data
+  Text Guidelines:
+  - Title: max 30 characters
+  - KPI count: 2 to 4 metrics
+  - Each KPI number: max 10 characters (e.g., "¥2.4億", "+32%", "1,240万")
+  - Each KPI label: max 20 characters
+  - Each KPI sub note: max 35 characters (trend, context)
+  Note: Numbers should be large and immediately readable.
+        Use for executive dashboards or opening impact slides.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 470px;
+    padding-top: 16px;
+  }
+  h2 {
+    font-size: 32px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .kpi-grid {
+    display: flex; gap: 24px;
+    height: 300px;
+  }
+  .kpi-card {
+    flex: 1;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 28px 24px;
+    border-left: 4px solid #0055CC;
+    background: #F5F5F5;
+  }
+  .kpi-label {
+    font-size: 12px; font-weight: 700;
+    color: #888888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .kpi-number {
+    font-size: 64px; font-weight: 700;
+    color: #0055CC;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .kpi-unit {
+    font-size: 20px; font-weight: 400;
+    letter-spacing: 0;
+    vertical-align: top;
+    line-height: 2;
+  }
+  .kpi-desc {
+    font-size: 14px; color: #555555;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .kpi-trend {
+    font-size: 13px; font-weight: 700;
+    color: #111111;
+  }
+  .trend-up { color: #00880A; }
+  .trend-down { color: #CC2200; }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">01. 現状サマリー</p>
+  <p class="page-num">04</p>
+  <div class="slide-inner">
+    <h2>重要業績指標（2026年2月時点）</h2>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <p class="kpi-label">月間売上</p>
+        <p class="kpi-number"><span class="kpi-unit">¥</span>4.2億</p>
+        <p class="kpi-desc">前年同月比</p>
+        <p class="kpi-trend trend-up">▲ +18.4%</p>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">購買転換率</p>
+        <p class="kpi-number">2.1<span class="kpi-unit" style="font-size:28px">%</span></p>
+        <p class="kpi-desc">業界平均は3.4%</p>
+        <p class="kpi-trend trend-down">▼ −0.3pt（前月比）</p>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">顧客獲得単価</p>
+        <p class="kpi-number"><span class="kpi-unit">¥</span>3,840</p>
+        <p class="kpi-desc">目標は ¥2,500</p>
+        <p class="kpi-trend trend-down">▼ 前年比 +32%悪化</p>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">アプリMAU</p>
+        <p class="kpi-number">124<span class="kpi-unit" style="font-size:24px">万</span></p>
+        <p class="kpi-desc">月間アクティブユーザー</p>
+        <p class="kpi-trend trend-up">▲ +6.2%（前月比）</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

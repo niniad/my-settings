@@ -1,0 +1,7 @@
+# 文字起こし: test_audio.mp4
+# 生成日: 2026-03-18
+# モデル: faster-whisper large-v3 (CPU/int8)
+# 総時間: 0.1分
+
+---
+

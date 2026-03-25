@@ -1,0 +1,88 @@
+<!--
+  Pattern: title-cover
+  Theme: Clean Light
+  Category: Structural
+  Text Guidelines:
+  - Main title: max 35 characters (large display text)
+  - Subtitle: max 50 characters
+  - Author/Presenter: max 30 characters
+  - Date/Organization: max 20 characters
+  Note: No page number on cover slide
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .accent-bar {
+    position: absolute; left: 0; top: 0;
+    width: 6px; height: 100%;
+    background: #0055CC;
+  }
+  .bottom-bar {
+    position: absolute; left: 0; bottom: 0;
+    width: 320px; height: 4px;
+    background: #0055CC;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 80px; top: 0;
+    width: 800px; height: 540px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .eyebrow {
+    font-size: 12px; font-weight: 700;
+    color: #0055CC;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 56px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -2px; line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    font-size: 22px; font-weight: 400;
+    color: #555555;
+    letter-spacing: 0.3px;
+    margin-bottom: 48px;
+  }
+  .meta {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .author {
+    font-size: 16px; font-weight: 700;
+    color: #888888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .date {
+    font-size: 14px; color: #AAAAAA;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+  <div class="accent-bar"></div>
+  <div class="bottom-bar"></div>
+  <div class="slide-inner">
+    <p class="eyebrow">Proposal</p>
+    <h1>新規事業参入戦略<br>2026年度版</h1>
+    <p class="subtitle">市場機会の分析と優先施策の提言</p>
+    <div class="meta">
+      <p class="author">戦略企画部　山田 太郎</p>
+      <p class="date">2026年3月14日</p>
+    </div>
+  </div>
+</body>
+</html>

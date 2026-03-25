@@ -1,0 +1,199 @@
+<!--
+  Pattern: chart-bar
+  Theme: Clean Light
+  Category: Data
+  Text Guidelines:
+  - Title: max 30 characters
+  - Bars: 4 to 7 bars (CSS-based, no canvas/SVG needed)
+  - Bar label: max 15 characters per bar
+  - Value display: shown at bar top
+  - Y-axis label: max 15 characters
+  - Source note: max 50 characters
+  Note: CSS-only bar chart. Horizontal bars with percentage widths.
+        For line/pie charts, use this pattern with a note explaining
+        the data would be better shown as line/pie externally.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 470px;
+    padding-top: 16px;
+  }
+  h2 {
+    font-size: 30px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .chart-area {
+    display: flex; gap: 32px;
+    height: 330px;
+    align-items: flex-end;
+  }
+  /* Horizontal bar chart layout */
+  .chart-rows {
+    flex: 1;
+    display: flex; flex-direction: column;
+    gap: 14px;
+    justify-content: center;
+  }
+  .bar-row {
+    display: flex; align-items: center; gap: 0;
+  }
+  .bar-label {
+    width: 120px;
+    font-size: 14px; color: #555555;
+    text-align: right;
+    padding-right: 14px;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+  .bar-track {
+    flex: 1; height: 32px;
+    background: #F0F0F0;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    background: #0055CC;
+    display: flex; align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    position: relative;
+  }
+  .bar-fill.accent { background: #003A99; }
+  .bar-fill.light { background: #4D90E0; }
+  .bar-value {
+    position: absolute; right: -44px;
+    font-size: 14px; font-weight: 700;
+    color: #111111;
+    white-space: nowrap;
+  }
+  .chart-legend {
+    width: 160px;
+    flex-shrink: 0;
+    display: flex; flex-direction: column;
+    justify-content: center; gap: 12px;
+    padding: 20px;
+    background: #F5F5F5;
+  }
+  .legend-title {
+    font-size: 12px; font-weight: 700;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: #555555;
+  }
+  .legend-dot {
+    width: 12px; height: 12px;
+    flex-shrink: 0;
+  }
+  .note {
+    font-size: 12px; color: #AAAAAA;
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">02. 市場データ</p>
+  <p class="page-num">07</p>
+  <div class="slide-inner">
+    <h2>チャネル別 月間売上構成比（2026年2月）</h2>
+    <div class="chart-area">
+      <div class="chart-rows">
+        <div class="bar-row">
+          <span class="bar-label">スマホアプリ</span>
+          <div class="bar-track">
+            <div class="bar-fill accent" style="width:61%">
+              <span class="bar-value">61%　¥2.56億</span>
+            </div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">モバイルWeb</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:18%">
+              <span class="bar-value">18%　¥0.76億</span>
+            </div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">PC Web</span>
+          <div class="bar-track">
+            <div class="bar-fill light" style="width:14%">
+              <span class="bar-value">14%　¥0.59億</span>
+            </div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">電話注文</span>
+          <div class="bar-track">
+            <div class="bar-fill light" style="width:5%; opacity:0.6">
+              <span class="bar-value">5%　¥0.21億</span>
+            </div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">その他</span>
+          <div class="bar-track">
+            <div class="bar-fill light" style="width:2%; opacity:0.4">
+              <span class="bar-value">2%　¥0.08億</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-legend">
+        <p class="legend-title">凡例</p>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#003A99"></div>
+          <span>最大チャネル</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#0055CC"></div>
+          <span>成長チャネル</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#4D90E0; opacity:0.6"></div>
+          <span>縮小中</span>
+        </div>
+      </div>
+    </div>
+    <p class="note">出典：社内売上管理システム（2026年2月末データ）　※四捨五入のため合計は100%と異なる場合あり</p>
+  </div>
+</body>
+</html>

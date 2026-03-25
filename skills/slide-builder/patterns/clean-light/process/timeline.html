@@ -1,0 +1,218 @@
+<!--
+  Pattern: timeline
+  Theme: Clean Light
+  Category: Process
+  Text Guidelines:
+  - Title: max 30 characters
+  - Events: 4 to 6 milestone events
+  - Each date/period: max 12 characters
+  - Each event label: max 25 characters
+  - Each event detail: max 40 characters
+  Note: Horizontal timeline with alternating above/below text.
+        Dates should be specific (month/quarter) not vague.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 460px;
+    padding-top: 16px;
+  }
+  h2 {
+    font-size: 30px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .timeline-wrap {
+    position: relative;
+    margin-top: 70px;
+    height: 260px;
+  }
+  /* Horizontal axis */
+  .timeline-axis {
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 2px;
+    background: #DDDDDD;
+    transform: translateY(-50%);
+  }
+  .timeline-start, .timeline-end {
+    position: absolute;
+    top: 50%;
+    width: 10px; height: 10px;
+    background: #CCCCCC;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+  .timeline-start { left: 0; }
+  .timeline-end { right: 0; }
+  /* Events */
+  .event {
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column;
+    align-items: center;
+  }
+  .event-dot {
+    width: 16px; height: 16px;
+    background: #0055CC;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #0055CC;
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    z-index: 2;
+  }
+  .event.done .event-dot { background: #888888; box-shadow: 0 0 0 2px #888888; }
+  .event.active .event-dot {
+    background: #0055CC;
+    box-shadow: 0 0 0 4px rgba(0,85,204,0.25);
+    width: 20px; height: 20px;
+  }
+  /* Above-axis text */
+  .event-above {
+    position: absolute;
+    bottom: calc(50% + 20px);
+    text-align: center;
+    width: 140px;
+    left: 50%; transform: translateX(-50%);
+  }
+  /* Below-axis text */
+  .event-below {
+    position: absolute;
+    top: calc(50% + 20px);
+    text-align: center;
+    width: 140px;
+    left: 50%; transform: translateX(-50%);
+  }
+  .event-date {
+    font-size: 12px; font-weight: 700;
+    color: #0055CC;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .event.done .event-date { color: #888888; }
+  .event-label {
+    font-size: 14px; font-weight: 700;
+    color: #111111;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .event-detail {
+    font-size: 12px; color: #888888;
+    line-height: 1.3;
+  }
+  .connector-line {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 1px; background: #DDDDDD;
+  }
+  .connector-up { transform: translateX(-50%) translateY(-100%); height: 14px; bottom: unset; }
+  .connector-down { transform: translateX(-50%); height: 14px; }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">03. ロードマップ</p>
+  <p class="page-num">12</p>
+  <div class="slide-inner">
+    <h2>2026年度 実施ロードマップ</h2>
+    <div class="timeline-wrap">
+      <div class="timeline-axis"></div>
+      <div class="timeline-start"></div>
+      <div class="timeline-end"></div>
+
+      <!-- Event 1: above (done) -->
+      <div class="event done" style="left:8%">
+        <div class="event-dot"></div>
+        <div class="event-above">
+          <p class="event-date">4月</p>
+          <p class="event-label">プロジェクト<br>キックオフ</p>
+          <p class="event-detail">体制・スコープ確定</p>
+        </div>
+      </div>
+
+      <!-- Event 2: below (done) -->
+      <div class="event done" style="left:24%">
+        <div class="event-dot"></div>
+        <div class="event-below">
+          <p class="event-date">5月</p>
+          <p class="event-label">ベンダー契約<br>締結</p>
+          <p class="event-detail">3社コンペで決定</p>
+        </div>
+      </div>
+
+      <!-- Event 3: above (active) -->
+      <div class="event active" style="left:42%">
+        <div class="event-dot"></div>
+        <div class="event-above">
+          <p class="event-date">6〜8月</p>
+          <p class="event-label">開発・テスト<br>フェーズ</p>
+          <p class="event-detail">MVP→UAT→本番準備</p>
+        </div>
+      </div>
+
+      <!-- Event 4: below -->
+      <div class="event" style="left:62%">
+        <div class="event-dot"></div>
+        <div class="event-below">
+          <p class="event-date">9月</p>
+          <p class="event-label">段階リリース<br>開始</p>
+          <p class="event-detail">10%→50%→全体展開</p>
+        </div>
+      </div>
+
+      <!-- Event 5: above -->
+      <div class="event" style="left:80%">
+        <div class="event-dot"></div>
+        <div class="event-above">
+          <p class="event-date">10〜12月</p>
+          <p class="event-label">効果測定・<br>最終報告</p>
+          <p class="event-detail">KPI達成状況を評価</p>
+        </div>
+      </div>
+
+      <!-- Event 6: below -->
+      <div class="event" style="left:96%">
+        <div class="event-dot"></div>
+        <div class="event-below">
+          <p class="event-date">翌年1月</p>
+          <p class="event-label">次年度計画<br>策定</p>
+          <p class="event-detail">Phase2の検討開始</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

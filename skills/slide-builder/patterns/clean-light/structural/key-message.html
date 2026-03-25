@@ -1,0 +1,77 @@
+<!--
+  Pattern: key-message
+  Theme: Clean Light
+  Category: Structural
+  Text Guidelines:
+  - Main message: max 40 characters (one impactful sentence)
+  - Supporting note: max 60 characters (optional)
+  Note: This slide emphasizes a single key insight. Keep text minimal.
+        The message should be readable from the back of the room.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .center-content {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 60px 100px;
+    text-align: center;
+  }
+  .quote-mark {
+    font-size: 80px; font-weight: 700;
+    color: #0055CC;
+    opacity: 0.15;
+    line-height: 0.7;
+    margin-bottom: 20px;
+    font-family: Georgia, serif;
+  }
+  .message {
+    font-size: 42px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    line-height: 1.25;
+    margin-bottom: 28px;
+  }
+  .accent-line {
+    width: 60px; height: 4px;
+    background: #0055CC;
+    margin: 0 auto 24px;
+  }
+  .note {
+    font-size: 18px; color: #888888;
+    letter-spacing: 0.3px;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <div class="center-content">
+    <div class="quote-mark">"</div>
+    <p class="message">今こそ、デジタルチャネルへの<br>本格投資が不可欠だ</p>
+    <div class="accent-line"></div>
+    <p class="note">競合他社はすでに2年先を走っている</p>
+  </div>
+  <p class="page-num">07</p>
+</body>
+</html>

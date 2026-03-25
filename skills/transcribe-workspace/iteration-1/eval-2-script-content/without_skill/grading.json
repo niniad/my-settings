@@ -1,0 +1,23 @@
+{
+  "eval_id": 2,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "sys.stdout.reconfigure(encoding='utf-8') が含まれている",
+      "passed": true,
+      "evidence": "2行目に sys.stdout.reconfigure(encoding='utf-8') あり"
+    },
+    {
+      "text": "large-v3 モデルが指定されている",
+      "passed": false,
+      "evidence": "WhisperModel(\"small\") を使用（large-v3ではない）"
+    },
+    {
+      "text": "vad_filter=True が指定されている",
+      "passed": false,
+      "evidence": "vad_filter指定なし。model.transcribe(audio_path, beam_size=5) のみ"
+    }
+  ],
+  "pass_rate": 0.333,
+  "notes": "language指定もなし（自動検出）。モデルが small で精度低下の懸念。compute_type='int8'はあり"
+}

@@ -1,0 +1,190 @@
+<!--
+  Pattern: cycle
+  Theme: B&W Swiss
+  Category: Diagram
+  Text Guidelines:
+  - Title: max 30 characters
+  - Steps: 3 to 5 cycle nodes
+  - Each step label: max 12 characters
+  - Each step detail: max 25 characters
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .band {
+    position: absolute; left: 0; top: 0;
+    width: 50px; height: 100%;
+    background: #000000;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .band-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 70px; top: 40px;
+    width: 860px; height: 460px;
+  }
+  h2 {
+    font-size: 13px; font-weight: 700;
+    color: #666666;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-rule {
+    width: 100%; height: 2px;
+    background: #000000;
+    margin-bottom: 6px;
+  }
+  .slide-title {
+    font-size: 22px; font-weight: 700;
+    color: #000000;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .cycle-area {
+    position: relative;
+    width: 580px;
+    height: 340px;
+    margin: 0;
+    float: left;
+  }
+  .center-node {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px; height: 100px;
+    background: #000000;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 2;
+  }
+  .center-label {
+    font-size: 13px; font-weight: 700;
+    color: white;
+    text-align: center;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .step-node {
+    position: absolute;
+    width: 100px; height: 100px;
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 8px;
+    z-index: 2;
+  }
+  .node-1 { top: 0; left: 50%; transform: translateX(-50%); }
+  .node-2 { top: 50%; right: 0; transform: translateY(-50%); }
+  .node-3 { bottom: 0; left: 50%; transform: translateX(-50%); }
+  .node-4 { top: 50%; left: 0; transform: translateY(-50%); }
+  .node-num {
+    font-size: 11px; font-weight: 700;
+    color: #888888;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+  }
+  .node-label {
+    font-size: 14px; font-weight: 700;
+    color: #000000;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+  }
+  .desc-cards {
+    position: absolute;
+    right: -240px;
+    top: 0;
+    width: 220px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .desc-card {
+    border-left: 3px solid #000000;
+    padding: 8px 12px;
+    background: #F8F8F8;
+  }
+  .desc-num {
+    font-size: 10px; font-weight: 700;
+    color: #888888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .desc-text {
+    font-size: 13px; color: #333333;
+    line-height: 1.3;
+  }
+</style>
+</head>
+<body>
+  <div class="band">
+    <p class="band-label">03. Cycle</p>
+  </div>
+  <div class="slide-inner">
+    <h2>03 — 継続改善</h2>
+    <div class="title-rule"></div>
+    <p class="slide-title">PDCAサイクル（継続的改善プロセス）</p>
+    <div class="cycle-area">
+      <div class="center-node">
+        <p class="center-label">継続的<br>改善</p>
+      </div>
+      <div class="step-node node-1">
+        <p class="node-num">01</p>
+        <p class="node-label">Plan<br>計画</p>
+      </div>
+      <div class="step-node node-2">
+        <p class="node-num">02</p>
+        <p class="node-label">Do<br>実行</p>
+      </div>
+      <div class="step-node node-3">
+        <p class="node-num">03</p>
+        <p class="node-label">Check<br>評価</p>
+      </div>
+      <div class="step-node node-4">
+        <p class="node-num">04</p>
+        <p class="node-label">Act<br>改善</p>
+      </div>
+      <div class="desc-cards">
+        <div class="desc-card">
+          <p class="desc-num">01 Plan</p>
+          <p class="desc-text">目標設定・KPI定義・施策立案</p>
+        </div>
+        <div class="desc-card">
+          <p class="desc-num">02 Do</p>
+          <p class="desc-text">施策の実装・運用・展開</p>
+        </div>
+        <div class="desc-card">
+          <p class="desc-num">03 Check</p>
+          <p class="desc-text">効果測定・データ分析・課題抽出</p>
+        </div>
+        <div class="desc-card">
+          <p class="desc-num">04 Act</p>
+          <p class="desc-text">仮説更新・次サイクルへの反映</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

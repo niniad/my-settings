@@ -1,0 +1,159 @@
+<!--
+  Pattern: pros-cons
+  Theme: Clean Light
+  Category: Comparison
+  Text Guidelines:
+  - Title: max 30 characters
+  - Pros header: max 15 characters (e.g., "メリット", "強み")
+  - Cons header: max 15 characters (e.g., "デメリット", "課題")
+  - Each side: 3 to 5 items
+  - Each item: max 50 characters
+  - Optional verdict/recommendation: max 60 characters
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 470px;
+    padding-top: 16px;
+  }
+  h2 {
+    font-size: 30px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .pc-layout {
+    display: flex; gap: 24px;
+    height: 290px;
+  }
+  .pc-col {
+    flex: 1;
+    padding: 18px 20px;
+    display: flex; flex-direction: column;
+  }
+  .pc-col.pros { background: #F0FFF4; }
+  .pc-col.cons { background: #FFF5F5; }
+  .pc-header {
+    font-size: 16px; font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    margin-bottom: 14px;
+    display: inline-block;
+  }
+  .pc-col.pros .pc-header { background: #00880A; color: white; }
+  .pc-col.cons .pc-header { background: #CC2200; color: white; }
+  .pc-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 10px;
+  }
+  .pc-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .pc-col.pros .pc-icon { color: #00880A; }
+  .pc-col.cons .pc-icon { color: #CC2200; }
+  .pc-text {
+    font-size: 15px; color: #333333;
+    line-height: 1.4;
+  }
+  .verdict {
+    margin-top: 16px;
+    background: #F5F5F5;
+    border-left: 4px solid #0055CC;
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .verdict-label {
+    font-size: 11px; font-weight: 700;
+    color: #0055CC;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .verdict-text {
+    font-size: 16px; font-weight: 700;
+    color: #111111;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">03. リスク評価</p>
+  <p class="page-num">15</p>
+  <div class="slide-inner">
+    <h2>AIレコメンド導入のメリット・課題整理</h2>
+    <div class="pc-layout">
+      <div class="pc-col pros">
+        <span class="pc-header">メリット</span>
+        <div class="pc-item">
+          <span class="pc-icon">＋</span>
+          <span class="pc-text">回遊率・平均購買単価の向上が期待できる</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-icon">＋</span>
+          <span class="pc-text">パーソナライズによる顧客ロイヤリティ向上</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-icon">＋</span>
+          <span class="pc-text">在庫消化の促進と機会損失の削減</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-icon">＋</span>
+          <span class="pc-text">競合他社との差別化要素になる</span>
+        </div>
+      </div>
+      <div class="pc-col cons">
+        <span class="pc-header">課題・リスク</span>
+        <div class="pc-item">
+          <span class="pc-icon">－</span>
+          <span class="pc-text">初期学習データが不足するとコールドスタート問題が発生</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-icon">－</span>
+          <span class="pc-text">導入・チューニングに4〜6ヶ月かかる</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-icon">－</span>
+          <span class="pc-text">プライバシー規制対応の追加工数が必要</span>
+        </div>
+        <div class="pc-item">
+          <span class="pc-icon">－</span>
+          <span class="pc-text">保守・改善の専任チームが必要になる</span>
+        </div>
+      </div>
+    </div>
+    <div class="verdict">
+      <span class="verdict-label">推奨</span>
+      <span class="verdict-text">課題は対処可能。メリットの大きさからQ3での段階導入を推奨する。</span>
+    </div>
+  </div>
+</body>
+</html>

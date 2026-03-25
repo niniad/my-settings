@@ -1,0 +1,29 @@
+{
+  "eval_id": 2,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "sys.stdout.reconfigure(encoding='utf-8') が含まれている",
+      "passed": true,
+      "evidence": "3行目に sys.stdout.reconfigure(encoding='utf-8') あり"
+    },
+    {
+      "text": "large-v3 モデルが指定されている",
+      "passed": true,
+      "evidence": "WhisperModel(\"large-v3\", device=\"cpu\", compute_type=\"int8\")"
+    },
+    {
+      "text": "vad_filter=True が指定されている",
+      "passed": true,
+      "evidence": "vad_filter=True, vad_parameters=dict(min_silence_duration_ms=500) あり"
+    }
+  ],
+  "pass_rate": 1.0,
+  "notes": "language='ja'、タイムスタンプ形式、逐次書き込みもすべて正しい。ヘッダー情報（モデル名・日付・総時間）も付与",
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 3,
+    "failed": 0,
+    "total": 3
+  }
+}

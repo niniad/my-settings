@@ -1,0 +1,81 @@
+<!--
+  Pattern: section-divider
+  Theme: Clean Light
+  Category: Structural
+  Text Guidelines:
+  - Section number: "01" to "09" format
+  - Section title: max 25 characters (large, bold)
+  - Optional subtitle/description: max 50 characters
+  Note: Minimal content. The slide's job is visual separation.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .left-panel {
+    position: absolute; left: 0; top: 0;
+    width: 320px; height: 100%;
+    background: #0055CC;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start;
+    padding: 0 48px;
+  }
+  .section-num {
+    font-size: 96px; font-weight: 700;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: -4px;
+    line-height: 1;
+    margin-bottom: 0;
+  }
+  .section-label {
+    font-size: 11px; font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .right-panel {
+    position: absolute; left: 320px; top: 0;
+    width: 640px; height: 100%;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 0 60px;
+  }
+  h2 {
+    font-size: 44px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .desc {
+    font-size: 18px; color: #888888;
+    line-height: 1.5;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+  <div class="left-panel">
+    <p class="section-num">01</p>
+    <p class="section-label">Section</p>
+  </div>
+  <div class="right-panel">
+    <h2>市場環境と<br>現状分析</h2>
+    <p class="desc">国内EC市場の成長トレンドと<br>競合ポジショニングの確認</p>
+  </div>
+  <p class="page-num">03</p>
+</body>
+</html>

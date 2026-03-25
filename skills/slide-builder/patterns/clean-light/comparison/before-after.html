@@ -1,0 +1,173 @@
+<!--
+  Pattern: before-after
+  Theme: Clean Light
+  Category: Comparison
+  Text Guidelines:
+  - Title: max 30 characters
+  - Before label: max 15 characters (e.g., "現状", "課題")
+  - After label: max 15 characters (e.g., "改善後", "目標状態")
+  - Each side: 3 to 4 items
+  - Each item: max 50 characters
+  Note: Shows transformation. Left = current problem, Right = desired state.
+        Arrow in center reinforces direction of change.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 470px;
+    padding-top: 16px;
+  }
+  h2 {
+    font-size: 30px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .ba-layout {
+    display: flex; align-items: stretch; gap: 0;
+    height: 340px;
+  }
+  .ba-col {
+    flex: 1;
+    padding: 20px 22px;
+    display: flex; flex-direction: column;
+  }
+  .ba-col.before { background: #FFF5F5; }
+  .ba-col.after  { background: #F0FFF4; }
+  .ba-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid;
+  }
+  .ba-col.before .ba-header { border-color: #FFBBBB; }
+  .ba-col.after  .ba-header { border-color: #88DD99; }
+  .ba-badge {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+  }
+  .ba-col.before .ba-badge {
+    background: #CC2200; color: white;
+  }
+  .ba-col.after  .ba-badge {
+    background: #00880A; color: white;
+  }
+  .ba-header-text {
+    font-size: 18px; font-weight: 700;
+    color: #111111;
+  }
+  .ba-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 10px;
+  }
+  .ba-icon {
+    font-size: 16px; flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .ba-col.before .ba-icon { color: #CC2200; }
+  .ba-col.after  .ba-icon { color: #00880A; }
+  .ba-text {
+    font-size: 15px; color: #333333;
+    line-height: 1.4;
+  }
+  .ba-arrow {
+    width: 56px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: white;
+  }
+  .arrow-symbol {
+    font-size: 32px; color: #0055CC;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">03. 変革ビジョン</p>
+  <p class="page-num">14</p>
+  <div class="slide-inner">
+    <h2>デジタル変革で実現する状態変化</h2>
+    <div class="ba-layout">
+      <div class="ba-col before">
+        <div class="ba-header">
+          <span class="ba-badge">現状</span>
+          <span class="ba-header-text">課題を抱えた現在</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✗</span>
+          <span class="ba-text">アプリセッション時間が業界平均の65%</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✗</span>
+          <span class="ba-text">カート離脱率が68%と業界最悪水準</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✗</span>
+          <span class="ba-text">施策効果の把握に平均3週間かかる</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✗</span>
+          <span class="ba-text">顧客LTVを把握・活用できていない</span>
+        </div>
+      </div>
+      <div class="ba-arrow">
+        <span class="arrow-symbol">→</span>
+      </div>
+      <div class="ba-col after">
+        <div class="ba-header">
+          <span class="ba-badge">改善後</span>
+          <span class="ba-header-text">12ヶ月後の目標状態</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✓</span>
+          <span class="ba-text">アプリセッション時間が業界平均を上回る</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✓</span>
+          <span class="ba-text">カート離脱率を45%以下に改善</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✓</span>
+          <span class="ba-text">リアルタイムダッシュボードで即時把握</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-icon">✓</span>
+          <span class="ba-text">LTVスコアに基づく自動施策が稼働中</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

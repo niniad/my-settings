@@ -1,0 +1,3 @@
+Detected language: en (probability: 0.64)
+
+[0.00s -> 8.00s] bzzzzzzzzzzz

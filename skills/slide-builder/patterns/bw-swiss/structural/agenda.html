@@ -1,0 +1,118 @@
+<!--
+  Pattern: agenda
+  Theme: B&W Swiss
+  Category: Structural
+  Text Guidelines:
+  - Title: max 20 characters
+  - Items: 3 to 6 items
+  - Each item label: max 30 characters
+  - Optional time: max 10 characters
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .band {
+    position: absolute; left: 0; top: 0;
+    width: 50px; height: 100%;
+    background: #000000;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .band-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 70px; top: 40px;
+    width: 860px; height: 460px;
+  }
+  h2 {
+    font-size: 13px; font-weight: 700;
+    color: #666666;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-rule {
+    width: 100%; height: 2px;
+    background: #000000;
+    margin-bottom: 28px;
+  }
+  .agenda-list {
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .agenda-item {
+    display: flex; align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .item-num {
+    font-size: 22px; font-weight: 700;
+    color: #CCCCCC;
+    width: 56px;
+    flex-shrink: 0;
+    letter-spacing: -1px;
+  }
+  .item-label {
+    font-size: 20px; font-weight: 700;
+    color: #000000;
+    flex: 1;
+    letter-spacing: -0.5px;
+  }
+  .item-time {
+    font-size: 13px; color: #888888;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+  <div class="band">
+    <p class="band-label">Agenda</p>
+  </div>
+  <div class="slide-inner">
+    <h2>Agenda</h2>
+    <div class="title-rule"></div>
+    <div class="agenda-list">
+      <div class="agenda-item">
+        <span class="item-num">01</span>
+        <span class="item-label">市場環境と現状分析</span>
+        <span class="item-time">5 min</span>
+      </div>
+      <div class="agenda-item">
+        <span class="item-num">02</span>
+        <span class="item-label">課題の特定と優先度整理</span>
+        <span class="item-time">10 min</span>
+      </div>
+      <div class="agenda-item">
+        <span class="item-num">03</span>
+        <span class="item-label">施策案と実行計画</span>
+        <span class="item-time">15 min</span>
+      </div>
+      <div class="agenda-item">
+        <span class="item-num">04</span>
+        <span class="item-label">期待効果とKPI設定</span>
+        <span class="item-time">5 min</span>
+      </div>
+      <div class="agenda-item">
+        <span class="item-num">05</span>
+        <span class="item-label">まとめと次のアクション</span>
+        <span class="item-time">5 min</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

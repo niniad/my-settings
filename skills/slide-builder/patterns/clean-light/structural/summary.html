@@ -1,0 +1,117 @@
+<!--
+  Pattern: summary
+  Theme: Clean Light
+  Category: Structural
+  Text Guidelines:
+  - Title: max 20 characters (e.g., "まとめ", "本日の総括")
+  - Points: 3 to 5 key takeaways
+  - Each point: max 50 characters
+  - Optional supporting detail per point: max 60 characters
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 470px;
+    padding-top: 20px;
+  }
+  h2 {
+    font-size: 32px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .summary-list {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .summary-item {
+    display: flex; align-items: flex-start; gap: 20px;
+  }
+  .item-icon {
+    width: 32px; height: 32px;
+    background: #0055CC;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .item-icon-inner {
+    width: 10px; height: 10px;
+    background: white;
+    border-radius: 50%;
+  }
+  .item-text {
+    flex: 1;
+  }
+  .item-main {
+    font-size: 20px; font-weight: 700;
+    color: #111111;
+    margin-bottom: 4px;
+  }
+  .item-sub {
+    font-size: 14px; color: #888888;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="page-num">18</p>
+  <div class="slide-inner">
+    <h2>まとめ</h2>
+    <div class="summary-list">
+      <div class="summary-item">
+        <div class="item-icon"><div class="item-icon-inner"></div></div>
+        <div class="item-text">
+          <p class="item-main">国内EC市場は年率12%成長を継続している</p>
+          <p class="item-sub">2026年度の市場規模は約22兆円に達する見込み</p>
+        </div>
+      </div>
+      <div class="summary-item">
+        <div class="item-icon"><div class="item-icon-inner"></div></div>
+        <div class="item-text">
+          <p class="item-main">自社のデジタル投資は競合比で3年遅れている</p>
+          <p class="item-sub">モバイルUXとパーソナライズ機能が特に不足</p>
+        </div>
+      </div>
+      <div class="summary-item">
+        <div class="item-icon"><div class="item-icon-inner"></div></div>
+        <div class="item-text">
+          <p class="item-main">優先施策3つで翌期ROI 180%が達成可能</p>
+          <p class="item-sub">アプリ刷新・レコメンド導入・広告最適化の順で実行</p>
+        </div>
+      </div>
+      <div class="summary-item">
+        <div class="item-icon"><div class="item-icon-inner"></div></div>
+        <div class="item-text">
+          <p class="item-main">Q2開始に向けて予算承認が最初のマイルストーン</p>
+          <p class="item-sub">4月末までに経営会議での承認が必要</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

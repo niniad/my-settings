@@ -1,0 +1,24 @@
+## 文字起こし実行サマリー
+
+### 入力ファイル
+- パス: C:\Users\ninni\projects\awi\tmp\test_audio.mp4
+- 総時間: 0.1分（約8秒）
+
+### 実行設定
+- モデル: faster-whisper large-v3 (CPU/int8)
+- 言語: 日本語 (ja)
+- beam_size: 5
+- VADフィルター: 有効 (min_silence_duration_ms=500)
+
+### 実行結果
+- 検出言語: ja（確率: 1.00）
+- セグメント数: 0
+- 結果: トランスクリプトなし（VADフィルターにより音声なしと判定された可能性あり）
+
+### 出力ファイル
+- トランスクリプト: test_audio_トランスクリプト.txt（ヘッダーのみ）
+- スクリプト: script.py
+
+### スキル使用
+- スキルファイル: C:\Users\ninni\.claude\skills\transcribe\SKILL.md
+- スキルの指示に従い、スクリプトテンプレートを使用して実行

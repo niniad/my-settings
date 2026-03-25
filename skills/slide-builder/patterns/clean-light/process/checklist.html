@@ -1,0 +1,213 @@
+<!--
+  Pattern: checklist
+  Theme: Clean Light
+  Category: Process
+  Text Guidelines:
+  - Title: max 30 characters
+  - Items: 5 to 10 checklist items (can split into 2 columns for 7+)
+  - Each item: max 45 characters
+  - Status: checked (done), unchecked (pending), or in-progress
+  Note: Use for action lists, readiness checks, or task status.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 470px;
+    padding-top: 16px;
+  }
+  h2 {
+    font-size: 30px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .cols {
+    display: flex; gap: 40px;
+  }
+  .col { flex: 1; }
+  .col-header {
+    font-size: 12px; font-weight: 700;
+    color: #888888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .check-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #F5F5F5;
+  }
+  .checkbox {
+    width: 24px; height: 24px;
+    border: 2px solid #DDDDDD;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 3px;
+  }
+  .checkbox.done {
+    background: #0055CC;
+    border-color: #0055CC;
+  }
+  .checkbox.inprogress {
+    border-color: #FF9900;
+    background: #FFF8EE;
+  }
+  .check-mark {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .progress-dot {
+    width: 10px; height: 10px;
+    background: #FF9900;
+    border-radius: 50%;
+  }
+  .check-text {
+    font-size: 15px; color: #333333;
+    flex: 1;
+  }
+  .check-item.done-item .check-text {
+    color: #888888;
+    text-decoration: line-through;
+    text-decoration-color: #CCCCCC;
+  }
+  .check-item.active-item .check-text {
+    color: #111111;
+    font-weight: 700;
+  }
+  .check-owner {
+    font-size: 12px; color: #AAAAAA;
+    white-space: nowrap;
+  }
+  .progress-bar {
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: #F5F5F5;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .progress-label {
+    font-size: 13px; font-weight: 700;
+    color: #555555;
+    white-space: nowrap;
+  }
+  .progress-track {
+    flex: 1; height: 8px;
+    background: #DDDDDD;
+    border-radius: 4px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: #0055CC;
+    border-radius: 4px;
+  }
+  .progress-pct {
+    font-size: 13px; font-weight: 700;
+    color: #0055CC;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">04. 進捗管理</p>
+  <p class="page-num">16</p>
+  <div class="slide-inner">
+    <h2>リリース準備チェックリスト</h2>
+    <div class="cols">
+      <div class="col">
+        <p class="col-header">技術・開発</p>
+        <div class="check-item done-item">
+          <div class="checkbox done"><span class="check-mark">✓</span></div>
+          <span class="check-text">要件定義書の最終確定</span>
+          <span class="check-owner">開発部</span>
+        </div>
+        <div class="check-item done-item">
+          <div class="checkbox done"><span class="check-mark">✓</span></div>
+          <span class="check-text">インフラ環境の構築完了</span>
+          <span class="check-owner">IT部</span>
+        </div>
+        <div class="check-item active-item">
+          <div class="checkbox inprogress"><div class="progress-dot"></div></div>
+          <span class="check-text">ユーザー受け入れテスト（UAT）</span>
+          <span class="check-owner">品質管理</span>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <span class="check-text">本番環境へのデプロイ</span>
+          <span class="check-owner">開発部</span>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <span class="check-text">セキュリティ監査の完了</span>
+          <span class="check-owner">IT部</span>
+        </div>
+      </div>
+      <div class="col">
+        <p class="col-header">ビジネス・運用</p>
+        <div class="check-item done-item">
+          <div class="checkbox done"><span class="check-mark">✓</span></div>
+          <span class="check-text">社内トレーニング資料の作成</span>
+          <span class="check-owner">企画部</span>
+        </div>
+        <div class="check-item active-item">
+          <div class="checkbox inprogress"><div class="progress-dot"></div></div>
+          <span class="check-text">カスタマーサポートへの引き継ぎ</span>
+          <span class="check-owner">CS部</span>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <span class="check-text">リリース告知メールの配信準備</span>
+          <span class="check-owner">マーケ部</span>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <span class="check-text">KPIモニタリング設定</span>
+          <span class="check-owner">データ部</span>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <span class="check-text">障害対応フロー・エスカレーション確認</span>
+          <span class="check-owner">IT部</span>
+        </div>
+      </div>
+    </div>
+    <div class="progress-bar">
+      <span class="progress-label">全体進捗</span>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:40%"></div>
+      </div>
+      <span class="progress-pct">4/10 完了（40%）</span>
+    </div>
+  </div>
+</body>
+</html>

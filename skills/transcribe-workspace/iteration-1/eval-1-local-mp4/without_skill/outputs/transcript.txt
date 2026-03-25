@@ -1,0 +1,6 @@
+# 文字起こし結果
+# ファイル: C:\Users\ninni\projects\awi\tmp\test_audio.mp4
+# モデル: large-v2
+# 言語: ja (確信度: 1.00)
+
+[0.00s - 8.12s] ご視聴ありがとうございました

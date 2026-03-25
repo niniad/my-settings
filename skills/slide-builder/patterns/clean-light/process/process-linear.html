@@ -1,0 +1,174 @@
+<!--
+  Pattern: process-linear
+  Theme: Clean Light
+  Category: Process
+  Text Guidelines:
+  - Title: max 30 characters
+  - Steps: 3 to 5 (horizontal flow)
+  - Step label: max 12 characters
+  - Step detail: max 30 characters
+  Note: Horizontal left-to-right flow. Best for 3-4 steps.
+        At 5 steps, text gets small — consider using numbered-list instead.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 470px;
+    padding-top: 16px;
+  }
+  h2 {
+    font-size: 30px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .process-flow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 10px;
+  }
+  /* Connecting line behind steps */
+  .process-flow::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 80px; right: 80px;
+    height: 2px;
+    background: #DDDDDD;
+    z-index: 0;
+  }
+  .step {
+    display: flex; flex-direction: column;
+    align-items: center;
+    width: 155px;
+    position: relative;
+    z-index: 1;
+  }
+  .step-circle {
+    width: 72px; height: 72px;
+    background: #0055CC;
+    color: white;
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+  .step-num {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.7;
+  }
+  .step-icon {
+    font-size: 20px;
+  }
+  .step.active .step-circle {
+    background: #003A99;
+    box-shadow: 0 0 0 6px rgba(0, 85, 204, 0.15);
+  }
+  .step.done .step-circle {
+    background: #888888;
+  }
+  .step-label {
+    font-size: 16px; font-weight: 700;
+    color: #111111;
+    text-align: center;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .step-detail {
+    font-size: 13px; color: #888888;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .step-tag {
+    font-size: 11px; font-weight: 700;
+    color: #0055CC;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">03. 実行計画</p>
+  <p class="page-num">11</p>
+  <div class="slide-inner">
+    <h2>プロジェクト実施フロー</h2>
+    <div class="process-flow">
+      <div class="step done">
+        <div class="step-circle">
+          <span class="step-num">STEP 1</span>
+        </div>
+        <p class="step-label">現状調査</p>
+        <p class="step-detail">データ収集<br>ユーザーヒアリング</p>
+        <p class="step-tag">4月 / 完了</p>
+      </div>
+      <div class="step active">
+        <div class="step-circle">
+          <span class="step-num">STEP 2</span>
+        </div>
+        <p class="step-label">要件定義</p>
+        <p class="step-detail">機能要件確定<br>ベンダー選定</p>
+        <p class="step-tag">5月 / 進行中</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">
+          <span class="step-num">STEP 3</span>
+        </div>
+        <p class="step-label">開発・実装</p>
+        <p class="step-detail">MVP構築<br>UAT実施</p>
+        <p class="step-tag">6〜8月</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">
+          <span class="step-num">STEP 4</span>
+        </div>
+        <p class="step-label">リリース</p>
+        <p class="step-detail">段階展開<br>効果測定</p>
+        <p class="step-tag">9月〜</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">
+          <span class="step-num">STEP 5</span>
+        </div>
+        <p class="step-label">定着化</p>
+        <p class="step-detail">PDCA運用<br>継続改善</p>
+        <p class="step-tag">10月〜</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

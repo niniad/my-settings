@@ -1,0 +1,273 @@
+{
+  "metadata": {
+    "skill_name": "transcribe",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-18T01:11:05Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 149.7,
+        "tokens": 42379,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "\u30b9\u30af\u30ea\u30d7\u30c8\u304ctmp/\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u306b\u4fdd\u5b58\u3055\u308c\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "transcribe_eval1.py \u304ctmp/\u306b\u4fdd\u5b58\u3055\u308c\u5b9f\u884c\u3055\u308c\u305f"
+        },
+        {
+          "text": "\u51fa\u529b\u30d5\u30a1\u30a4\u30eb\u304c _\u30c8\u30e9\u30f3\u30b9\u30af\u30ea\u30d7\u30c8.txt \u547d\u540d\u898f\u5247\u306b\u306a\u3063\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "test_audio_\u30c8\u30e9\u30f3\u30b9\u30af\u30ea\u30d7\u30c8.txt \u3068\u3057\u3066\u51fa\u529b"
+        },
+        {
+          "text": "language=\"ja\" \u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "\u30b9\u30af\u30ea\u30d7\u30c8\u5185\u306blanguage=\"ja\"\u3042\u308a"
+        },
+        {
+          "text": "compute_type=\"int8\" \u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "compute_type=\"int8\"\u3042\u308a"
+        },
+        {
+          "text": "\u30d0\u30c3\u30af\u30b0\u30e9\u30a6\u30f3\u30c9\u5b9f\u884c\u3057\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "run_in_background=True\u3067\u5b9f\u884c"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 79.6,
+        "tokens": 36868,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "sys.stdout.reconfigure(encoding='utf-8') \u304c\u542b\u307e\u308c\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "3\u884c\u76ee\u306b sys.stdout.reconfigure(encoding='utf-8') \u3042\u308a"
+        },
+        {
+          "text": "large-v3 \u30e2\u30c7\u30eb\u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "WhisperModel(\"large-v3\", device=\"cpu\", compute_type=\"int8\")"
+        },
+        {
+          "text": "vad_filter=True \u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "vad_filter=True, vad_parameters=dict(min_silence_duration_ms=500) \u3042\u308a"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "time_seconds": 46.0,
+        "tokens": 36612,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "\u51fa\u529b\u5148\u304cdocs/\u677e\u6797\u793e\u9577/\u30d5\u30a9\u30eb\u30c0\u306b\u8a2d\u5b9a\u3055\u308c\u3066\u3044\u308b\uff08tmp/\u3067\u306f\u306a\u304f\uff09",
+          "passed": true,
+          "evidence": "output_file = r\"C:\\Users\\ninni\\projects\\awi\\docs\\\u677e\u6797\u793e\u9577\\...\" \u3068\u3057\u3066\u5165\u529b\u3068\u540c\u3058\u30d5\u30a9\u30eb\u30c0\u306b\u8a2d\u5b9a"
+        },
+        {
+          "text": "\u51fa\u529b\u30d5\u30a1\u30a4\u30eb\u540d\u306b _\u30c8\u30e9\u30f3\u30b9\u30af\u30ea\u30d7\u30c8.txt \u30b5\u30d5\u30a3\u30c3\u30af\u30b9\u304c\u4f7f\u308f\u308c\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "\u51fa\u529b\u30d5\u30a1\u30a4\u30eb\u540d: \u677e\u6797\u793e\u9577 \u5e74\u982d\u30e1\u30c3\u30bb\u30fc\u30b8\uff082026\u5e741\u6708\uff09_\u30c8\u30e9\u30f3\u30b9\u30af\u30ea\u30d7\u30c8.txt"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 641.1,
+        "tokens": 41713,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "\u30b9\u30af\u30ea\u30d7\u30c8\u304ctmp/\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u306b\u4fdd\u5b58\u3055\u308c\u3066\u3044\u308b",
+          "passed": false,
+          "evidence": "\u4f5c\u696d\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u306b\u76f4\u63a5\u4fdd\u5b58\uff08tmp/\u3067\u306f\u306a\u3044\uff09"
+        },
+        {
+          "text": "\u51fa\u529b\u30d5\u30a1\u30a4\u30eb\u304c _\u30c8\u30e9\u30f3\u30b9\u30af\u30ea\u30d7\u30c8.txt \u547d\u540d\u898f\u5247\u306b\u306a\u3063\u3066\u3044\u308b",
+          "passed": false,
+          "evidence": "transcript.txt \u3068\u3057\u3066\u4fdd\u5b58\uff08\u547d\u540d\u898f\u5247\u306a\u3057\uff09"
+        },
+        {
+          "text": "language=\"ja\" \u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b",
+          "passed": false,
+          "evidence": "\u8a00\u8a9e\u6307\u5b9a\u306a\u3057\uff08\u81ea\u52d5\u691c\u51fa\uff09"
+        },
+        {
+          "text": "compute_type=\"int8\" \u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "int8\u306f\u6307\u5b9a\u3042\u308a"
+        },
+        {
+          "text": "\u30d0\u30c3\u30af\u30b0\u30e9\u30a6\u30f3\u30c9\u5b9f\u884c\u3057\u3066\u3044\u308b",
+          "passed": false,
+          "evidence": "\u76f4\u63a5\u5b9f\u884c\uff08BG\u6307\u5b9a\u306a\u3057\uff09\u3002tool_uses=20\u3068\u975e\u52b9\u7387"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.333,
+        "passed": 1,
+        "failed": 2,
+        "total": 3,
+        "time_seconds": 133.1,
+        "tokens": 33190,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "sys.stdout.reconfigure(encoding='utf-8') \u304c\u542b\u307e\u308c\u3066\u3044\u308b",
+          "passed": true,
+          "evidence": "2\u884c\u76ee\u306b sys.stdout.reconfigure(encoding='utf-8') \u3042\u308a"
+        },
+        {
+          "text": "large-v3 \u30e2\u30c7\u30eb\u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b",
+          "passed": false,
+          "evidence": "WhisperModel(\"small\") \u3092\u4f7f\u7528\uff08large-v3\u3067\u306f\u306a\u3044\uff09"
+        },
+        {
+          "text": "vad_filter=True \u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b",
+          "passed": false,
+          "evidence": "vad_filter\u6307\u5b9a\u306a\u3057\u3002model.transcribe(audio_path, beam_size=5) \u306e\u307f"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 1,
+        "failed": 1,
+        "total": 2,
+        "time_seconds": 33.2,
+        "tokens": 32887,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "\u51fa\u529b\u5148\u304cdocs/\u677e\u6797\u793e\u9577/\u30d5\u30a9\u30eb\u30c0\u306b\u8a2d\u5b9a\u3055\u308c\u3066\u3044\u308b\uff08tmp/\u3067\u306f\u306a\u304f\uff09",
+          "passed": true,
+          "evidence": "output_path = r\"C:\\Users\\ninni\\projects\\awi\\docs\\\u677e\u6797\u793e\u9577\\...\" \u3068\u6b63\u3057\u3044\u30d5\u30a9\u30eb\u30c0\u306b\u8a2d\u5b9a"
+        },
+        {
+          "text": "\u51fa\u529b\u30d5\u30a1\u30a4\u30eb\u540d\u306b _\u30c8\u30e9\u30f3\u30b9\u30af\u30ea\u30d7\u30c8.txt \u30b5\u30d5\u30a3\u30c3\u30af\u30b9\u304c\u4f7f\u308f\u308c\u3066\u3044\u308b",
+          "passed": false,
+          "evidence": "\u51fa\u529b\u30d5\u30a1\u30a4\u30eb\u540d: \u677e\u6797\u793e\u9577 \u5e74\u982d\u30e1\u30c3\u30bb\u30fc\u30b8\uff082026\u5e741\u6708\uff09.txt\uff08\u62e1\u5f35\u5b50\u7f6e\u63db\u306e\u307f\u3001_\u30c8\u30e9\u30f3\u30b9\u30af\u30ea\u30d7\u30c8\u30b5\u30d5\u30a3\u30c3\u30af\u30b9\u306a\u3057\uff09"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 91.7667,
+        "stddev": 52.9098,
+        "min": 46.0,
+        "max": 149.7
+      },
+      "tokens": {
+        "mean": 38619.6667,
+        "stddev": 3258.1934,
+        "min": 36612,
+        "max": 42379
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.3443,
+        "stddev": 0.1503,
+        "min": 0.2,
+        "max": 0.5
+      },
+      "time_seconds": {
+        "mean": 269.1333,
+        "stddev": 325.9822,
+        "min": 33.2,
+        "max": 641.1
+      },
+      "tokens": {
+        "mean": 35930.0,
+        "stddev": 5010.5158,
+        "min": 32887,
+        "max": 41713
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.66",
+      "time_seconds": "-177.4",
+      "tokens": "+2690"
+    }
+  },
+  "notes": []
+}

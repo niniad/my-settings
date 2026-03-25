@@ -1,0 +1,79 @@
+{
+  "skill_name": "transcribe",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "C:\\Users\\ninni\\projects\\awi\\tmp\\test_audio.mp4 を文字起こしして",
+      "expected_output": "Pythonスクリプトをtmp/に作成し、出力先をC:\\Users\\ninni\\projects\\awi\\tmp\\test_audio_トランスクリプト.txtに設定してバックグラウンドで実行する",
+      "files": ["C:/Users/ninni/projects/awi/tmp/test_audio.mp4"],
+      "assertions": [
+        {
+          "id": "script_in_tmp",
+          "description": "スクリプトがtmp/ディレクトリに保存されている",
+          "type": "file_exists_pattern"
+        },
+        {
+          "id": "output_naming",
+          "description": "出力ファイルが test_audio_トランスクリプト.txt という命名規則になっている",
+          "type": "content_check"
+        },
+        {
+          "id": "language_ja",
+          "description": "language=\"ja\" が指定されている",
+          "type": "content_check"
+        },
+        {
+          "id": "int8_quantization",
+          "description": "compute_type=\"int8\" が指定されている（CPU最適化）",
+          "type": "content_check"
+        },
+        {
+          "id": "background_execution",
+          "description": "run_in_background=true でバックグラウンド実行している",
+          "type": "behavior_check"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "C:\\Users\\ninni\\projects\\awi\\tmp\\test_audio.mp4 の文字起こしをして。スクリプトの内容も見せて",
+      "expected_output": "スクリプトにsys.stdout.reconfigure(encoding='utf-8')が含まれ、large-v3モデルを使用し、vad_filterが有効になっている",
+      "files": ["C:/Users/ninni/projects/awi/tmp/test_audio.mp4"],
+      "assertions": [
+        {
+          "id": "utf8_reconfigure",
+          "description": "sys.stdout.reconfigure(encoding='utf-8') が含まれている（Windows文字化け対策）",
+          "type": "content_check"
+        },
+        {
+          "id": "large_v3_model",
+          "description": "large-v3 モデルが指定されている",
+          "type": "content_check"
+        },
+        {
+          "id": "vad_filter",
+          "description": "vad_filter=True が指定されている",
+          "type": "content_check"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "C:\\Users\\ninni\\projects\\awi\\docs\\松林社長\\松林社長 年頭メッセージ（2026年1月）.mp4 を文字起こしして。出力はMP4と同じフォルダに保存して",
+      "expected_output": "出力先がdocs/松林社長/松林社長 年頭メッセージ（2026年1月）_トランスクリプト.txt（入力ファイルと同じフォルダ）になっている",
+      "files": [],
+      "assertions": [
+        {
+          "id": "output_same_folder",
+          "description": "出力先がdocs/松林社長/フォルダに設定されている（tmp/ではなく）",
+          "type": "content_check"
+        },
+        {
+          "id": "transcript_suffix",
+          "description": "出力ファイル名に _トランスクリプト.txt サフィックスが使われている",
+          "type": "content_check"
+        }
+      ]
+    }
+  ]
+}

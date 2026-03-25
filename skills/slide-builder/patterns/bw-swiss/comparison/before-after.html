@@ -1,0 +1,169 @@
+<!--
+  Pattern: before-after
+  Theme: B&W Swiss
+  Category: Comparison
+  Text Guidelines:
+  - Title: max 30 characters
+  - Before/After labels: max 15 characters each
+  - Each side: 3 to 4 items, each max 50 characters
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .band {
+    position: absolute; left: 0; top: 0;
+    width: 50px; height: 100%;
+    background: #000000;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .band-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 70px; top: 40px;
+    width: 860px; height: 460px;
+  }
+  h2 {
+    font-size: 13px; font-weight: 700;
+    color: #666666;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-rule {
+    width: 100%; height: 2px;
+    background: #000000;
+    margin-bottom: 8px;
+  }
+  .slide-title {
+    font-size: 22px; font-weight: 700;
+    color: #000000;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .ba-layout {
+    display: flex; align-items: stretch; gap: 0;
+    height: 340px;
+  }
+  .ba-col {
+    flex: 1;
+    padding: 18px 20px;
+    display: flex; flex-direction: column;
+    background: #F5F5F5;
+  }
+  .ba-arrow-col {
+    width: 48px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: #000000;
+  }
+  .arrow-sym {
+    color: white;
+    font-size: 24px; font-weight: 700;
+  }
+  .ba-badge {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .before .ba-badge { background: #555555; color: white; }
+  .after  .ba-badge { background: #000000; color: white; }
+  .ba-header-text {
+    font-size: 16px; font-weight: 700;
+    color: #000000;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000000;
+  }
+  .ba-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 10px;
+  }
+  .ba-mark {
+    font-size: 15px; flex-shrink: 0;
+    margin-top: 1px;
+    font-weight: 700;
+  }
+  .before .ba-mark { color: #AAAAAA; }
+  .after  .ba-mark { color: #000000; }
+  .ba-text {
+    font-size: 15px; color: #333333;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+  <div class="band">
+    <p class="band-label">03. Transform</p>
+  </div>
+  <div class="slide-inner">
+    <h2>03 — 変革ビジョン</h2>
+    <div class="title-rule"></div>
+    <p class="slide-title">デジタル変革で実現する状態変化</p>
+    <div class="ba-layout">
+      <div class="ba-col before">
+        <span class="ba-badge">現状</span>
+        <p class="ba-header-text">課題を抱えた現在</p>
+        <div class="ba-item">
+          <span class="ba-mark">✗</span>
+          <span class="ba-text">アプリセッション時間が業界平均の65%</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-mark">✗</span>
+          <span class="ba-text">カート離脱率が68%と業界最悪水準</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-mark">✗</span>
+          <span class="ba-text">施策効果の把握に平均3週間かかる</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-mark">✗</span>
+          <span class="ba-text">顧客LTVを把握・活用できていない</span>
+        </div>
+      </div>
+      <div class="ba-arrow-col">
+        <span class="arrow-sym">→</span>
+      </div>
+      <div class="ba-col after">
+        <span class="ba-badge">改善後</span>
+        <p class="ba-header-text">12ヶ月後の目標状態</p>
+        <div class="ba-item">
+          <span class="ba-mark">✓</span>
+          <span class="ba-text">アプリセッション時間が業界平均を上回る</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-mark">✓</span>
+          <span class="ba-text">カート離脱率を45%以下に改善</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-mark">✓</span>
+          <span class="ba-text">リアルタイムダッシュボードで即時把握</span>
+        </div>
+        <div class="ba-item">
+          <span class="ba-mark">✓</span>
+          <span class="ba-text">LTVスコアに基づく自動施策が稼働中</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!--
+  Pattern: matrix-2x2
+  Theme: B&W Swiss
+  Category: Diagram
+  Text Guidelines:
+  - Title: max 30 characters
+  - X/Y axis labels: max 15 characters each
+  - Each quadrant label: max 15 characters
+  - Items per quadrant: 1 to 3, each max 20 characters
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .band {
+    position: absolute; left: 0; top: 0;
+    width: 50px; height: 100%;
+    background: #000000;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .band-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 70px; top: 40px;
+    width: 860px; height: 460px;
+  }
+  h2 {
+    font-size: 13px; font-weight: 700;
+    color: #666666;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-rule {
+    width: 100%; height: 2px;
+    background: #000000;
+    margin-bottom: 6px;
+  }
+  .slide-title {
+    font-size: 20px; font-weight: 700;
+    color: #000000;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .matrix-container {
+    position: relative;
+    display: flex;
+    height: 340px;
+  }
+  .y-axis-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 11px; font-weight: 700;
+    color: #888888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .matrix-main { flex: 1; display: flex; flex-direction: column; }
+  .matrix-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    border: 2px solid #000000;
+  }
+  .quadrant {
+    padding: 14px 14px;
+    display: flex; flex-direction: column;
+    background: #F5F5F5;
+  }
+  .q-tr { background: #E8E8E8; border-top: 3px solid #000000; border-right: 3px solid #000000; }
+  .q-label {
+    font-size: 12px; font-weight: 700;
+    color: #555555;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .q-tr .q-label { color: #000000; }
+  .q-item {
+    font-size: 13px; color: #333333;
+    margin-bottom: 4px;
+    padding-left: 10px;
+    position: relative;
+  }
+  .q-item::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: #AAAAAA;
+  }
+  .x-axis-labels {
+    display: flex; justify-content: space-between;
+    padding: 6px 2px 0;
+  }
+  .x-low, .x-high {
+    font-size: 11px; color: #AAAAAA;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .x-axis-label {
+    font-size: 11px; font-weight: 700;
+    color: #888888; letter-spacing: 2px; text-transform: uppercase;
+    text-align: center; margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="band">
+    <p class="band-label">03. Priority</p>
+  </div>
+  <div class="slide-inner">
+    <h2>03 — 優先度整理</h2>
+    <div class="title-rule"></div>
+    <p class="slide-title">施策優先度マトリクス（効果 × 実現容易性）</p>
+    <div class="matrix-container">
+      <div class="y-axis-label">効果（高→低）</div>
+      <div class="matrix-main">
+        <div class="matrix-grid">
+          <div class="quadrant">
+            <p class="q-label">★ 戦略的投資</p>
+            <div class="q-item">AIレコメンド導入</div>
+            <div class="q-item">データ基盤整備</div>
+          </div>
+          <div class="quadrant q-tr">
+            <p class="q-label">▶ 最優先で実行</p>
+            <div class="q-item">広告入札最適化</div>
+            <div class="q-item">カート離脱対策</div>
+            <div class="q-item">LTV予測モデル</div>
+          </div>
+          <div class="quadrant">
+            <p class="q-label">✕ 後回し</p>
+            <div class="q-item">電話注文改修</div>
+            <div class="q-item">カタログ印刷刷新</div>
+          </div>
+          <div class="quadrant">
+            <p class="q-label">△ 時間があれば</p>
+            <div class="q-item">SNS投稿自動化</div>
+            <div class="q-item">メルマガデザイン</div>
+          </div>
+        </div>
+        <div class="x-axis-labels">
+          <span class="x-low">実現難易度：高</span>
+          <span class="x-high">実現難易度：低</span>
+        </div>
+        <p class="x-axis-label">実現容易性 →</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

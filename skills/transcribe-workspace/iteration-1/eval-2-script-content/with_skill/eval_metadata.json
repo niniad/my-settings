@@ -1,0 +1,10 @@
+{
+  "eval_id": 2,
+  "eval_name": "script-content",
+  "prompt": "C:\\Users\\ninni\\projects\\awi\\tmp\\test_audio.mp4 の文字起こしをして。スクリプトの内容も見せて",
+  "assertions": [
+    {"id": "utf8_reconfigure", "description": "sys.stdout.reconfigure(encoding='utf-8') が含まれている"},
+    {"id": "large_v3_model", "description": "large-v3 モデルが指定されている"},
+    {"id": "vad_filter", "description": "vad_filter=True が指定されている"}
+  ]
+}

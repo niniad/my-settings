@@ -1,0 +1,146 @@
+<!--
+  Pattern: numbered-list
+  Theme: B&W Swiss
+  Category: Content
+  Text Guidelines:
+  - Title: max 30 characters
+  - Steps: 4 to 6 numbered items
+  - Each step title: max 30 characters
+  - Each step detail: max 55 characters
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .band {
+    position: absolute; left: 0; top: 0;
+    width: 50px; height: 100%;
+    background: #000000;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .band-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 70px; top: 40px;
+    width: 860px; height: 460px;
+  }
+  h2 {
+    font-size: 13px; font-weight: 700;
+    color: #666666;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-rule {
+    width: 100%; height: 2px;
+    background: #000000;
+    margin-bottom: 8px;
+  }
+  .slide-title {
+    font-size: 28px; font-weight: 700;
+    color: #000000;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .step-list {
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .step-item {
+    display: flex; align-items: flex-start; gap: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #EEEEEE;
+  }
+  .step-num {
+    font-size: 32px; font-weight: 700;
+    color: #DDDDDD;
+    width: 56px;
+    flex-shrink: 0;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-size: 17px; font-weight: 700;
+    color: #000000;
+    margin-bottom: 2px;
+  }
+  .step-detail {
+    font-size: 13px; color: #888888;
+    line-height: 1.3;
+  }
+  .step-tag {
+    font-size: 11px; font-weight: 700;
+    color: #555555;
+    white-space: nowrap;
+    margin-top: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div class="band">
+    <p class="band-label">03. Plan</p>
+  </div>
+  <div class="slide-inner">
+    <h2>03 — 実行計画</h2>
+    <div class="title-rule"></div>
+    <p class="slide-title">プロジェクト推進ステップ</p>
+    <div class="step-list">
+      <div class="step-item">
+        <span class="step-num">1</span>
+        <div class="step-content">
+          <p class="step-title">現状調査・課題定義（4月）</p>
+          <p class="step-detail">ユーザーインタビュー・データ分析で具体的なボトルネックを特定</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">2</span>
+        <div class="step-content">
+          <p class="step-title">要件定義・ベンダー選定（5月）</p>
+          <p class="step-detail">機能要件を確定し、3社コンペで最適ベンダーを選定する</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">3</span>
+        <div class="step-content">
+          <p class="step-title">開発・テスト（6〜8月）</p>
+          <p class="step-detail">アジャイル開発でMVP構築、UAT実施後に本番環境へ展開</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">4</span>
+        <div class="step-content">
+          <p class="step-title">段階リリース・効果測定（9月〜）</p>
+          <p class="step-detail">10%→50%→全体の段階展開でリスクを最小化しつつKPIを検証</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">5</span>
+        <div class="step-content">
+          <p class="step-title">定着化・継続改善（10月〜）</p>
+          <p class="step-detail">月次レビューで効果を定量評価、PDCAサイクルを定常化</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

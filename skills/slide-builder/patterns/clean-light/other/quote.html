@@ -1,0 +1,109 @@
+<!--
+  Pattern: quote
+  Theme: Clean Light
+  Category: Other
+  Text Guidelines:
+  - Quote text: 30 to 80 characters (impactful, concise)
+  - Attribution name: max 25 characters
+  - Attribution title/company: max 40 characters
+  - Optional context note: max 60 characters
+  Note: Use for testimonials, expert opinions, or powerful statements.
+        The quote should be the hero of the slide — keep it short.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .left-bar {
+    position: absolute; left: 0; top: 0;
+    width: 6px; height: 100%;
+    background: #0055CC;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-content {
+    position: absolute;
+    left: 80px; top: 0;
+    width: 820px; height: 540px;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px 40px 40px;
+  }
+  .quote-mark {
+    font-size: 120px;
+    color: #0055CC;
+    opacity: 0.12;
+    line-height: 0.8;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 10px;
+    user-select: none;
+  }
+  .quote-text {
+    font-size: 34px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -0.5px;
+    line-height: 1.35;
+    margin-bottom: 36px;
+  }
+  .quote-rule {
+    width: 60px; height: 4px;
+    background: #0055CC;
+    margin-bottom: 20px;
+  }
+  .attribution {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .attr-name {
+    font-size: 18px; font-weight: 700;
+    color: #111111;
+  }
+  .attr-title {
+    font-size: 15px; color: #888888;
+  }
+  .context-note {
+    margin-top: 28px;
+    background: #F5F5F5;
+    padding: 12px 16px;
+    display: inline-block;
+    max-width: 560px;
+  }
+  .context-text {
+    font-size: 13px; color: #888888;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+  <div class="left-bar"></div>
+  <div class="top-bar"></div>
+  <p class="page-num">08</p>
+  <div class="slide-content">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">デジタルへの投資を遅らせる企業は、<br>3年以内に市場の主役から外れる</p>
+    <div class="quote-rule"></div>
+    <div class="attribution">
+      <p class="attr-name">田中 一郎</p>
+      <p class="attr-title">デジタル戦略研究所　所長 / 元Google日本法人CTO</p>
+    </div>
+    <div class="context-note">
+      <p class="context-text">※ 2025年11月 「日本デジタル変革フォーラム」基調講演より。本プロジェクトの緊急性を裏付ける外部有識者の見解。</p>
+    </div>
+  </div>
+</body>
+</html>

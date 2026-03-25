@@ -1,0 +1,186 @@
+<!--
+  Pattern: funnel
+  Theme: Clean Light
+  Category: Diagram
+  Text Guidelines:
+  - Title: max 30 characters
+  - Stages: 3 to 5 funnel levels
+  - Each stage label: max 15 characters
+  - Each stage metric: max 15 characters (number/percentage)
+  - Each stage description: max 35 characters
+  Note: CSS-only funnel using decreasing-width bars.
+        Top = widest (most users), bottom = narrowest (converted).
+        Numbers should show drop-off between stages.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 460px;
+    padding-top: 10px;
+  }
+  h2 {
+    font-size: 28px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .funnel-layout {
+    display: flex; gap: 48px;
+    align-items: center;
+    height: 340px;
+  }
+  /* Funnel shape: centered bars, decreasing width */
+  .funnel-shape {
+    flex-shrink: 0;
+    width: 340px;
+    display: flex; flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .funnel-stage {
+    display: flex; align-items: center; justify-content: center;
+    height: 56px;
+    color: white;
+    font-size: 14px; font-weight: 700;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .fs-1 { width: 340px; background: #0055CC; }
+  .fs-2 { width: 275px; background: #0066DD; }
+  .fs-3 { width: 200px; background: #2277EE; }
+  .fs-4 { width: 135px; background: #4499FF; }
+  .fs-5 { width: 80px;  background: #66BBFF; }
+
+  /* Metrics on the right of funnel */
+  .funnel-metrics {
+    flex: 1;
+    display: flex; flex-direction: column;
+    justify-content: space-around;
+    height: 320px;
+  }
+  .metric-row {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .metric-label {
+    font-size: 14px; font-weight: 700;
+    color: #111111;
+    width: 100px;
+    flex-shrink: 0;
+  }
+  .metric-bar-wrap {
+    flex: 1;
+    height: 20px;
+    background: #F0F0F0;
+    position: relative;
+  }
+  .metric-bar {
+    height: 100%;
+    background: #0055CC;
+    opacity: 0.8;
+  }
+  .metric-value {
+    font-size: 18px; font-weight: 700;
+    color: #0055CC;
+    width: 90px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .metric-desc {
+    font-size: 12px; color: #888888;
+    width: 80px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .dropoff-note {
+    margin-top: 20px;
+    background: #FFF5F5;
+    border-left: 4px solid #CC2200;
+    padding: 10px 14px;
+    font-size: 14px; color: #CC2200;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">02. 購買分析</p>
+  <p class="page-num">06</p>
+  <div class="slide-inner">
+    <h2>購買転換ファネル（直近30日間）</h2>
+    <div class="funnel-layout">
+      <div class="funnel-shape">
+        <div class="funnel-stage fs-1">訪問</div>
+        <div class="funnel-stage fs-2">商品閲覧</div>
+        <div class="funnel-stage fs-3">カート追加</div>
+        <div class="funnel-stage fs-4">購入手続き</div>
+        <div class="funnel-stage fs-5">購入完了</div>
+      </div>
+      <div class="funnel-metrics">
+        <div class="metric-row">
+          <span class="metric-label">訪問</span>
+          <div class="metric-bar-wrap"><div class="metric-bar" style="width:100%"></div></div>
+          <span class="metric-value">1,240,000</span>
+          <span class="metric-desc">100%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">商品閲覧</span>
+          <div class="metric-bar-wrap"><div class="metric-bar" style="width:65%"></div></div>
+          <span class="metric-value">806,000</span>
+          <span class="metric-desc">65%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">カート追加</span>
+          <div class="metric-bar-wrap"><div class="metric-bar" style="width:22%"></div></div>
+          <span class="metric-value">272,800</span>
+          <span class="metric-desc">22%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">購入手続き</span>
+          <div class="metric-bar-wrap"><div class="metric-bar" style="width:10%"></div></div>
+          <span class="metric-value">124,000</span>
+          <span class="metric-desc">10%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">購入完了</span>
+          <div class="metric-bar-wrap"><div class="metric-bar" style="width:4.2%; background:#CC2200"></div></div>
+          <span class="metric-value" style="color:#CC2200">52,080</span>
+          <span class="metric-desc">4.2%</span>
+        </div>
+        <div class="dropoff-note">
+          最大の離脱ポイント：カート→手続き（離脱率78%）が最優先改善対象
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

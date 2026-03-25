@@ -1,0 +1,83 @@
+<!--
+  Pattern: thankyou-qa
+  Theme: Clean Light
+  Category: Structural
+  Text Guidelines:
+  - Main text: "ご清聴ありがとうございました" or similar (fixed/short)
+  - Q&A label: "Q & A" or "質疑応答"
+  - Optional: contact info, URL (max 1-2 lines)
+  Note: Minimal slide. Should feel spacious and final.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .accent-bar {
+    position: absolute; left: 0; top: 0;
+    width: 6px; height: 100%;
+    background: #0055CC;
+  }
+  .bottom-line {
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #EEEEEE;
+  }
+  .center {
+    position: absolute;
+    top: 0; left: 80px; right: 0; bottom: 60px;
+    display: flex; flex-direction: column;
+    align-items: flex-start; justify-content: center;
+  }
+  .thank-you {
+    font-size: 52px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .accent-rule {
+    width: 80px; height: 4px;
+    background: #0055CC;
+    margin-bottom: 28px;
+  }
+  .qa-label {
+    font-size: 18px; font-weight: 700;
+    color: #0055CC;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .contact {
+    font-size: 14px; color: #AAAAAA;
+    letter-spacing: 0.3px;
+    line-height: 1.8;
+  }
+  .contact strong {
+    color: #888888;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+  <div class="accent-bar"></div>
+  <div class="bottom-line"></div>
+  <div class="center">
+    <p class="thank-you">ご清聴<br>ありがとう<br>ございました</p>
+    <div class="accent-rule"></div>
+    <p class="qa-label">Q &amp; A</p>
+    <p class="contact">
+      <strong>山田 太郎</strong>　戦略企画部<br>
+      yamada.taro@company.co.jp
+    </p>
+  </div>
+</body>
+</html>

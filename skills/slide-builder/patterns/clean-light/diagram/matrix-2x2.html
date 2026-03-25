@@ -1,0 +1,201 @@
+<!--
+  Pattern: matrix-2x2
+  Theme: Clean Light
+  Category: Diagram
+  Text Guidelines:
+  - Title: max 30 characters
+  - X-axis label: max 15 characters (left side = low, right = high)
+  - Y-axis label: max 15 characters (bottom = low, top = high)
+  - Each quadrant label: max 15 characters
+  - Each quadrant items: 1 to 3 items, each max 20 characters
+  Note: Classic 2x2 prioritization matrix. Axes and quadrant labels must
+        clearly communicate the meaning of each corner.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 460px;
+    padding-top: 10px;
+  }
+  h2 {
+    font-size: 28px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .matrix-container {
+    position: relative;
+    display: flex;
+    height: 340px;
+  }
+  /* Y-axis label */
+  .y-axis-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 12px; font-weight: 700;
+    color: #888888;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .matrix-main {
+    flex: 1;
+    display: flex; flex-direction: column;
+  }
+  .y-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    margin-bottom: 4px;
+    padding: 0 2px;
+  }
+  .y-high, .y-low {
+    font-size: 11px; color: #AAAAAA;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .matrix-grid-wrap {
+    flex: 1;
+    display: flex; flex-direction: column;
+  }
+  .matrix-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+  }
+  .quadrant {
+    padding: 14px 16px;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .q-tl { background: #E8F0FF; }  /* High Y, Low X */
+  .q-tr { background: #DCEEFF; border: 2px solid #0055CC; }  /* High Y, High X - star */
+  .q-bl { background: #F5F5F5; }  /* Low Y, Low X */
+  .q-br { background: #FFF0E0; }  /* Low Y, High X */
+  .q-label {
+    font-size: 13px; font-weight: 700;
+    color: #555555;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .q-tr .q-label { color: #0055CC; }
+  .q-item {
+    font-size: 14px; color: #333333;
+    margin-bottom: 4px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .q-item::before {
+    content: '•';
+    color: #0055CC;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .q-tr .q-item::before { color: #0055CC; }
+  /* X-axis */
+  .x-axis-labels {
+    display: flex; justify-content: space-between;
+    padding: 6px 2px 0;
+  }
+  .x-low, .x-high {
+    font-size: 11px; color: #AAAAAA;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .x-axis-label {
+    font-size: 12px; font-weight: 700;
+    color: #888888;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">03. 優先度整理</p>
+  <p class="page-num">08</p>
+  <div class="slide-inner">
+    <h2>施策優先度マトリクス（効果 × 実現容易性）</h2>
+    <div class="matrix-container">
+      <div class="y-axis-label">効果（高→低）</div>
+      <div class="matrix-main">
+        <div class="matrix-grid-wrap">
+          <div class="matrix-grid">
+            <!-- Q1: 高効果・難 (上左) -->
+            <div class="quadrant q-tl">
+              <p class="q-label">★ 戦略的投資</p>
+              <div class="q-item">AIレコメンド導入</div>
+              <div class="q-item">データ基盤整備</div>
+            </div>
+            <!-- Q2: 高効果・易 (上右) = 最優先 -->
+            <div class="quadrant q-tr">
+              <p class="q-label">▶ 最優先で実行</p>
+              <div class="q-item">広告入札最適化</div>
+              <div class="q-item">カート離脱対策</div>
+              <div class="q-item">LTV予測モデル</div>
+            </div>
+            <!-- Q3: 低効果・難 (下左) -->
+            <div class="quadrant q-bl">
+              <p class="q-label">✕ 後回し</p>
+              <div class="q-item">電話注文システム改修</div>
+              <div class="q-item">カタログ印刷刷新</div>
+            </div>
+            <!-- Q4: 低効果・易 (下右) -->
+            <div class="quadrant q-br">
+              <p class="q-label">△ 時間があれば</p>
+              <div class="q-item">SNS投稿自動化</div>
+              <div class="q-item">メルマガデザイン改善</div>
+            </div>
+          </div>
+        </div>
+        <div class="x-axis-labels">
+          <span class="x-low">実現難易度：高</span>
+          <span class="x-high">実現難易度：低</span>
+        </div>
+        <p class="x-axis-label">実現容易性 →</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

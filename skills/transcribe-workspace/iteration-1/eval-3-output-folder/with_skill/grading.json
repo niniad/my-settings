@@ -1,0 +1,18 @@
+{
+  "eval_id": 3,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "出力先がdocs/松林社長/フォルダに設定されている（tmp/ではなく）",
+      "passed": true,
+      "evidence": "output_file = r\"C:\\Users\\ninni\\projects\\awi\\docs\\松林社長\\...\" として入力と同じフォルダに設定"
+    },
+    {
+      "text": "出力ファイル名に _トランスクリプト.txt サフィックスが使われている",
+      "passed": true,
+      "evidence": "出力ファイル名: 松林社長 年頭メッセージ（2026年1月）_トランスクリプト.txt"
+    }
+  ],
+  "pass_rate": 1.0,
+  "notes": "large-v3、language='ja'、vad_filter=True もすべて正しい。出力命名規則を完全に遵守"
+}

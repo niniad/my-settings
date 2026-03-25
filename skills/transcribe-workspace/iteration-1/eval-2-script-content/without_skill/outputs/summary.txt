@@ -1,0 +1,15 @@
+文字起こし サマリー
+====================
+
+入力ファイル: C:\Users\ninni\projects\awi\tmp\test_audio.mp4
+モデル: faster-whisper small (CPU, int8)
+検出言語: en (確率 0.64)
+
+文字起こし結果:
+[0.00s -> 8.00s] bzzzzzzzzzzz
+
+備考:
+- 音声は8秒間、内容はノイズ/ブザー音のみ
+- 言語検出の確率が低い (0.64) ため、実際の発話ではなくノイズの可能性が高い
+- スクリプト: script.py
+- 書き起こしテキスト: transcript.txt

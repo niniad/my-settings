@@ -1,0 +1,156 @@
+<!--
+  Pattern: three-column
+  Theme: Clean Light
+  Category: Content
+  Text Guidelines:
+  - Title: max 30 characters
+  - Each column header: max 15 characters
+  - Each column body: 2 to 4 lines or bullet items
+  - Each line: max 40 characters
+  Note: Best for "three pillars", "three options", or feature comparisons.
+        Keep each column concise — this is a visual balance pattern.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 470px;
+    padding-top: 16px;
+  }
+  h2 {
+    font-size: 32px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .cols {
+    display: flex; gap: 24px;
+    height: 320px;
+  }
+  .col {
+    flex: 1;
+    background: #F5F5F5;
+    padding: 24px 20px;
+    display: flex; flex-direction: column;
+  }
+  .col-icon {
+    width: 36px; height: 36px;
+    background: #0055CC;
+    color: white;
+    font-size: 18px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px;
+  }
+  .col-header {
+    font-size: 18px; font-weight: 700;
+    color: #111111;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .col-rule {
+    width: 100%; height: 2px;
+    background: #0055CC;
+    margin-bottom: 14px;
+  }
+  .col-body {
+    font-size: 15px; color: #555555;
+    line-height: 1.65;
+    flex: 1;
+  }
+  .col-body li {
+    list-style: none;
+    padding-left: 12px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .col-body li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #0055CC;
+  }
+  .col-tag {
+    font-size: 11px; font-weight: 700;
+    color: #0055CC;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">03. 優先施策</p>
+  <p class="page-num">12</p>
+  <div class="slide-inner">
+    <h2>3つの優先施策領域</h2>
+    <div class="cols">
+      <div class="col">
+        <div class="col-icon">1</div>
+        <p class="col-header">アプリUX<br>全面刷新</p>
+        <div class="col-rule"></div>
+        <ul class="col-body">
+          <li>ナビゲーション再設計</li>
+          <li>検索機能強化</li>
+          <li>チェックアウト簡略化</li>
+          <li>パフォーマンス最適化</li>
+        </ul>
+        <p class="col-tag">Q2〜Q3 / 開発部</p>
+      </div>
+      <div class="col">
+        <div class="col-icon">2</div>
+        <p class="col-header">AIレコメンド<br>エンジン導入</p>
+        <div class="col-rule"></div>
+        <ul class="col-body">
+          <li>協調フィルタリング実装</li>
+          <li>リアルタイム行動追跡</li>
+          <li>メール・プッシュ連携</li>
+          <li>A/Bテスト自動化</li>
+        </ul>
+        <p class="col-tag">Q3 / データ部</p>
+      </div>
+      <div class="col">
+        <div class="col-icon">3</div>
+        <p class="col-header">広告配分<br>最適化</p>
+        <div class="col-rule"></div>
+        <ul class="col-body">
+          <li>AI入札への完全移行</li>
+          <li>クリエイティブ自動生成</li>
+          <li>アトリビューション整備</li>
+          <li>予算配分ルール策定</li>
+        </ul>
+        <p class="col-tag">Q2 / マーケ部</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

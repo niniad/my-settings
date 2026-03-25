@@ -1,0 +1,33 @@
+{
+  "eval_id": 1,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "スクリプトがtmp/ディレクトリに保存されている",
+      "passed": true,
+      "evidence": "transcribe_eval1.py がtmp/に保存され実行された"
+    },
+    {
+      "text": "出力ファイルが _トランスクリプト.txt 命名規則になっている",
+      "passed": true,
+      "evidence": "test_audio_トランスクリプト.txt として出力"
+    },
+    {
+      "text": "language=\"ja\" が指定されている",
+      "passed": true,
+      "evidence": "スクリプト内にlanguage=\"ja\"あり"
+    },
+    {
+      "text": "compute_type=\"int8\" が指定されている",
+      "passed": true,
+      "evidence": "compute_type=\"int8\"あり"
+    },
+    {
+      "text": "バックグラウンド実行している",
+      "passed": true,
+      "evidence": "run_in_background=Trueで実行"
+    }
+  ],
+  "pass_rate": 1.0,
+  "notes": "VADフィルターが短時間音声に過剰反応→vad_filter=Falseに自己修正して対応。スキル改善点として記録"
+}

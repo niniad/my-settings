@@ -1,0 +1,83 @@
+<!--
+  Pattern: key-message
+  Theme: B&W Swiss
+  Category: Structural
+  Text Guidelines:
+  - Main message: max 40 characters (one impactful sentence)
+  - Supporting note: max 60 characters (optional)
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  /* White content area */
+  .content-area {
+    position: absolute;
+    left: 0; top: 0;
+    width: 660px; height: 100%;
+    background: #FFFFFF;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 60px 60px 60px 60px;
+  }
+  .eyebrow {
+    font-size: 11px; font-weight: 700;
+    color: #AAAAAA;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .rule {
+    width: 60px; height: 3px;
+    background: #000000;
+    margin-bottom: 28px;
+  }
+  .message {
+    font-size: 38px; font-weight: 700;
+    color: #000000;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .note {
+    font-size: 16px; color: #666666;
+    line-height: 1.4;
+  }
+  /* Right black panel with vertical text */
+  .right-panel {
+    position: absolute; right: 0; top: 0;
+    width: 300px; height: 100%;
+    background: #000000;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .panel-text {
+    writing-mode: vertical-rl;
+    font-size: 11px; font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div class="content-area">
+    <p class="eyebrow">Key Message</p>
+    <div class="rule"></div>
+    <p class="message">今こそ、デジタルチャネルへの<br>本格投資が不可欠だ</p>
+    <p class="note">競合他社はすでに2年先を走っている</p>
+  </div>
+  <div class="right-panel">
+    <p class="panel-text">Strategic Imperative</p>
+  </div>
+</body>
+</html>

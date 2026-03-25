@@ -1,0 +1,214 @@
+<!--
+  Pattern: checklist
+  Theme: B&W Swiss
+  Category: Process
+  Text Guidelines:
+  - Title: max 30 characters
+  - Items: 5 to 10 (split into 2 columns for 7+)
+  - Each item: max 45 characters
+  - Status: done, in-progress, pending
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .band {
+    position: absolute; left: 0; top: 0;
+    width: 50px; height: 100%;
+    background: #000000;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .band-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 70px; top: 40px;
+    width: 860px; height: 460px;
+  }
+  h2 {
+    font-size: 13px; font-weight: 700;
+    color: #666666;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-rule {
+    width: 100%; height: 2px;
+    background: #000000;
+    margin-bottom: 8px;
+  }
+  .slide-title {
+    font-size: 22px; font-weight: 700;
+    color: #000000;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .cols {
+    display: flex; gap: 36px;
+    margin-bottom: 14px;
+  }
+  .col { flex: 1; }
+  .col-header {
+    font-size: 11px; font-weight: 700;
+    color: #888888;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #000000;
+  }
+  .check-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #F0F0F0;
+  }
+  .checkbox {
+    width: 22px; height: 22px;
+    border: 2px solid #000000;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .checkbox.done { background: #000000; border-color: #000000; }
+  .checkbox.inprogress { border-color: #888888; background: #F5F5F5; }
+  .check-mark { color: white; font-size: 13px; font-weight: 700; }
+  .progress-sq {
+    width: 8px; height: 8px;
+    background: #888888;
+  }
+  .check-text {
+    font-size: 14px; color: #333333;
+    flex: 1;
+  }
+  .check-item.done-item .check-text {
+    color: #AAAAAA;
+    text-decoration: line-through;
+    text-decoration-color: #CCCCCC;
+  }
+  .check-item.active-item .check-text {
+    color: #000000; font-weight: 700;
+  }
+  .check-owner {
+    font-size: 11px; color: #AAAAAA;
+    white-space: nowrap;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .progress-summary {
+    background: #000000;
+    padding: 10px 16px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .progress-label {
+    font-size: 12px; font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .progress-track {
+    flex: 1; height: 6px;
+    background: rgba(255,255,255,0.2);
+  }
+  .progress-fill {
+    height: 100%;
+    background: white;
+  }
+  .progress-pct {
+    font-size: 14px; font-weight: 700;
+    color: white;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+  <div class="band">
+    <p class="band-label">04. Status</p>
+  </div>
+  <div class="slide-inner">
+    <h2>04 — 進捗管理</h2>
+    <div class="title-rule"></div>
+    <p class="slide-title">リリース準備チェックリスト</p>
+    <div class="cols">
+      <div class="col">
+        <p class="col-header">技術・開発</p>
+        <div class="check-item done-item">
+          <div class="checkbox done"><span class="check-mark">✓</span></div>
+          <span class="check-text">要件定義書の最終確定</span>
+          <span class="check-owner">開発部</span>
+        </div>
+        <div class="check-item done-item">
+          <div class="checkbox done"><span class="check-mark">✓</span></div>
+          <span class="check-text">インフラ環境の構築完了</span>
+          <span class="check-owner">IT部</span>
+        </div>
+        <div class="check-item active-item">
+          <div class="checkbox inprogress"><div class="progress-sq"></div></div>
+          <span class="check-text">ユーザー受け入れテスト（UAT）</span>
+          <span class="check-owner">品質管理</span>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <span class="check-text">本番環境へのデプロイ</span>
+          <span class="check-owner">開発部</span>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <span class="check-text">セキュリティ監査の完了</span>
+          <span class="check-owner">IT部</span>
+        </div>
+      </div>
+      <div class="col">
+        <p class="col-header">ビジネス・運用</p>
+        <div class="check-item done-item">
+          <div class="checkbox done"><span class="check-mark">✓</span></div>
+          <span class="check-text">社内トレーニング資料の作成</span>
+          <span class="check-owner">企画部</span>
+        </div>
+        <div class="check-item active-item">
+          <div class="checkbox inprogress"><div class="progress-sq"></div></div>
+          <span class="check-text">カスタマーサポートへの引き継ぎ</span>
+          <span class="check-owner">CS部</span>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <span class="check-text">リリース告知メールの配信準備</span>
+          <span class="check-owner">マーケ部</span>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <span class="check-text">KPIモニタリング設定</span>
+          <span class="check-owner">データ部</span>
+        </div>
+        <div class="check-item">
+          <div class="checkbox"></div>
+          <span class="check-text">障害対応フロー確認</span>
+          <span class="check-owner">IT部</span>
+        </div>
+      </div>
+    </div>
+    <div class="progress-summary">
+      <span class="progress-label">Progress</span>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:40%"></div>
+      </div>
+      <span class="progress-pct">4/10 完了（40%）</span>
+    </div>
+  </div>
+</body>
+</html>

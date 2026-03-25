@@ -1,0 +1,174 @@
+<!--
+  Pattern: two-column-text
+  Theme: Clean Light
+  Category: Content
+  Text Guidelines:
+  - Title: max 30 characters
+  - Left column header: max 20 characters
+  - Right column header: max 20 characters
+  - Each column: 3 to 5 items or 4 to 6 lines of text
+  - Each item: max 50 characters
+  Note: Use for parallel topics, two perspectives, or regional splits.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 470px;
+    padding-top: 16px;
+  }
+  h2 {
+    font-size: 32px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .cols {
+    display: flex; gap: 0;
+    height: 340px;
+  }
+  .col {
+    flex: 1;
+    padding-right: 36px;
+  }
+  .col + .col {
+    padding-right: 0;
+    padding-left: 36px;
+    border-left: 1px solid #EEEEEE;
+  }
+  .col-header {
+    font-size: 13px; font-weight: 700;
+    color: #0055CC;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #0055CC;
+  }
+  .col-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .col-dot {
+    width: 6px; height: 6px;
+    background: #0055CC;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+  .col-item-text {
+    flex: 1;
+  }
+  .col-item-main {
+    font-size: 17px; font-weight: 700;
+    color: #111111;
+    margin-bottom: 3px;
+  }
+  .col-item-sub {
+    font-size: 13px; color: #888888;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">03. 施策比較</p>
+  <p class="page-num">11</p>
+  <div class="slide-inner">
+    <h2>短期施策 vs 中長期施策の比較</h2>
+    <div class="cols">
+      <div class="col">
+        <p class="col-header">短期施策（〜6ヶ月）</p>
+        <div class="col-item">
+          <div class="col-dot"></div>
+          <div class="col-item-text">
+            <p class="col-item-main">広告入札の自動最適化導入</p>
+            <p class="col-item-sub">Google/Meta広告のAI入札に切替、即時CPA改善</p>
+          </div>
+        </div>
+        <div class="col-item">
+          <div class="col-dot"></div>
+          <div class="col-item-text">
+            <p class="col-item-main">カート離脱メール自動化</p>
+            <p class="col-item-sub">離脱後1時間以内のリターゲットメール配信</p>
+          </div>
+        </div>
+        <div class="col-item">
+          <div class="col-dot"></div>
+          <div class="col-item-text">
+            <p class="col-item-main">商品詳細ページのA/Bテスト</p>
+            <p class="col-item-sub">CVR改善に向けた継続的なUI最適化</p>
+          </div>
+        </div>
+        <div class="col-item">
+          <div class="col-dot"></div>
+          <div class="col-item-text">
+            <p class="col-item-main">レビュー収集の仕組み整備</p>
+            <p class="col-item-sub">購入後自動メールで口コミ増加を促進</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <p class="col-header">中長期施策（6ヶ月〜）</p>
+        <div class="col-item">
+          <div class="col-dot"></div>
+          <div class="col-item-text">
+            <p class="col-item-main">AIレコメンドエンジン構築</p>
+            <p class="col-item-sub">購買履歴・閲覧行動に基づく個別最適化</p>
+          </div>
+        </div>
+        <div class="col-item">
+          <div class="col-dot"></div>
+          <div class="col-item-text">
+            <p class="col-item-main">モバイルアプリ全面刷新</p>
+            <p class="col-item-sub">UX再設計でアプリセッション時間と購買率を向上</p>
+          </div>
+        </div>
+        <div class="col-item">
+          <div class="col-dot"></div>
+          <div class="col-item-text">
+            <p class="col-item-main">統合データ基盤の整備</p>
+            <p class="col-item-sub">全チャネルデータを統合し意思決定を高速化</p>
+          </div>
+        </div>
+        <div class="col-item">
+          <div class="col-dot"></div>
+          <div class="col-item-text">
+            <p class="col-item-main">LTV予測モデルの実装</p>
+            <p class="col-item-sub">優良顧客の早期識別と育成施策の自動化</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

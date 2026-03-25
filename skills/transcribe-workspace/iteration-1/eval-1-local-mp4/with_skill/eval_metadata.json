@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "local-mp4",
+  "prompt": "C:\\Users\\ninni\\projects\\awi\\tmp\\test_audio.mp4 を文字起こしして",
+  "assertions": [
+    {"id": "script_in_tmp", "description": "スクリプトがtmp/ディレクトリに保存されている"},
+    {"id": "output_naming", "description": "出力ファイルが _トランスクリプト.txt 命名規則になっている"},
+    {"id": "language_ja", "description": "language=\"ja\" が指定されている"},
+    {"id": "int8_quantization", "description": "compute_type=\"int8\" が指定されている"},
+    {"id": "background_execution", "description": "バックグラウンド実行している"}
+  ]
+}

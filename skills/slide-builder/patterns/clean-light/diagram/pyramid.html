@@ -1,0 +1,172 @@
+<!--
+  Pattern: pyramid
+  Theme: Clean Light
+  Category: Diagram
+  Text Guidelines:
+  - Title: max 30 characters
+  - Layers: 3 to 5 levels (top = highest priority/rarest)
+  - Each layer label: max 15 characters
+  - Each layer description: max 35 characters
+  Note: CSS-only pyramid using decreasing-width divs.
+        Top = most important/rare, bottom = foundational/common.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .top-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: #0055CC;
+  }
+  .nav {
+    position: absolute; top: 18px; left: 60px;
+    font-size: 11px; font-weight: 700;
+    color: #0055CC; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .page-num {
+    position: absolute; bottom: 20px; right: 40px;
+    font-size: 11px; color: #CCCCCC; letter-spacing: 1px;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 60px; top: 50px;
+    width: 840px; height: 460px;
+    padding-top: 10px;
+  }
+  h2 {
+    font-size: 28px; font-weight: 700;
+    color: #111111;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #EEEEEE;
+  }
+  .pyramid-layout {
+    display: flex; gap: 40px;
+    align-items: center;
+    height: 340px;
+  }
+  .pyramid-shape {
+    display: flex; flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    flex-shrink: 0;
+    width: 360px;
+  }
+  .pyramid-level {
+    display: flex; align-items: center; justify-content: center;
+    height: 54px;
+    color: white;
+    font-size: 15px; font-weight: 700;
+    text-align: center;
+    clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%);
+    position: relative;
+  }
+  /* Trapezoid shapes by width (top = narrowest) */
+  .level-1 { width: 100px; background: #001A66; font-size: 13px; clip-path: polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%); }
+  .level-2 { width: 180px; background: #003399; }
+  .level-3 { width: 260px; background: #0055CC; }
+  .level-4 { width: 340px; background: #3377DD; font-size: 14px; }
+  .level-5 { width: 360px; background: #5599EE; font-size: 14px; clip-path: polygon(4% 0%, 96% 0%, 100% 100%, 0% 100%); }
+
+  /* Descriptions on the right */
+  .pyramid-descs {
+    flex: 1;
+    display: flex; flex-direction: column;
+    justify-content: space-around;
+    height: 320px;
+  }
+  .pyramid-desc {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 6px 0;
+  }
+  .desc-marker {
+    width: 12px; height: 12px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    border-radius: 2px;
+  }
+  .marker-1 { background: #001A66; }
+  .marker-2 { background: #003399; }
+  .marker-3 { background: #0055CC; }
+  .marker-4 { background: #3377DD; }
+  .marker-5 { background: #5599EE; }
+  .desc-content { flex: 1; }
+  .desc-label {
+    font-size: 16px; font-weight: 700;
+    color: #111111;
+    margin-bottom: 3px;
+  }
+  .desc-text {
+    font-size: 13px; color: #888888;
+    line-height: 1.3;
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <p class="nav">03. 戦略体系</p>
+  <p class="page-num">13</p>
+  <div class="slide-inner">
+    <h2>デジタル戦略の優先度ピラミッド</h2>
+    <div class="pyramid-layout">
+      <div class="pyramid-shape">
+        <div class="pyramid-level level-1">ビジョン</div>
+        <div class="pyramid-level level-2">目標・KPI</div>
+        <div class="pyramid-level level-3">優先施策</div>
+        <div class="pyramid-level level-4">実行プラン</div>
+        <div class="pyramid-level level-5">基盤インフラ</div>
+      </div>
+      <div class="pyramid-descs">
+        <div class="pyramid-desc">
+          <div class="desc-marker marker-1"></div>
+          <div class="desc-content">
+            <p class="desc-label">ビジョン</p>
+            <p class="desc-text">デジタルEC業界のリーディングカンパニーへ</p>
+          </div>
+        </div>
+        <div class="pyramid-desc">
+          <div class="desc-marker marker-2"></div>
+          <div class="desc-content">
+            <p class="desc-label">目標・KPI</p>
+            <p class="desc-text">売上3年で2倍・CVR4%・NPS +40</p>
+          </div>
+        </div>
+        <div class="pyramid-desc">
+          <div class="desc-marker marker-3"></div>
+          <div class="desc-content">
+            <p class="desc-label">優先施策</p>
+            <p class="desc-text">アプリ刷新・レコメンド・広告最適化の3本柱</p>
+          </div>
+        </div>
+        <div class="pyramid-desc">
+          <div class="desc-marker marker-4"></div>
+          <div class="desc-content">
+            <p class="desc-label">実行プラン</p>
+            <p class="desc-text">四半期ロードマップ・担当部門・予算配分</p>
+          </div>
+        </div>
+        <div class="pyramid-desc">
+          <div class="desc-marker marker-5"></div>
+          <div class="desc-content">
+            <p class="desc-label">基盤インフラ</p>
+            <p class="desc-text">データ基盤・セキュリティ・組織体制の整備</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

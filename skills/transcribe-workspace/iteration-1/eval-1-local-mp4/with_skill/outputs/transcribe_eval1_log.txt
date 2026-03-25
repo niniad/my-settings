@@ -1,0 +1,8 @@
+文字起こし開始: C:\Users\ninni\projects\awi\tmp\test_audio.mp4
+モデルロード完了
+検出言語: ja (確率: 1.00)
+総時間: 0.1分
+[00:00.00 --> 00:29.98] ご視聴ありがとうございました
+
+=== 完了: 1セグメント ===
+出力: C:\Users\ninni\projects\awi\tmp\test_audio_トランスクリプト.txt

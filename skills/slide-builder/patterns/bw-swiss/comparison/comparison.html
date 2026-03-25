@@ -1,0 +1,191 @@
+<!--
+  Pattern: comparison
+  Theme: B&W Swiss
+  Category: Comparison
+  Text Guidelines:
+  - Title: max 30 characters
+  - Each side label: max 20 characters
+  - Each side: 3 to 5 points, each max 45 characters
+  - Estimated cost/metric: max 25 characters
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 960px; height: 540px;
+    background: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .band {
+    position: absolute; left: 0; top: 0;
+    width: 50px; height: 100%;
+    background: #000000;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .band-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .slide-inner {
+    position: absolute;
+    left: 70px; top: 40px;
+    width: 860px; height: 460px;
+  }
+  h2 {
+    font-size: 13px; font-weight: 700;
+    color: #666666;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-rule {
+    width: 100%; height: 2px;
+    background: #000000;
+    margin-bottom: 8px;
+  }
+  .slide-title {
+    font-size: 22px; font-weight: 700;
+    color: #000000;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .compare-layout {
+    display: flex; gap: 0;
+    height: 340px;
+  }
+  .compare-col {
+    flex: 1;
+    padding: 18px 20px;
+    display: flex; flex-direction: column;
+    border: 2px solid #000000;
+  }
+  .compare-col + .compare-col {
+    margin-left: -2px;
+  }
+  .compare-header {
+    font-size: 16px; font-weight: 700;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .compare-sub {
+    font-size: 12px; color: #888888;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000000;
+    letter-spacing: 0.3px;
+  }
+  .compare-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 10px;
+  }
+  .item-mark {
+    font-size: 14px; flex-shrink: 0;
+    margin-top: 1px;
+    color: #000000;
+    font-weight: 700;
+  }
+  .item-neg { color: #888888; }
+  .compare-text {
+    font-size: 14px; color: #333333;
+    line-height: 1.4;
+  }
+  .compare-metric {
+    font-size: 13px; font-weight: 700;
+    color: #000000;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #EEEEEE;
+    letter-spacing: 0.3px;
+  }
+  .vs-divider {
+    width: 40px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: #000000;
+  }
+  .vs-text {
+    color: white;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 1px;
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div class="band">
+    <p class="band-label">03. Options</p>
+  </div>
+  <div class="slide-inner">
+    <h2>03 — 選択肢比較</h2>
+    <div class="title-rule"></div>
+    <p class="slide-title">自社開発 vs 外部ソリューション導入</p>
+    <div class="compare-layout">
+      <div class="compare-col">
+        <p class="compare-header">Option A — 自社開発</p>
+        <p class="compare-sub">スクラッチで内製チームが構築</p>
+        <div class="compare-item">
+          <span class="item-mark">+</span>
+          <span class="compare-text">自社データに最適化した設計が可能</span>
+        </div>
+        <div class="compare-item">
+          <span class="item-mark">+</span>
+          <span class="compare-text">長期的なランニングコストが低い</span>
+        </div>
+        <div class="compare-item">
+          <span class="item-mark">+</span>
+          <span class="compare-text">技術ノウハウが社内に蓄積される</span>
+        </div>
+        <div class="compare-item">
+          <span class="item-mark item-neg">−</span>
+          <span class="compare-text">開発期間が12〜18ヶ月かかる</span>
+        </div>
+        <div class="compare-item">
+          <span class="item-mark item-neg">−</span>
+          <span class="compare-text">初期リソース（人材・コスト）が大きい</span>
+        </div>
+        <p class="compare-metric">推定コスト：¥8,000万〜1.2億</p>
+      </div>
+      <div class="vs-divider">
+        <span class="vs-text">VS</span>
+      </div>
+      <div class="compare-col">
+        <p class="compare-header">Option B — 外部ソリューション</p>
+        <p class="compare-sub">SaaS製品をAPIで接続・設定のみ</p>
+        <div class="compare-item">
+          <span class="item-mark">+</span>
+          <span class="compare-text">導入期間が1〜3ヶ月と短い</span>
+        </div>
+        <div class="compare-item">
+          <span class="item-mark">+</span>
+          <span class="compare-text">実績ある機能をすぐに活用できる</span>
+        </div>
+        <div class="compare-item">
+          <span class="item-mark">+</span>
+          <span class="compare-text">保守・アップデートをベンダーに委託可</span>
+        </div>
+        <div class="compare-item">
+          <span class="item-mark item-neg">−</span>
+          <span class="compare-text">月次ライセンス費用が継続発生</span>
+        </div>
+        <div class="compare-item">
+          <span class="item-mark item-neg">−</span>
+          <span class="compare-text">カスタマイズに制限がある場合あり</span>
+        </div>
+        <p class="compare-metric">推定コスト：¥2,000万＋月額¥150万〜</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

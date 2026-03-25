@@ -1,0 +1,33 @@
+{
+  "eval_id": 1,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "スクリプトがtmp/ディレクトリに保存されている",
+      "passed": false,
+      "evidence": "作業ディレクトリに直接保存（tmp/ではない）"
+    },
+    {
+      "text": "出力ファイルが _トランスクリプト.txt 命名規則になっている",
+      "passed": false,
+      "evidence": "transcript.txt として保存（命名規則なし）"
+    },
+    {
+      "text": "language=\"ja\" が指定されている",
+      "passed": false,
+      "evidence": "言語指定なし（自動検出）"
+    },
+    {
+      "text": "compute_type=\"int8\" が指定されている",
+      "passed": true,
+      "evidence": "int8は指定あり"
+    },
+    {
+      "text": "バックグラウンド実行している",
+      "passed": false,
+      "evidence": "直接実行（BG指定なし）。tool_uses=20と非効率"
+    }
+  ],
+  "pass_rate": 0.2,
+  "notes": "base→small→medium→large-v2と複数モデルを試行。ffmpeg前処理も追加。large-v3未使用。所要時間641秒（スキルあり149秒の4倍）"
+}

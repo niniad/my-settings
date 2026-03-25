@@ -1,0 +1,49 @@
+## 文字起こし実行サマリー
+
+### 実行日時
+2026-03-18
+
+### 入力ファイル
+- パス: C:\Users\ninni\projects\awi\tmp\test_audio.mp4
+- フォーマット: MP4 (AAC audio, mono, 44100Hz)
+- 音声時間: 8秒
+
+### 実行手順
+
+1. **スキルファイル読込**
+   - C:\Users\ninni\.claude\skills\transcribe\SKILL.md を読み込み、手順を確認
+
+2. **出力ディレクトリ作成**
+   - C:\Users\ninni\.claude\skills\transcribe-workspace\iteration-1\eval-1-local-mp4\with_skill\outputs\ を作成
+
+3. **Pythonスクリプト作成**
+   - tmp/transcribe_eval1.py を作成（スキルテンプレートに基づく）
+   - モデル: faster-whisper large-v3 (CPU/int8)
+   - 言語: ja（日本語）
+
+4. **1回目の実行（失敗）**
+   - vad_filter=True で実行 → セグメント0件
+   - 原因: 8秒の短い音声にVADフィルターが厳しすぎて音声区間を検出できなかった
+
+5. **スクリプト修正・2回目の実行（成功）**
+   - vad_filter=False に変更して再実行
+   - 実行コマンド: uv run python tmp/transcribe_eval1.py > tmp/transcribe_eval1_log.txt 2>&1
+
+6. **成果物コピー**
+   - Pythonスクリプト、トランスクリプトファイル、ログファイルをoutputsにコピー
+
+### 文字起こし結果
+- 検出言語: ja（確率: 1.00 = 100%）
+- セグメント数: 1件
+- 内容: 「ご視聴ありがとうございました」
+- タイムスタンプ: [00:00.00 --> 00:29.98]
+  ※ Whisperの内部処理上、タイムスタンプは30秒単位で出力されることがある
+
+### 出力ファイル
+- test_audio_トランスクリプト.txt : 文字起こし結果（タイムスタンプ付き）
+- transcribe_eval1.py : 実行したPythonスクリプト
+- transcribe_eval1_log.txt : 実行ログ
+
+### 注意事項
+- 短い音声（8秒程度）ではvad_filter=Trueが機能しない場合がある
+  → スキルに改善案として記録推奨：短時間音声ではvad_filter=Falseを推奨する旨を明記

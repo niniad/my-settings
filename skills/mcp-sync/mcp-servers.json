@@ -8,5 +8,10 @@
         "BIGQUERY_PROJECT": "main-project-477501"
       }
     },
+    "mermaid": {
+      "command": "npx",
+      "args": ["-y", "@lepion/mcp-server-mermaid"],
+      "env": {}
+    }
   }
 }
