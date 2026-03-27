@@ -23,11 +23,15 @@ description: ライフセッション（ヒアリング・相談）の運用ス�
 
 1. `docs/profile-core.json` を Read ツールで読み込む（**profile.json は読まない**）
 2. `docs/action-plan.md` を Read ツールで読み込み、現在の優先タスクと進捗を把握する
-3. ユーザーの最初のメッセージからモードを判断:
+3. **データリフレッシュ**（profile/action-plan 読み込みと並行して実行可）:
+   - **Chrome履歴**: `uv run --with requests python scripts/sync_chrome_history.py` を実行（自動同期）
+   - **Googleカレンダー**: `gcal_list_events` MCPツールで過去2週間+今後2週間のイベントを取得（NocoDB更新不要、セッション中に直接利用）
+   - **Gmail**: 社会的接触の分析が必要な場合のみ `gmail_search_messages` MCPツールで直近メールを取得（常時取得は不要）
+   - **Apple Health / YouTube**: `sqlite3 "C:/Users/ninni/nocodb/noco.db" "SELECT MAX(date) FROM 'nc_mtf3___Appleヘルスケア';"` で最終同期日を確認。2週間以上古ければユーザーに通知（自動化は今後対応予定）
+4. ユーザーの最初のメッセージからモードを判断:
    - **ヒアリング継続**: `open_questions` と `active_hypotheses` を確認し、未収集データを特定
    - **相談モード**: 下記「ドメインfacts取得コマンド」で関連ドメインのみ抽出してから応答
    - **データ分析**: NocoDB SQLite を直接クエリ（`data-sources.md` は読まない）
-4. 毎セッション確認データ（Apple Health・Googleカレンダー）は NocoDB SQLite から直接取得
 5. **分析結果と新たな仮説をユーザーに共有してから対話開始**
 
 ## ドメインfacts取得コマンド

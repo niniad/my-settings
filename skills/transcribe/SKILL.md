@@ -167,3 +167,10 @@ uv run python tmp/transcribe_<識別名>.py > tmp/transcribe_<識別名>_log.txt
 | `yt-dlp not found` | `uv tool install yt-dlp` |
 | ファイル名が文字化け | ログファイルを確認（実際のファイルは正常なことが多い） |
 | JS runtime警告 | 無視してOK（ダウンロードは動作する） |
+
+## 関連スキル
+
+| 状況 | スキル | 説明 |
+|------|--------|------|
+| 文字起こし結果を議事録・提案書に整形したいとき | `/doc-coauthoring` | 構造化ドキュメント共同作成 |
+| 文字起こし内容の仮説・論点を検証したいとき | `/sparring` | 賛否フラットな論証分析 |

@@ -262,7 +262,9 @@ Generate 5-10 questions that readers would realistically ask.
 
 Announce that these questions will be tested with a fresh Claude instance (no context from this conversation).
 
-For each question, invoke a sub-agent with just the document content and the question.
+Load `./agents/reader-tester.md` for the full sub-agent instructions before dispatching.
+
+For each question, invoke a sub-agent with: the document content + reader-tester.md instructions + the question list.
 
 Summarize what Reader Claude got right/wrong for each question.
 
@@ -270,7 +272,7 @@ Summarize what Reader Claude got right/wrong for each question.
 
 Announce additional checks will be performed.
 
-Invoke sub-agent to check for ambiguity, false assumptions, contradictions.
+Using the same reader-tester.md instructions, invoke sub-agent to check for ambiguity, false assumptions, contradictions.
 
 Summarize any issues found.
 
@@ -373,3 +375,23 @@ Announce document completion. Provide a few final tips:
 - Don't rush through stages
 - Each iteration should make meaningful improvements
 - The goal is a document that actually works for readers
+
+## Red Flags（こう考えたらSTOP）
+
+| 思考パターン | 実際のリスク |
+|-------------|-------------|
+| 「コンテキストは十分集まった」 | まだ基礎的な質問しかできていないなら不十分。エッジケースや矛盾を議論できるまで続ける |
+| 「セクション全体を書き直そう」 | `str_replace` で最小限の surgical edit のみ。全体再生成は文脈を失う |
+| 「ブレストのリストを artifact に作ろう」 | ブレストは会話内で行う。artifact は完成ドラフトのみ |
+| 「Reader Testing は省略可能」 | 著者バイアスを検出する重要なステップ。省略すると読者視点の盲点が残る |
+| 「ユーザーのフィードバックが曖昧だがとりあえず進もう」 | 曖昧なフィードバックは解釈せずに明確化を求める |
+| 「80%できたら完成で問題ない」 | near completion チェック（全体レビュー）を必ず行う |
+
+## 関連スキル
+
+| 状況 | スキル | 説明 |
+|------|--------|------|
+| 完成した文書をWordファイルで出力したいとき | `/docx` | .docx 形式で作成・編集 |
+| 完成した文書をPDFで出力したいとき | `/pdf` | PDF変換・処理 |
+| 文書の内容をプレゼンに変換したいとき | `/slide-builder` | HTML/PDF/PPTXスライド作成 |
+| 文書の前提仮説を検証・深掘りしたいとき | `/sparring` | 賛否フラットな論証分析 |

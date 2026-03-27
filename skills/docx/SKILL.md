@@ -195,3 +195,13 @@ Required dependencies (install if not available):
 - **LibreOffice**: `sudo apt-get install libreoffice` (for PDF conversion)
 - **Poppler**: `sudo apt-get install poppler-utils` (for pdftoppm to convert PDF to images)
 - **defusedxml**: `pip install defusedxml` (for secure XML parsing)
+
+## Red Flags（こう考えたらSTOP）
+
+| 思考パターン | 実際のリスク |
+|-------------|-------------|
+| 「文全体を `<w:del>/<w:ins>` で置換すれば簡単」 | 変更箇所のみを最小限にマークする。全文置換はレビュー不可能になり非プロに見える |
+| 「前回のスクリプトの行番号をそのまま使える」 | 編集後に行番号が変わる。毎回 grep で最新の行番号を取得してからスクリプトを書く |
+| 「ooxml.md / docx-js.md は斜め読みで十分」 | MANDATORY: 全文を読むこと。パターンの見落としがXML破損やPack失敗を招く |
+| 「redlineは自分の文書なのでBasic OOXMLで」 | 他者が書いた文書・ビジネス文書は必ず Redlining workflow を使う |
+| 「バッチをまとめて大きくした方が効率的」 | バッチは3-10変更が上限。大きいバッチはデバッグ困難でエラーを見つけにくい |

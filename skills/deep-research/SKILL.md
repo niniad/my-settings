@@ -142,12 +142,7 @@ When report exceeds 18,000 words in single run:
 - `next_sections`: remaining sections with type and target words
 
 **Continuation agent instructions:**
-1. Read state file and existing report (last 3 sections for flow)
-2. Continue citation numbering from `state.citations.next_number`
-3. Maintain quality metrics (words, density, prose ratio, style)
-4. Quality gates per section: word count ±20%, citation density match, ≥80% prose
-5. If more sections remain: update state, spawn next agent
-6. If final: generate complete bibliography, run validation, cleanup state file
+Load `./agents/continuation-agent.md` for full instructions before dispatching.
 
 **HTML Generation:**
 ```bash
@@ -237,3 +232,22 @@ No external dependencies required.
 - [Report Template](./templates/report_template.md) — Output structure
 
 **Context Management:** Load files on-demand for current phase only. Do not preload all content.
+
+## Red Flags（こう考えたらSTOP）
+
+| 思考パターン | 実際のリスク |
+|-------------|-------------|
+| 「ソースが見つからないが論理的に正しい」 | 引用を捏造してはいけない。該当箇所に "No sources found" と明記する |
+| 「参考文献は最後にまとめて書けばいい」 | 書き漏れが発生する。各セクション生成時に `citations_used` リストを追跡する |
+| 「[3-50] のような範囲で参照を省略」 | ZERO TOLERANCE。全引用番号を個別にリストする |
+| 「検索を1つずつ順番に実行しよう」 | 並列実行が必須。5-10の検索を同一メッセージで同時発行する |
+| 「バリデーションが2回失敗したがもう1回」 | 同じエラーで2回失敗したら停止してユーザーに報告する |
+| 「quick モードで十分かもしれない」 | 重要な意思決定には deep 以上を使う。quick は初期探索専用 |
+
+## 関連スキル
+
+| 状況 | スキル | 説明 |
+|------|--------|------|
+| レポートをWordファイルで提出したいとき | `/docx` | .docx 形式で作成・編集 |
+| 調査結果をプレゼンにまとめたいとき | `/slide-builder` | HTML/PDF/PPTXスライド作成 |
+| 特定の仮説を深掘り検証したいとき | `/sparring` | 賛否フラットな論証分析 |

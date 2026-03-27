@@ -12,6 +12,14 @@
       "command": "npx",
       "args": ["-y", "@lepion/mcp-server-mermaid"],
       "env": {}
+    },
+    "outlook": {
+      "command": "npx",
+      "args": ["-y", "mcp-outlook-mail"],
+      "env": {
+        "OUTLOOK_CLIENT_ID": "c507c30c-ce1f-423f-8195-7f7342a2ca30",
+        "OUTLOOK_TENANT_ID": "b89cdc7e-bab9-4195-a390-e33c63ec2c42"
+      }
     }
   }
 }

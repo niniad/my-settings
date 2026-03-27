@@ -361,3 +361,10 @@ const SKILL_DIR = 'C:/Users/ninni/.claude/skills/pptx';
 const pptxgen = require(`${SKILL_DIR}/node_modules/pptxgenjs`);
 const html2pptx = require(`${SKILL_DIR}/scripts/html2pptx.js`);
 ```
+
+## 関連スキル
+
+| 状況 | スキル | 説明 |
+|------|--------|------|
+| HTMLスライドを .pptx ファイルに変換したいとき | `/pptx` | PPTX作成・編集 |
+| フローチャートをスライドに組み込みたいとき | `/flowchart` | HTML形式のフロー図生成 |

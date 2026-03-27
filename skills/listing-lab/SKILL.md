@@ -450,3 +450,22 @@ cp listings/lab/{product}/experiments/{exp-id}_{method}/output/{slot}.png \
 | `listings/lab/{product}/design-hypotheses.md` | 未検証のデザイン仮説候補 |
 | `listings/scripts/render_html.py` | HTMLレンダリング |
 | `listings/scripts/generate_photo.py` | Gemini API 写真生成（有料API対応） |
+
+## Red Flags（こう考えたらSTOP）
+
+| 思考パターン | 実際のリスク |
+|-------------|-------------|
+| 「evaluate-v3.md を少し調整しよう」 | プロンプトは変更禁止。変更が必要なら `evaluate-v4.md` を新規作成する |
+| 「A/B順序はどちらでもいい」 | Evaluator-2 は必ず入替え必須。順序バイアスが結果を歪める |
+| 「Evaluator-2 のスコアをそのまま記録」 | 入替え補正が必要。A/B逆転しているため勝者を反転して記録する |
+| 「single評価でとりあえず確認」 | 本番昇格判断には fullset 評価が必須。single は高速プロトタイピング専用 |
+| 「SHA256の確認は省略しよう」 | 再現性が保証できなくなる。テンプレート改変の検知に必須 |
+| 「ベンチマーク画像のコピーを参考にしよう」 | ベンチマークはデザインのインスピレーション参照のみ。訴求内容は appeal-map.md が正本 |
+| 「2票対1票だから追加評価なし」 | 3票全て分かれた場合のみ追加評価。2-1票は正規の結果として記録する |
+
+## 関連スキル
+
+| 状況 | スキル | 説明 |
+|------|--------|------|
+| 競合商品のASIN・画像・レビューデータを取得したいとき | `/amazon-data` | SP-API + agent-browser で競合データ取得 |
+| 実験結果をプレゼン資料にまとめたいとき | `/slide-builder` | HTML/PDF/PPTXスライド作成 |

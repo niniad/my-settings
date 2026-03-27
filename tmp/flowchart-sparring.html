@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>sparring スキル業務フロー</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', 'Hiragino Sans', sans-serif; background: #f1f5f9; color: #1e293b; padding: 32px; }
+    h1 { font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+    .subtitle { font-size: 0.85rem; color: #64748b; margin-bottom: 20px; }
+    .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #475569; }
+    .legend-dot { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+    .chart-wrap { background: #fff; border-radius: 16px; padding: 32px; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); overflow-x: auto; min-height: 200px; text-align: center; }
+    .notes { display: grid; gap: 10px; }
+    .loop-card { background: #fffbeb; border: 1px solid #fbbf24; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 12px 16px; font-size: 0.86rem; line-height: 1.5; }
+    .loop-card strong { color: #92400e; }
+  </style>
+</head>
+<body>
+  <h1>🥊 sparring スキル業務フロー</h1>
+  <div class="subtitle">仮説検証セッションの論証プロセス | 2026-03-25</div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#f3f4f6; border:1px solid #9ca3af;"></div> 起動時</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#dbeafe; border:1px solid #3b82f6;"></div> Phase 1: 問いの定義</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#dcfce7; border:1px solid #16a34a;"></div> Phase 2: 収集と構造化</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ffedd5; border:1px solid #ea580c;"></div> Phase 3: ギャップ分析</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f3e8ff; border:1px solid #9333ea;"></div> Phase 4: 結論</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fef2f2; border:1px solid #ef4444;"></div> 判断・分岐</div>
+  </div>
+
+  <div class="chart-wrap" id="graph">
+    <p style="color:#94a3b8; padding:40px;">読み込み中...</p>
+  </div>
+
+  <div class="notes">
+    <div class="loop-card">
+      <strong>D1（合意チェック）:</strong> Phase 1 では、仮説・目的・確度・手元情報の合意が成立するまでヒアリングを繰り返す。合意なしに Phase 2 へ進まない。
+    </div>
+    <div class="loop-card">
+      <strong>D2（ギャップチェック）:</strong> Phase 2-3 は反復ループ。収集するたびにギャップを即座に分析・更新。十分に埋まったと判断したら Phase 4 へ。
+    </div>
+    <div class="loop-card">
+      <strong>Phase 4 結論保留:</strong> 重要なギャップが残る場合、「保留」が正しい結論。無理に結論を出すと誤判断を招く。ギャップを明示して完了。
+    </div>
+  </div>
+
+  <script>
+const dot = `
+digraph SparringFlow {
+  rankdir=TB
+  graph [fontname="Segoe UI", bgcolor="#f8fafc", pad=0.8, ranksep=0.65, nodesep=0.5]
+  node [fontname="Segoe UI", fontsize=11, style="filled,rounded", penwidth=1.5, margin="0.2,0.12"]
+  edge [fontname="Segoe UI", fontsize=9, color="#64748b", arrowsize=0.8]
+
+  subgraph cluster_startup {
+    label="起動時" fontsize=13 fontcolor="#374151"
+    style=filled fillcolor="#f3f4f6" color="#9ca3af" penwidth=2
+
+    START [label="sparring 起動" shape=oval fillcolor="#0f172a" fontcolor="white" color="#0f172a" fontsize=12 style="filled"]
+    CHECK [label="~/Documents/sparring/\\nを確認" fillcolor="#f3f4f6" color="#9ca3af" fontcolor="#374151"]
+    D_SESSION [label="未完了セッション\\n(status ≠ concluded)\\nが存在?" shape=diamond fillcolor="#fef2f2" color="#ef4444" fontcolor="#7f1d1d"]
+    LOAD [label="argument_map.md を読み込み\\nセッション一覧を表示" fillcolor="#f3f4f6" color="#9ca3af" fontcolor="#374151"]
+    D_CONT [label="継続 or 新規?" shape=diamond fillcolor="#fef2f2" color="#ef4444" fontcolor="#7f1d1d"]
+  }
+
+  subgraph cluster_p1 {
+    label="Phase 1｜問いの定義" fontsize=13 fontcolor="#1e3a8a"
+    style=filled fillcolor="#dbeafe" color="#3b82f6" penwidth=2
+
+    P1A [label="仮説を言い換えて確認" fillcolor="#dbeafe" color="#3b82f6" fontcolor="#1e3a8a"]
+    P1B [label="必要最小限の質問\\n（目的 / 確度 / 手元情報）" fillcolor="#dbeafe" color="#3b82f6" fontcolor="#1e3a8a"]
+    P1C [label="最終成果物の形式を提案" fillcolor="#dbeafe" color="#3b82f6" fontcolor="#1e3a8a"]
+    D_AGREE [label="合意\\nできたか?" shape=diamond fillcolor="#fef2f2" color="#ef4444" fontcolor="#7f1d1d"]
+    P1_SETUP [label="sparring/{slug}_{YYYYMMDD}/\\nargument_map.md を生成\\n(status: collecting)" fillcolor="#bfdbfe" color="#2563eb" fontcolor="#1e3a8a"]
+  }
+
+  subgraph cluster_p2 {
+    label="Phase 2｜収集と構造化" fontsize=13 fontcolor="#14532d"
+    style=filled fillcolor="#dcfce7" color="#16a34a" penwidth=2
+
+    P2A [label="情報源を選択\\nドキュメント / 知見 / Web検索" fillcolor="#dcfce7" color="#16a34a" fontcolor="#14532d"]
+    P2B [label="エビデンスを格付け\\n[A〜E] × [1〜5]" fillcolor="#dcfce7" color="#16a34a" fontcolor="#14532d"]
+    P2C [label="論証マップ上の位置を示す\\n（賛成 / 反対 / 矛盾）" fillcolor="#dcfce7" color="#16a34a" fontcolor="#14532d"]
+    P2D [label="argument_map.md を更新\\n(updated を書き換え)" fillcolor="#bbf7d0" color="#15803d" fontcolor="#14532d"]
+  }
+
+  subgraph cluster_p3 {
+    label="Phase 3｜ギャップ分析（Phase 2 と並行）" fontsize=13 fontcolor="#7c2d12"
+    style=filled fillcolor="#ffedd5" color="#ea580c" penwidth=2
+
+    P3A [label="論理的前提を可視化" fillcolor="#ffedd5" color="#ea580c" fontcolor="#7c2d12"]
+    P3B [label="反対側のギャップを指摘" fillcolor="#ffedd5" color="#ea580c" fontcolor="#7c2d12"]
+    P3C [label="根拠の弱い主張に注意喚起" fillcolor="#ffedd5" color="#ea580c" fontcolor="#7c2d12"]
+    P3D [label="矛盾を明示" fillcolor="#ffedd5" color="#ea580c" fontcolor="#7c2d12"]
+    D_GAP [label="ギャップが\\n十分に埋まったか?" shape=diamond fillcolor="#fef2f2" color="#ef4444" fontcolor="#7f1d1d"]
+  }
+
+  subgraph cluster_p4 {
+    label="Phase 4｜結論" fontsize=13 fontcolor="#4a044e"
+    style=filled fillcolor="#f3e8ff" color="#9333ea" penwidth=2
+
+    P4A [label="conclusion.md を生成" fillcolor="#f3e8ff" color="#9333ea" fontcolor="#4a044e"]
+    P4B [label="argument_map.md\\nstatus → concluded" fillcolor="#f3e8ff" color="#9333ea" fontcolor="#4a044e"]
+    D_REMAIN [label="重要なギャップが\\nまだ残るか?" shape=diamond fillcolor="#fef2f2" color="#ef4444" fontcolor="#7f1d1d"]
+    P4_HOLD [label="結論：保留\\n（ギャップを明示）" fillcolor="#ede9fe" color="#7c3aed" fontcolor="#4a044e"]
+    P4_OK [label="結論：蓋然性 高/中/低\\n根拠の論証 + 推奨アクション" fillcolor="#ddd6fe" color="#7c3aed" fontcolor="#4a044e"]
+  }
+
+  END [label="セッション完了" shape=oval fillcolor="#0f172a" fontcolor="white" color="#0f172a" fontsize=12 style="filled"]
+
+  START -> CHECK
+  CHECK -> D_SESSION
+  D_SESSION -> LOAD [label="  Yes  "]
+  D_SESSION -> P1A [label="  No  "]
+  LOAD -> D_CONT
+  D_CONT -> P2A [label="  継続  " color="#16a34a" fontcolor="#15803d"]
+  D_CONT -> P1A [label="  新規  "]
+
+  P1A -> P1B
+  P1B -> P1C
+  P1C -> D_AGREE
+  D_AGREE -> P1B [label="No\\n（再ヒアリング）" color="#ef4444" fontcolor="#b91c1c" style=dashed]
+  D_AGREE -> P1_SETUP [label="  Yes ✅  " color="#16a34a" fontcolor="#15803d"]
+  P1_SETUP -> P2A
+
+  P2A -> P2B
+  P2B -> P2C
+  P2C -> P2D
+  P2D -> P3A
+
+  P3A -> P3B
+  P3B -> P3C
+  P3C -> P3D
+  P3D -> D_GAP
+  D_GAP -> P2A [label="No（継続）" color="#ef4444" fontcolor="#b91c1c" style=dashed]
+  D_GAP -> P4A [label="  Yes ✅  " color="#16a34a" fontcolor="#15803d"]
+
+  P4A -> P4B
+  P4B -> D_REMAIN
+  D_REMAIN -> P4_HOLD [label="  Yes  "]
+  D_REMAIN -> P4_OK [label="  No  "]
+  P4_HOLD -> END
+  P4_OK -> END
+}
+`;
+
+    const viz = new Viz();
+    viz.renderSVGElement(dot)
+      .then(el => {
+        el.style.width = '100%';
+        el.style.maxWidth = '860px';
+        el.style.height = 'auto';
+        const container = document.getElementById('graph');
+        container.innerHTML = '';
+        container.appendChild(el);
+      })
+      .catch(err => {
+        document.getElementById('graph').innerHTML =
+          '<p style="color:#ef4444; padding:20px;">レンダリングエラー: ' + err + '</p>';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
