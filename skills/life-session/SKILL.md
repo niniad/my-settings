@@ -22,8 +22,8 @@ description: ライフセッション（ヒアリング・相談）の運用ス�
 ## セッション開始手順（2回目以降）
 
 1. `docs/profile-core.json` を Read ツールで読み込む（**profile.json は読まない**）
-2. `docs/action-plan.md` を Read ツールで読み込み、現在の優先タスクと進捗を把握する
-3. **データリフレッシュ**（profile/action-plan 読み込みと並行して実行可）:
+2. Todoist @life タスクを `todoist_task_get` (filter: `#マイタスク & @life`) で取得し、優先タスクと進捗を把握する
+3. **データリフレッシュ**（profile/Todoist読み込みと並行して実行可）:
    - **Chrome履歴**: `uv run --with requests python scripts/sync_chrome_history.py` を実行（自動同期）
    - **Googleカレンダー**: `gcal_list_events` MCPツールで過去2週間+今後2週間のイベントを取得（NocoDB更新不要、セッション中に直接利用）
    - **Gmail**: 社会的接触の分析が必要な場合のみ `gmail_search_messages` MCPツールで直近メールを取得（常時取得は不要）
