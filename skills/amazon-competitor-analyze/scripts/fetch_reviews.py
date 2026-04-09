@@ -118,69 +118,81 @@ def _extract_reviews_js(selectors: dict) -> str:
 """
 
 
-def _fetch_reviews_for_parent(parent_asin: str, max_reviews: int, selectors: dict) -> list[dict]:
-    """親ASINのレビューページから全バリエーションのレビューを取得"""
-    # 親ASINのレビューページに直接アクセス（全バリエーションのレビューを取得できる）
-    url = f"https://www.amazon.co.jp/product-reviews/{parent_asin}?reviewerType=all_reviews"
-    print(f"  レビューページ: {url}", file=sys.stderr)
+def _fetch_pages(parent_asin: str, base_params: str, max_per_filter: int,
+                  selectors: dict, existing_bodies: set[str]) -> list[dict]:
+    """指定URLパラメータでページネーションしてレビューを取得"""
+    url = f"https://www.amazon.co.jp/product-reviews/{parent_asin}?{base_params}"
     _ab(["open", url])
     time.sleep(2)
 
-    reviews = []
-
-    # レビュー取得
+    reviews: list[dict] = []
     raw = _ab_eval(_extract_reviews_js(selectors))
     try:
         page_reviews = json.loads(raw) if raw and raw.startswith("[") else []
-        reviews.extend(page_reviews)
-        print(f"  1ページ目: {len(page_reviews)}件取得", file=sys.stderr)
+        new = [r for r in page_reviews if r.get("body", "")[:50] not in existing_bodies]
+        reviews.extend(new)
+        for r in new:
+            existing_bodies.add(r.get("body", "")[:50])
     except Exception:
-        print(f"  レビュー抽出失敗", file=sys.stderr)
+        pass
 
-    # 追加ページを取得
     page = 2
-    while len(reviews) < max_reviews:
-        next_url = (
-            f"https://www.amazon.co.jp/product-reviews/{parent_asin}"
-            f"?reviewerType=all_reviews&pageNumber={page}"
-        )
+    while len(reviews) < max_per_filter:
+        next_url = f"https://www.amazon.co.jp/product-reviews/{parent_asin}?{base_params}&pageNumber={page}"
         _ab(["open", next_url])
-        time.sleep(random.uniform(3, 5))  # ページ読み込み待機（短すぎると失敗）
+        time.sleep(random.uniform(3, 5))
 
         raw2 = _ab_eval(_extract_reviews_js(selectors))
         try:
             more = json.loads(raw2) if raw2 and raw2.startswith("[") else []
             if not more:
-                print(f"  {page}ページ目: 取得0件（終了）", file=sys.stderr)
                 break
-            new_reviews = [r for r in more if r.get("body", "")[:30] not in
-                           {r2.get("body", "")[:30] for r2 in reviews}]
-            if not new_reviews:
+            new = [r for r in more if r.get("body", "")[:50] not in existing_bodies]
+            if not new:
                 break
-            reviews.extend(new_reviews)
-            print(f"  {page}ページ目: {len(new_reviews)}件追加", file=sys.stderr)
+            reviews.extend(new)
+            for r in new:
+                existing_bodies.add(r.get("body", "")[:50])
         except Exception:
             break
-
         page += 1
+
+    return reviews
+
+
+# Amazon filterByStar パラメータ値
+_STAR_FILTERS = ["one_star", "two_star", "three_star", "four_star", "five_star"]
+
+
+def _fetch_reviews_for_parent(parent_asin: str, max_reviews: int, selectors: dict) -> list[dict]:
+    """親ASINのレビューページから全★・全バリエーションのレビューを取得。
+
+    戦略: 各★（1-5）別にfilterByStarで取得し、全★のレビューを確実にカバー。
+    Amazonのデフォルトソートは5★偏重のため、★別取得で偏りを排除する。
+    """
+    all_reviews: list[dict] = []
+    seen_bodies: set[str] = set()
+    per_star = max(max_reviews // 5, 20)  # 各★あたりの上限
+
+    for star_filter in _STAR_FILTERS:
+        params = f"reviewerType=all_reviews&sortBy=recent&filterByStar={star_filter}"
+        print(f"  [{star_filter}] 取得中...", file=sys.stderr)
+        star_reviews = _fetch_pages(parent_asin, params, per_star, selectors, seen_bodies)
+        all_reviews.extend(star_reviews)
+        print(f"  [{star_filter}] {len(star_reviews)}件", file=sys.stderr)
+
+        if len(all_reviews) >= max_reviews:
+            break
+        time.sleep(random.uniform(1, 2))
 
     # variationを正規化（空文字・"Amazonで購入" 等はnullに）
     _NON_VARIANT = {"Amazonで購入", "Verified Purchase", "Amazon購入"}
-    for r in reviews:
+    for r in all_reviews:
         v = r.get("variation")
         if not v or v in _NON_VARIANT or "で購入" in v:
             r["variation"] = None
 
-    # 重複除去
-    seen: set[str] = set()
-    unique = []
-    for r in reviews:
-        key = r.get("body", "")[:50]
-        if key and key not in seen:
-            seen.add(key)
-            unique.append(r)
-
-    return unique[:max_reviews]
+    return all_reviews[:max_reviews]
 
 
 def _register_reviews_eagle(
