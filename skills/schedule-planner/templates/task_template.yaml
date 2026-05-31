@@ -1,0 +1,9 @@
+- id:
+  name:
+  assignee:
+  weekdays:
+    - mon
+  start:
+  duration_min:
+  depends_on: []
+  procedure_ref:

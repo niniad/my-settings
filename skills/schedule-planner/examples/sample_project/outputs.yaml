@@ -1,0 +1,6 @@
+outputs:
+  mermaid_gantt: true
+  dependency_graph: true
+  workload_table: true
+  issues_report: true
+  html_dashboard: false

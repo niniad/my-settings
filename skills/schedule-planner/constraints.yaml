@@ -1,0 +1,10 @@
+constraints:
+  no_overlap: true
+  dependency_must_finish: true
+  enforce_working_hours: true
+  enforce_lunch_break: true
+  max_daily_minutes:
+    yamada: 360
+    tanaka: 300
+  preferred_assignee:
+    report_review: tanaka

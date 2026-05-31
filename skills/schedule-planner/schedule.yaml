@@ -1,0 +1,37 @@
+tasks:
+  - id: morning_meeting
+    name: 朝会
+    assignee: yamada
+    weekdays:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+    start: "09:00"
+    duration_min: 30
+    depends_on: []
+    procedure_ref: tasks/morning_meeting.md
+
+  - id: data_collect
+    name: データ収集
+    assignee: tanaka
+    weekdays:
+      - mon
+      - wed
+    start: "09:30"
+    duration_min: 60
+    depends_on:
+      - morning_meeting
+    procedure_ref: tasks/data_collect.md
+
+  - id: report_review
+    name: レポート確認
+    assignee: tanaka
+    weekdays:
+      - mon
+      - wed
+    duration_min: 30
+    depends_on:
+      - data_collect
+    procedure_ref: tasks/report_review.md

@@ -1,0 +1,55 @@
+tasks:
+  - id: morning_meeting
+    name: 朝会
+    assignee: yamada
+    weekday: mon
+    start: "09:00"
+    end: "09:30"
+  - id: morning_meeting
+    name: 朝会
+    assignee: yamada
+    weekday: tue
+    start: "09:00"
+    end: "09:30"
+  - id: morning_meeting
+    name: 朝会
+    assignee: yamada
+    weekday: wed
+    start: "09:00"
+    end: "09:30"
+  - id: morning_meeting
+    name: 朝会
+    assignee: yamada
+    weekday: thu
+    start: "09:00"
+    end: "09:30"
+  - id: morning_meeting
+    name: 朝会
+    assignee: yamada
+    weekday: fri
+    start: "09:00"
+    end: "09:30"
+  - id: data_collect
+    name: データ収集
+    assignee: tanaka
+    weekday: mon
+    start: "09:30"
+    end: "10:30"
+  - id: data_collect
+    name: データ収集
+    assignee: tanaka
+    weekday: wed
+    start: "09:30"
+    end: "10:30"
+  - id: report_review
+    name: レポート確認
+    assignee: tanaka
+    weekday: mon
+    start: "10:30"
+    end: "11:00"
+  - id: report_review
+    name: レポート確認
+    assignee: tanaka
+    weekday: wed
+    start: "10:30"
+    end: "11:00"

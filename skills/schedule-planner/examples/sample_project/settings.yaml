@@ -1,0 +1,15 @@
+project:
+  name: Weekly Team Schedule
+
+settings:
+  optimize: false
+
+working_hours:
+  start: "09:00"
+  end: "18:00"
+
+lunch_break:
+  start: "12:00"
+  end: "13:00"
+
+time_unit_minutes: 15

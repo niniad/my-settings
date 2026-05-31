@@ -1,0 +1,20 @@
+members:
+  - id: yamada
+    name: 山田
+    available_days:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+    working_hours:
+      start: "09:00"
+      end: "18:00"
+
+  - id: tanaka
+    name: 田中
+    unavailable_days:
+      - fri
+    working_hours:
+      start: "10:00"
+      end: "17:00"
